@@ -4,6 +4,25 @@
 
 html,
 body {
+  @apply bg-white text-black font-sans;
   height: 100%;
-  overflow: hidden;
+}
+
+.border-paper {
+  border-bottom-left-radius: 15px 255px;
+  border-bottom-right-radius: 225px 15px;
+  border-top-left-radius: 255px 15px;
+  border-top-right-radius: 15px 225px;
+}
+
+.menu-link {
+  @apply inline-block bg-black text-white w-32 mr-2 font-bold text-center py-1 shadow rounded-full;
+}
+
+.social-button {
+  @apply rounded-full overflow-hidden w-16 h-16 bg-black p-4;
+}
+
+.social-button svg path {
+  fill: #fff;
 }
