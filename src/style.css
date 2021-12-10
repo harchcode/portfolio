@@ -26,3 +26,18 @@ body {
 .social-button svg path {
   fill: #fff;
 }
+
+.project-button {
+  @apply rounded-full overflow-hidden w-12 h-12 bg-black p-2;
+}
+
+.project-button svg path {
+  fill: #fff;
+}
+
+.text-stroke {
+  color: white;
+  -webkit-text-fill-color: black; /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: white;
+}
