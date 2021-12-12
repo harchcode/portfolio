@@ -1,0 +1,121 @@
+---
+import site from "../site-info";
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{site.title}</title>
+    <link rel="stylesheet" href={Astro.resolve("../style.css")} />
+  </head>
+  <body>
+    {site.svgDefs.map(svgDef => (
+      <svg style="display: none" version="2.0">
+        <defs>
+          <symbol id={svgDef.id} viewbox={svgDef.viewBox}>
+            <path fill="#fff" d={svgDef.path}></path>
+          </symbol>
+        </defs>
+        <use href={`#${svgDef.id}`}></use>
+      </svg>
+    ))}
+
+    <div class="w-full max-w-screen-lg mx-auto">
+      <div class="fixed w-full max-w-screen-lg p-4 z-20">
+        <div class="flex items-center">
+          <div class="flex-auto">
+            <a href="#about" class="menu-link">About me</a>
+            <a href="#work" class="menu-link">My works</a>
+            <a href="#project" class="menu-link">My projects</a>
+          </div>
+          <div class="flex-none"><!-- reserved --></div>
+        </div>
+      </div>
+    </div>
+    <div class="max-w-screen-lg px-4 mx-auto w-full h-full">
+      <div id="about" class="h-full flex flex-col items-center justify-center">
+        <div class="flex items-center space-x-16">
+          <div class="flex-none">
+            <img
+              src="/assets/login.svg"
+              width="96"
+              height="96"
+              class="w-96 h-96"
+            />
+          </div>
+          <div class="flex-auto">
+            <div class="text-5xl font-bold">Hohoho,</div>
+            <div class="mt-2 text-5xl font-bold">I am Hartono Chandra</div>
+            <div class="mt-8 font-bold text-xl">Software Engineer - Web</div>
+            <div class="mt-8 text-lg leading-normal">
+              I am just your average software engineer, specialize in web.
+              Nothing special about me, I just happen to have a job as a web
+              engineer, and can do my job as expected like everyone else.
+            </div>
+          </div>
+        </div>
+        <div class="flex space-x-4 mt-16">
+          {site.socialLinks.map(link => (
+            <a href={link.url} aria-label="" class="social-button">
+              <svg width="100%" height="100%" version="2.0">
+                <use href={`#${link.svgSymbolId}`} />
+              </svg>
+            </a>
+          ))}
+        </div>
+      </div>
+      <div id="work" class="h-full relative">
+        <div class="absolute w-24 h-full flex justify-center py-24">
+          <div class="z-0 bg-black w-2 h-full"></div>
+        </div>
+        <div class="relative h-full flex flex-col justify-between py-24">
+          {site.works.map(work => (
+            <div class="flex space-x-12">
+              <div class="w-24 h-24 rounded-full bg-black flex-none"></div>
+              <div class="w-64 flex-none">
+                <div>
+                  <span class="font-bold text-xs">{work.periode}</span>
+                </div>
+                <div class="text-2xl mt-2">{work.companyName}</div>
+                <div class="text-sm text-gray-800 mt-1">{work.jobTitle}</div>
+              </div>
+              <div class="flex-auto">{work.description}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div id="project" class="h-full">
+        <div class="flex flex-col py-24 h-full space-y-4">
+          {site.projects.map(project => (
+            <div class="flex-1 flex px-4 py-2 bg-gray-200">
+              <div class="text-stroke text-3xl tracking-wide font-bold">
+                {project.name}
+              </div>
+              <div class="flex-auto"></div>
+              <div class="flex items-end h-full space-x-4">
+                <a
+                  href={project.githubUrl}
+                  aria-label=""
+                  class="project-button"
+                >
+                  <svg width="100%" height="100%" version="2.0">
+                    <use href={`#github`} />
+                  </svg>
+                </a>
+                <a href={project.url} aria-label="" class="project-button">
+                  <svg width="100%" height="100%" version="2.0">
+                    <use href={`#play`} />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+    <script type="module" src={Astro.resolve("../main.ts")}></script>
+  </body>
+</html>

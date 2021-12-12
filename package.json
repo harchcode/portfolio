@@ -2,9 +2,10 @@
   "name": "hartono-chandra-portfolio",
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "serve": "vite preview",
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
     "lint": "eslint src",
     "lint-staged": "lint-staged",
     "prepare": "husky install",
@@ -14,6 +15,7 @@
     "@size-limit/file": "^7.0.3",
     "@typescript-eslint/eslint-plugin": "^5.1.0",
     "@typescript-eslint/parser": "^5.1.0",
+    "astro": "^0.21.12",
     "autoprefixer": "^10.4.0",
     "eslint": "^8.0.1",
     "eslint-config-prettier": "^8.3.0",
@@ -22,10 +24,10 @@
     "lint-staged": "^11.2.3",
     "postcss": "^8.4.1",
     "prettier": "^2.4.1",
+    "prettier-plugin-astro": "0.0.11",
     "size-limit": "^7.0.3",
     "tailwindcss": "^2.2.19",
-    "typescript": "^4.3.2",
-    "vite": "^2.6.4"
+    "typescript": "^4.3.2"
   },
   "lint-staged": {
     "src/**/*.{js,ts}": [
@@ -38,7 +40,7 @@
   "size-limit": [
     {
       "path": "dist",
-      "limit": "10 kB"
+      "limit": "100 kB"
     }
   ]
 }
