@@ -7,6 +7,7 @@ export type SVGDef = {
 };
 
 export type SocialLink = {
+  label: string;
   url: string;
   svgSymbolId: SVGSymbolId;
 };
@@ -30,6 +31,8 @@ export type SiteInfo = {
   title: string;
   description: string;
   svgDefs: SVGDef[];
+  photoUrl: string;
+  intro: string;
   socialLinks: SocialLink[];
   works: Work[];
   projects: Project[];
@@ -75,27 +78,34 @@ const siteInfo: SiteInfo = {
       path: "M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-3 17v-10l9 5.146-9 4.854z"
     }
   ],
+  photoUrl: "/assets/login.svg",
+  intro:
+    "I am just your average software engineer, specialize in web. Nothing special about me, I just happen to have a job as a web engineer, and can do my job as expected like everyone else.",
   socialLinks: [
     {
+      label: "resume",
       url: "https://google.com",
       svgSymbolId: "doc"
     },
     {
-      url: "https://google.com",
+      label: "email",
+      url: "mailto:harchcode@gmail.com",
       svgSymbolId: "email"
     },
     {
-      url: "https://google.com",
+      label: "linkedin",
+      url: "https://linkedin.com/in/hartonochandra/",
       svgSymbolId: "linkedin"
     },
     {
-      url: "https://google.com",
+      label: "github",
+      url: "https://github.com/harchcode",
       svgSymbolId: "github"
     }
   ],
   works: [
     {
-      imageSrc: "",
+      imageSrc: "/assets/logo-tvlk.jpeg",
       periode: "February 2020 - Present",
       companyName: "Traveloka",
       jobTitle: "Software Engineer - Web",
@@ -113,7 +123,7 @@ const siteInfo: SiteInfo = {
       </ul>`
     },
     {
-      imageSrc: "",
+      imageSrc: "/assets/logo-bl.png",
       periode: "September 2018 - September 2019",
       companyName: "Bukalapak",
       jobTitle: "Software Engineer - Front End",
@@ -123,7 +133,7 @@ const siteInfo: SiteInfo = {
       </ul>`
     },
     {
-      imageSrc: "",
+      imageSrc: "/assets/logo-xmi.png",
       periode: "October 2017 - May 2018",
       companyName: "XMI",
       jobTitle: "Programmer",
@@ -135,7 +145,7 @@ const siteInfo: SiteInfo = {
       </ul>`
     },
     {
-      imageSrc: "",
+      imageSrc: "/assets/logo-gsg.jpeg",
       periode: "November 2013 - April 2017",
       companyName: "Growth Steel Group",
       jobTitle: "Programmer",
@@ -153,26 +163,26 @@ const siteInfo: SiteInfo = {
     {
       name: "Ubur",
       imageSrc: "",
-      url: "",
-      githubUrl: ""
+      url: "https://ubur.netlify.app",
+      githubUrl: "https://github.com/harchcode/ubur"
     },
     {
       name: "Web Digraph",
       imageSrc: "",
-      url: "",
-      githubUrl: ""
+      url: "https://web-digraph.netlify.app/",
+      githubUrl: "https://github.com/harchcode/web-digraph"
     },
     {
       name: "Sudoku JS",
       imageSrc: "",
-      url: "",
-      githubUrl: ""
+      url: "https://harchcode.github.io/sudokujs/",
+      githubUrl: "https://github.com/harchcode/sudokujs"
     },
     {
       name: "EzMsg",
       imageSrc: "",
-      url: "",
-      githubUrl: ""
+      url: "https://libezmsg.netlify.app/guide/js/",
+      githubUrl: "https://github.com/harchcode/ezmsg"
     }
   ]
 };
