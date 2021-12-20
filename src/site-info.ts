@@ -162,26 +162,26 @@ const siteInfo: SiteInfo = {
   projects: [
     {
       name: "Ubur",
-      imageSrc: "",
-      url: "https://ubur.netlify.app",
+      imageSrc: "/assets/ss-ubur.png",
+      url: "https://ubur.netlify.app/",
       githubUrl: "https://github.com/harchcode/ubur"
     },
     {
       name: "Web Digraph",
-      imageSrc: "",
+      imageSrc: "/assets/ss-web-digraph.png",
       url: "https://web-digraph.netlify.app/",
       githubUrl: "https://github.com/harchcode/web-digraph"
     },
     {
       name: "Sudoku JS",
-      imageSrc: "",
+      imageSrc: "/assets/ss-sudoku.png",
       url: "https://harchcode.github.io/sudokujs/",
       githubUrl: "https://github.com/harchcode/sudokujs"
     },
     {
       name: "EzMsg",
-      imageSrc: "",
-      url: "https://libezmsg.netlify.app/guide/js/",
+      imageSrc: "/assets/ss-ezmsg.png",
+      url: "https://libezmsg.netlify.app/",
       githubUrl: "https://github.com/harchcode/ezmsg"
     }
   ]
