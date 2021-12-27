@@ -6,6 +6,7 @@ html,
 body {
   @apply bg-white text-black font-sans;
   height: 100%;
+  overflow-x: hidden;
 }
 
 .border-paper {
@@ -20,7 +21,7 @@ body {
 }
 
 .social-button {
-  @apply rounded-full overflow-hidden w-16 h-16 bg-black p-4;
+  @apply rounded-full overflow-hidden bg-black;
 }
 
 .social-button svg path {
@@ -28,7 +29,7 @@ body {
 }
 
 .project-button {
-  @apply rounded-full overflow-hidden w-12 h-12 bg-black p-2;
+  @apply rounded-full overflow-hidden bg-black;
 }
 
 .project-button svg path {
@@ -43,12 +44,25 @@ body {
 }
 
 .glass {
-  background: rgb(73, 73, 73, 0.2);
-  background: radial-gradient(
-    circle,
-    rgba(73, 73, 73, 0.2) 0%,
-    rgba(0, 0, 0, 0.2) 100%
-  );
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+ul.list-check {
+  list-style: none;
+}
+
+ul.list-check li {
+  position: relative;
+  padding-left: 1.5em;
+}
+
+ul.list-check li:before {
+  content: "✓";
+  position: absolute;
+  left: 0; /* place the SVG at the start of the padding */
+  width: 1em;
+  height: 1em;
+  @apply text-green-600 font-bold;
 }

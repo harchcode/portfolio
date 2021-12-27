@@ -17,7 +17,8 @@ export type Work = {
   periode: string;
   companyName: string;
   jobTitle: string;
-  description: string;
+  checklist: string[];
+  tags: string[];
 };
 
 export type Project = {
@@ -25,6 +26,7 @@ export type Project = {
   imageSrc: string;
   url: string;
   githubUrl: string;
+  tags: string[];
 };
 
 export type SiteInfo = {
@@ -109,54 +111,56 @@ const siteInfo: SiteInfo = {
       periode: "February 2020 - Present",
       companyName: "Traveloka",
       jobTitle: "Software Engineer - Web",
-      description: html`<ul class="list-disc">
-        <li>Used React and Semantic UI as frontend framework.</li>
-        <li>Used Typescript on the codebase.</li>
-        <li>
-          Used
+      tags: [
+        "React",
+        "Semantic UI",
+        "react-digraph",
+        "Typescript",
+        "Unit Test"
+      ],
+      checklist: [
+        "Used React and Semantic UI as frontend framework.",
+        "Used Typescript on the codebase.",
+        html`Used
           <a class="text-blue-700" href="https://github.com/uber/react-digraph"
             >react-digraph</a
           >
-          and customized it for creating directed graph.
-        </li>
-        <li>Done some basic infra works with Terraform.</li>
-      </ul>`
+          and customized it for creating directed graph.`,
+        "Done some basic infra works with Terraform."
+      ]
     },
     {
       imageSrc: "/assets/logo-bl.png",
       periode: "September 2018 - September 2019",
       companyName: "Bukalapak",
       jobTitle: "Software Engineer - Front End",
-      description: html`<ul class="list-disc">
-        <li>Used Vue as frontend framework.</li>
-        <li>Extensive use of D3 to create many kinds of graph.</li>
-      </ul>`
+      tags: ["D3", "Vue", "Pug", "PWA"],
+      checklist: [
+        "Used Vue as frontend framework.",
+        "Extensive use of D3 to create many kinds of graph."
+      ]
     },
     {
       imageSrc: "/assets/logo-xmi.png",
       periode: "October 2017 - May 2018",
       companyName: "XMI",
       jobTitle: "Programmer",
-      description: html`<ul class="list-disc">
-        <li>
-          Maintained and added new features to a mobile game built using Ionic
-          Framework, PixieJS, and PHP.
-        </li>
-      </ul>`
+      tags: ["Ionic", "Slim", "PixiJS"],
+      checklist: [
+        "Maintained and added new features to a mobile game built using Ionic Framework, PixieJS, and PHP."
+      ]
     },
     {
       imageSrc: "/assets/logo-gsg.jpeg",
       periode: "November 2013 - April 2017",
       companyName: "Growth Steel Group",
       jobTitle: "Programmer",
-      description: html`<ul class="list-disc">
-        <li>Used JQuery, AngularJS, and later Vue as frontend framework.</li>
-        <li>
-          Used ASP.Net Web Form and then migrated to REST API with ASP.Net using
-          C# as the programming language.
-        </li>
-        <li>Used Crystal Reports for creating reports.</li>
-      </ul>`
+      tags: ["JQuery", "AngularJS", "Vue", "ASP.Net", "Crystal Reports"],
+      checklist: [
+        "Used JQuery, AngularJS, and later Vue as frontend framework.",
+        "Used ASP.Net Web Form and then migrated to REST API with ASP.Net using C# as the programming language.",
+        "Used Crystal Reports for creating reports."
+      ]
     }
   ],
   projects: [
@@ -164,25 +168,29 @@ const siteInfo: SiteInfo = {
       name: "Ubur",
       imageSrc: "/assets/ss-ubur.png",
       url: "https://ubur.netlify.app/",
-      githubUrl: "https://github.com/harchcode/ubur"
+      githubUrl: "https://github.com/harchcode/ubur",
+      tags: ["Typescript", "WebGL", "Canvas"]
     },
     {
       name: "Web Digraph",
       imageSrc: "/assets/ss-web-digraph.png",
       url: "https://web-digraph.netlify.app/",
-      githubUrl: "https://github.com/harchcode/web-digraph"
+      githubUrl: "https://github.com/harchcode/web-digraph",
+      tags: ["Typescript", "Canvas", "Library", "Graph"]
     },
     {
       name: "Sudoku JS",
       imageSrc: "/assets/ss-sudoku.png",
       url: "https://harchcode.github.io/sudokujs/",
-      githubUrl: "https://github.com/harchcode/sudokujs"
+      githubUrl: "https://github.com/harchcode/sudokujs",
+      tags: ["Javascript", "Sudoku"]
     },
     {
       name: "EzMsg",
       imageSrc: "/assets/ss-ezmsg.png",
       url: "https://libezmsg.netlify.app/",
-      githubUrl: "https://github.com/harchcode/ezmsg"
+      githubUrl: "https://github.com/harchcode/ezmsg",
+      tags: ["Typescript", "Binary", "Data", "Library"]
     }
   ]
 };
