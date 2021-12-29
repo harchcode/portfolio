@@ -23,22 +23,24 @@ import site from "../site-info";
       </svg>
     ))}
 
-    <!-- <div class="w-full max-w-screen-lg mx-auto">
-      <div class="fixed w-full max-w-screen-lg p-4 z-20">
+    <div class="w-full max-w-screen-lg mx-auto">
+      <div class="fixed w-full max-w-screen-lg px-4 py-2 z-20 bg-white glass">
         <div class="flex items-center">
-          <div class="flex-auto">
-            <a href="#about" class="menu-link">About me</a>
-            <a href="#work" class="menu-link">My works</a>
-            <a href="#project" class="menu-link">My projects</a>
+          <div class="flex-auto space-x-2">
+            <a href="#about" class="inline-block underline">About me</a>
+            <a href="#work" class="inline-block underline">My works</a>
+            <a href="#project" class="active inline-block underline"
+              >My projects</a
+            >
           </div>
           <div class="flex-none"></div>
         </div>
       </div>
-    </div> -->
+    </div>
     <div class="max-w-screen-lg px-4 md:px-8 mx-auto w-full h-full">
       <div
         id="about"
-        class="min-h-full flex flex-col items-center justify-around md:justify-center py-8"
+        class="min-h-full flex flex-col items-center justify-around md:justify-center py-12"
       >
         <div class="md:flex md:items-center md:space-x-8 w-full">
           <div class="flex-none w-full md:w-auto md:m-0">
@@ -55,12 +57,12 @@ import site from "../site-info";
             <div class="mt-2 md:mt-8 font-bold md:text-xl">
               Software Engineer - Web
             </div>
-            <div class="mt-2 md:mt-8 md:text-lg leading-normal">
+            <div class="mt-2 md:mt-8 md:text-lg">
               {site.intro}
             </div>
           </div>
         </div>
-        <div class="flex space-x-4 md:mt-16">
+        <div class="flex space-x-4 mt-2 md:mt-16">
           {site.socialLinks.map(link => (
             <a
               href={link.url}
@@ -74,7 +76,7 @@ import site from "../site-info";
           ))}
         </div>
       </div>
-      <div id="work" class="min-h-full relative flex flex-col py-8 md:py-16">
+      <div id="work" class="min-h-full relative flex flex-col py-12">
         <div class="flex-auto"></div>
         {site.works.map((work, i) => (
           <>
@@ -99,12 +101,8 @@ import site from "../site-info";
                     <div>
                       <span class="font-bold text-xs">{work.periode}</span>
                     </div>
-                    <div class="text-lg md:text-2xl md:mt-1">
-                      {work.companyName}
-                    </div>
-                    <div class="text-xs md:text-sm text-gray-800">
-                      {work.jobTitle}
-                    </div>
+                    <div class="text-2xl md:mt-1">{work.companyName}</div>
+                    <div class="text-sm text-gray-800">{work.jobTitle}</div>
                     <div class="flex flex-wrap mt-1">
                       {work.tags.map(tag => (
                         <div class="text-xs mr-1 mt-1 bg-gray-200 text-gray-800 px-1 py-0.5 rounded">
@@ -113,7 +111,7 @@ import site from "../site-info";
                       ))}
                     </div>
                   </div>
-                  <div class="flex-auto text-xs md:text-base hidden md:block">
+                  <div class="flex-auto mt-2 md:mt-0">
                     <ul class="list-check">
                       {work.checklist.map(check => (
                         <li>{check}</li>
@@ -134,17 +132,16 @@ import site from "../site-info";
           </>
         ))}
       </div>
-      <div id="project" class="min-h-full">
-        <div class="flex flex-col py-8 md:py-16 h-full space-y-4">
+      <div id="project" class="py-12 min-h-full flex items-center">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
           {site.projects.map(project => (
             <div
-              class="flex-1 bg-black shadow rounded-xl overflow-hidden bg-center bg-cover flex flex-col md:flex-row"
+              class="bg-black shadow rounded-xl overflow-hidden bg-center bg-cover flex flex-col justify-end w-full h-48 md:h-96"
               style={`background-image: url(${project.imageSrc})`}
             >
-              <div class="flex-auto"></div>
-              <div class="px-4 md:py-2 glass w-full md:w-72 h-24 items-center md:items-start md:h-full overflow-hidden flex md:flex-col shadow">
+              <div class="px-4 glass w-full h-1/2 md:h-1/3 items-center overflow-hidden flex shadow">
                 <div class="flex-auto">
-                  <div class="text-xl md:text-4xl">{project.name}</div>
+                  <div class="text-xl md:text-3xl">{project.name}</div>
                   <div class="mt-1 flex flex-wrap">
                     {project.tags.map(tag => (
                       <div class="text-xs mr-1 mt-1 bg-gray-200 text-gray-800 px-1 py-0.5 rounded">
@@ -153,11 +150,11 @@ import site from "../site-info";
                     ))}
                   </div>
                 </div>
-                <div class="flex justify-end space-x-2 md:w-full md:mt-4">
+                <div class="flex justify-end space-x-2">
                   <a
                     href={project.githubUrl}
                     aria-label="github"
-                    class="project-button border-2 border-white w-12 h-12 p-2"
+                    class="project-button w-12 h-12 p-2"
                   >
                     <svg width="100%" height="100%" version="2.0">
                       <use href={`#github`} />
@@ -166,7 +163,7 @@ import site from "../site-info";
                   <a
                     href={project.url}
                     aria-label="demo"
-                    class="project-button border-2 border-white w-12 h-12 p-2"
+                    class="project-button w-12 h-12 p-2"
                   >
                     <svg width="100%" height="100%" version="2.0">
                       <use href={`#play`} />

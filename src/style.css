@@ -20,6 +20,10 @@ body {
   @apply inline-block bg-black text-white w-32 mr-2 font-bold text-center py-1 shadow rounded-full;
 }
 
+.active {
+  @apply border-0 no-underline text-2xl;
+}
+
 .social-button {
   @apply rounded-full overflow-hidden bg-black;
 }
