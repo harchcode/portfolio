@@ -6,7 +6,6 @@ html,
 body {
   @apply bg-white text-black font-sans;
   height: 100%;
-  overflow-x: hidden;
 }
 
 .border-paper {
@@ -14,10 +13,6 @@ body {
   border-bottom-right-radius: 225px 15px;
   border-top-left-radius: 255px 15px;
   border-top-right-radius: 15px 225px;
-}
-
-.menu-link {
-  @apply inline-block bg-black text-white w-32 mr-2 font-bold text-center py-1 shadow rounded-full;
 }
 
 .active {
