@@ -1,3 +1,4 @@
+import { drawBackground, initBackground } from "./background";
 import { tween } from "./utils";
 
 const menuAnchors: HTMLElement[] = [];
@@ -57,6 +58,10 @@ function setActiveMenu(id: string) {
 
 function doSomething(scrollPos: number) {
   setActiveMenu(getActiveMenuId(scrollPos));
+
+  const progress = document.body.scrollHeight - window.innerHeight;
+
+  drawBackground(scrollPos / progress);
 }
 
 window.addEventListener("scroll", () => {
@@ -83,3 +88,4 @@ function initPage() {
 }
 
 initPage();
+initBackground();

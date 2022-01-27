@@ -23,6 +23,10 @@ import site from "../site-info";
       </svg>
     ))}
 
+    <div class="fixed bg-white h-full w-full">
+      <canvas id="canvas"></canvas>
+    </div>
+
     <div class="fixed w-full glass z-20 shadow">
       <div class="w-full max-w-screen-lg mx-auto px-4 py-2 z-20">
         <div class="flex items-center">
@@ -37,7 +41,10 @@ import site from "../site-info";
         </div>
       </div>
     </div>
-    <div class="max-w-screen-lg px-4 md:px-8 mx-auto w-full h-full">
+
+    <div
+      class="max-w-screen-lg px-4 md:px-8 mx-auto w-full h-full relative z-10"
+    >
       <div
         id="about"
         class="min-h-full flex flex-col items-center justify-around md:justify-center py-16"
