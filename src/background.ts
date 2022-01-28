@@ -10,6 +10,26 @@ enum ShapeType {
   Square
 }
 
+enum FillColor {
+  RED,
+  YELLOW,
+  GREEN,
+  BLUE,
+  INDIGO,
+  PURPLE,
+  PINK
+}
+
+const fillColors: Record<FillColor, string> = {
+  [FillColor.RED]: "#F87171",
+  [FillColor.YELLOW]: "#FBBF24",
+  [FillColor.GREEN]: "#34D399",
+  [FillColor.BLUE]: "#60A5FA",
+  [FillColor.INDIGO]: "#818CF8",
+  [FillColor.PURPLE]: "#A78BFA",
+  [FillColor.PINK]: "#F472B6"
+};
+
 type Shape = {
   shapeType: ShapeType;
   startX: number;
@@ -20,6 +40,7 @@ type Shape = {
   endY: number;
   endScale: number;
   endRotation: number;
+  color: FillColor;
 };
 
 const cos30 = Math.cos((Math.PI * 30) / 180);
@@ -34,8 +55,15 @@ let canvas: HTMLCanvasElement;
 let ctx: CanvasRenderingContext2D;
 const shapes: Shape[] = [];
 
-export function drawBackground(progress = 0) {
+export function drawBackground() {
   if (!canvas || !ctx) return;
+
+  const maxScroll = Math.max(
+    0,
+    document.body.scrollHeight - window.innerHeight
+  );
+
+  const progress = window.scrollY / maxScroll;
 
   ctx.resetTransform();
   ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -50,7 +78,8 @@ export function drawBackground(progress = 0) {
       endX,
       endY,
       endScale,
-      endRotation
+      endRotation,
+      color
     } = shapes[i];
 
     const x = easeInOutQuad(progress, startX, endX - startX, 1);
@@ -63,6 +92,7 @@ export function drawBackground(progress = 0) {
       1
     );
 
+    ctx.fillStyle = fillColors[color];
     ctx.resetTransform();
     ctx.translate(x, y);
     ctx.scale(scale, scale);
@@ -95,13 +125,16 @@ export function initBackground() {
   canvas.height = window.innerHeight;
 
   ctx = canvas.getContext("2d");
-  ctx.fillStyle = "#6661";
+  ctx.globalAlpha = 0.1;
 
   const area = canvas.width * canvas.height;
   const minScale = area / 2000000;
   const maxScale = minScale * 2;
   const shapeCount = getRandomIntInclusive(10, 20);
   const shapeTypeCount = Object.keys(ShapeType).length / 2;
+  const colorCount = Object.keys(FillColor).length / 2;
+
+  shapes.length = 0;
 
   for (let i = 0; i < shapeCount; i++) {
     const shape: Shape = {
@@ -113,11 +146,14 @@ export function initBackground() {
       endX: getRandomIntInclusive(0, canvas.width),
       endY: getRandomIntInclusive(0, canvas.height),
       endScale: getRandomArbitrary(minScale, maxScale),
-      endRotation: getRandomIntInclusive(30, 1440)
+      endRotation: getRandomIntInclusive(30, 1440),
+      color: getRandomIntInclusive(0, colorCount - 1) as FillColor
     };
 
     shapes.push(shape);
   }
 
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  requestAnimationFrame(() => {
+    drawBackground();
+  });
 }

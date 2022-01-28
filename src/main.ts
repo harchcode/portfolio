@@ -56,12 +56,10 @@ function setActiveMenu(id: string) {
   menuAnchorMap[id].classList.add(ACTIVE_MENU_CLASS);
 }
 
-function doSomething(scrollPos: number) {
+function onScroll(scrollPos: number) {
   setActiveMenu(getActiveMenuId(scrollPos));
 
-  const progress = document.body.scrollHeight - window.innerHeight;
-
-  drawBackground(scrollPos / progress);
+  drawBackground();
 }
 
 window.addEventListener("scroll", () => {
@@ -69,7 +67,7 @@ window.addEventListener("scroll", () => {
 
   if (!ticking) {
     window.requestAnimationFrame(function () {
-      doSomething(lastKnownScrollPosition);
+      onScroll(lastKnownScrollPosition);
       ticking = false;
     });
 
@@ -77,14 +75,19 @@ window.addEventListener("scroll", () => {
   }
 });
 
-function initPage() {
-  const tmp = window.location.hash ? window.location.hash.substr(1) : "about";
+window.addEventListener("resize", () => {
+  initBackground();
+});
 
-  setActiveMenu(tmp);
+function initPage() {
+  setActiveMenu(getActiveMenuId(window.scrollY));
+
+  const tmp = window.location.hash ? window.location.hash.substr(1) : undefined;
+  if (!tmp) return;
 
   setTimeout(() => {
-    menuDivMap[tmp].scrollIntoView();
-  });
+    tween(window.scrollY, menuDivMap[tmp].offsetTop, 1000, windowScrollY);
+  }, 500);
 }
 
 initPage();
