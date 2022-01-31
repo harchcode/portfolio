@@ -179,11 +179,11 @@ const siteInfo: SiteInfo = {
       tags: ["Typescript", "Canvas", "Library", "Graph"]
     },
     {
-      name: "Sudoku JS",
+      name: "Simple Sudoku TS",
       imageSrc: "/assets/ss-sudoku.png",
-      url: "https://harchcode.github.io/sudokujs/",
-      githubUrl: "https://github.com/harchcode/sudokujs",
-      tags: ["Javascript", "Sudoku"]
+      url: "https://simple-sudoku-ts.netlify.app/",
+      githubUrl: "https://github.com/harchcode/simple-sudoku-ts",
+      tags: ["Typescript", "Sudoku"]
     },
     {
       name: "EzMsg",
@@ -191,6 +191,13 @@ const siteInfo: SiteInfo = {
       url: "https://libezmsg.netlify.app/",
       githubUrl: "https://github.com/harchcode/ezmsg",
       tags: ["Typescript", "Binary", "Data", "Library"]
+    },
+    {
+      name: "This Portfolio Site",
+      imageSrc: "/assets/ss-portfolio.png",
+      url: "https://hartonochandra.netlify.app/",
+      githubUrl: "https://github.com/harchcode/portfolio",
+      tags: ["Typescript", "Tailwind", "Astro", "Canvas"]
     }
   ]
 };
