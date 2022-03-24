@@ -35,6 +35,10 @@ body {
   fill: #fff;
 }
 
+a {
+  @apply text-blue-700;
+}
+
 .text-stroke {
   color: white;
   -webkit-text-fill-color: black; /* Will override color (regardless of order) */
@@ -64,6 +68,10 @@ ul.list-check li:before {
   width: 1em;
   height: 1em;
   @apply text-green-600 font-bold;
+}
+
+p + p {
+  margin-top: 0.5em;
 }
 
 .typewriter {

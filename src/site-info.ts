@@ -24,9 +24,12 @@ export type Work = {
 export type Project = {
   name: string;
   imageSrc: string;
-  url: string;
-  githubUrl: string;
   tags: string[];
+  description: string;
+  links: {
+    text: string;
+    url: string;
+  }[];
 };
 
 export type SiteInfo = {
@@ -82,7 +85,7 @@ const siteInfo: SiteInfo = {
   ],
   photoUrl: "/assets/login.svg",
   intro:
-    "I am just your average software engineer, specialize in web. Nothing special about me, I just happen to have a job as a web engineer, and can do my job as expected like everyone else.",
+    "I am just your average software engineer, specialized in web. Nothing special about me, I just happen to have a job as a web engineer, and can do my job as expected like everyone else.",
   socialLinks: [
     {
       label: "resume",
@@ -122,9 +125,7 @@ const siteInfo: SiteInfo = {
         "Used React and Semantic UI as frontend framework.",
         "Used Typescript on the codebase.",
         html`Used
-          <a class="text-blue-700" href="https://github.com/uber/react-digraph"
-            >react-digraph</a
-          >
+          <a href="https://github.com/uber/react-digraph">react-digraph</a>
           and customized it for creating directed graph.`,
         "Done some basic infra works with Terraform."
       ]
@@ -167,37 +168,148 @@ const siteInfo: SiteInfo = {
     {
       name: "Ubur",
       imageSrc: "/assets/ss-ubur.png",
-      url: "https://ubur.netlify.app/",
-      githubUrl: "https://github.com/harchcode/ubur",
-      tags: ["Typescript", "WebGL", "Canvas"]
+      tags: ["Typescript", "WebGL", "Canvas"],
+      links: [
+        {
+          text: "See it in action",
+          url: "https://ubur.netlify.app/"
+        },
+        {
+          text: "See the source code",
+          url: "https://github.com/harchcode/ubur"
+        }
+      ],
+      description: html`<p>
+          This is a simple game where we controls a circle and try to eat other
+          circles.
+        </p>
+        <p>
+          This game demonstrate the use of WebGL for rendering, some maths and
+          physics for motion and collision handling.
+        </p>`
     },
     {
       name: "Web Digraph",
       imageSrc: "/assets/ss-web-digraph.png",
-      url: "https://web-digraph.netlify.app/",
-      githubUrl: "https://github.com/harchcode/web-digraph",
-      tags: ["Typescript", "Canvas", "Library", "Graph"]
+      tags: ["Typescript", "Canvas", "Library", "Graph"],
+      links: [
+        {
+          text: "See the demo",
+          url: "https://web-digraph.netlify.app/"
+        },
+        {
+          text: "Go to the GitHub page",
+          url: "https://github.com/harchcode/web-digraph"
+        }
+      ],
+      description: html`<p>
+          This is a library for creating a simple directed graph. It is heavily
+          inspired by react-digraph, but with far less features.
+        </p>
+        <p>
+          Some of the benefits of this library compared to react-digraph are:
+          <ol class="list-decimal ml-6">
+            <li>Very small size compared to react-digraph, because it has no dependencies.</li>
+            <li>Uses canvas for rendering instead of SVG, so the performance on large graph is better, you can compare the demo.</li>
+          </ol>
+        </p>`
     },
     {
       name: "Simple Sudoku TS",
       imageSrc: "/assets/ss-sudoku.png",
-      url: "https://simple-sudoku-ts.netlify.app/",
-      githubUrl: "https://github.com/harchcode/simple-sudoku-ts",
-      tags: ["Typescript", "Sudoku"]
+      tags: ["Typescript", "Sudoku"],
+      links: [
+        {
+          text: "See it in action",
+          url: "https://simple-sudoku-ts.netlify.app/"
+        },
+        {
+          text: "See the source code",
+          url: "https://github.com/harchcode/simple-sudoku-ts"
+        }
+      ],
+      description: html`<p>A simple 3x3 sudoku game.</p>
+        <p>
+          This game shows how to generate simple 3x3 sudoku problems, and also
+          how to implement a sudoku solver.
+        </p>
+        <p>
+          I actually created this originally around 2011, and I already forgot
+          where I got the algorithm for the problem generator with difficulty.
+          Please let me know if you know.
+        </p>`
     },
     {
-      name: "EzMsg",
+      name: "Gaguna",
       imageSrc: "/assets/ss-ezmsg.png",
-      url: "https://libezmsg.netlify.app/",
-      githubUrl: "https://github.com/harchcode/ezmsg",
-      tags: ["Typescript", "Binary", "Data", "Library"]
+      tags: ["Typescript", "Utils"],
+      links: [
+        {
+          text: "Go to the docs site",
+          url: "https://github.com/harchcode/gaguna"
+        },
+        {
+          text: "Go to the GitHub page",
+          url: "https://github.com/harchcode/gaguna"
+        }
+      ],
+      description: html`<p>
+          This library is a collection of utils/functions that I found useful
+          (maybe).
+        </p>
+        <p>
+          This library contains things like easing functions, debounce function,
+          bitset, etc.
+        </p>
+        <p>
+          Gaguna (from common Indonesian words "ga guna") means useless, and
+          this library is useless for most of you xD
+        </p>`
     },
     {
       name: "This Portfolio Site",
       imageSrc: "/assets/ss-portfolio.png",
-      url: "https://hartonochandra.netlify.app/",
-      githubUrl: "https://github.com/harchcode/portfolio",
-      tags: ["Typescript", "Tailwind", "Astro", "Canvas"]
+      tags: ["Typescript", "Tailwind", "Astro", "Canvas"],
+      links: [
+        {
+          text: "See the source code",
+          url: "https://github.com/harchcode/portfolio"
+        }
+      ],
+      description: html`<p>
+          Yes, this portfolio site that you are currently viewing is also part
+          of my portfolio!
+        </p>
+        <p>
+          This site is built using Astro as static site generator, Tailwind for
+          styles, and Canvas for the annoying background you see on this site.
+        </p>`
+    },
+    {
+      name: "Kisstastic",
+      imageSrc: "/assets/ss-portfolio.png",
+      tags: ["Typescript", "PixiJS"],
+      links: [
+        {
+          text: "See the source code",
+          url: "https://github.com/harchcode/kisstastic"
+        },
+        {
+          text: "See it in action (lower your volume first xD)",
+          url: "https://kisstastic.netlify.app/"
+        }
+      ],
+      description: html`<p>
+          This is a simple, old game inspired by Flappy Bird (and hoping it got
+          as successful xD). Originally I created this game for Android (around
+          2014, was on Play Store, but now it already got removed '-'). I lost
+          the original source code, so i recreated this failure game for the
+          web.
+        </p>
+        <p>
+          This game is created using PixiJS, a 2D rendering framework for the
+          web.
+        </p>`
     }
   ]
 };
