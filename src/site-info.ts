@@ -241,7 +241,7 @@ const siteInfo: SiteInfo = {
     },
     {
       name: "Gaguna",
-      imageSrc: "/assets/ss-ezmsg.png",
+      imageSrc: "/assets/ss-gaguna.png",
       tags: ["Typescript", "Utils"],
       links: [
         {
@@ -287,7 +287,7 @@ const siteInfo: SiteInfo = {
     },
     {
       name: "Kisstastic",
-      imageSrc: "/assets/ss-portfolio.png",
+      imageSrc: "/assets/ss-kisstastic.png",
       tags: ["Typescript", "PixiJS"],
       links: [
         {

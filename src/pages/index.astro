@@ -141,13 +141,15 @@ import site from "../site-info";
           </>
         ))}
       </div>
-      <div id="project" class="min-h-full flex flex-col space-y-4 py-16">
+      <div id="project" class="min-h-full flex flex-col space-y-32 py-16">
         {site.projects.map(project => (
           <div class="w-full flex flex-col md:flex-row">
-            <div
-              class="w-full md:w-96 md:h-96 bg-black bg-cover shadow"
-              style={`aspect-ratio: 1/1; min-height: 10rem; background-image: url(${project.imageSrc})`}
-            ></div>
+            <div class="w-full bg-black md:w-auto md:h-80 flex items-center justify-center">
+              <div
+                class="w-full max-w-xs md:w-80 md:h-80 bg-black bg-cover shadow"
+                style={`aspect-ratio: 1/1; min-height: 10rem; background-image: url(${project.imageSrc})`}
+              ></div>
+            </div>
             <div class="mt-2 md:mt-0 md:ml-2 px-4 pt-2 pb-4 flex flex-col flex-1">
               <div class="text-3xl">{project.name}</div>
               <div class="mt-1 flex flex-wrap">
