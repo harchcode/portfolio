@@ -54,7 +54,7 @@ function html(strings: TemplateStringsArray, ...values: unknown[]) {
 }
 
 const siteInfo: SiteInfo = {
-  title: "Hohoho",
+  title: "Hartono Chandra",
   description: "",
   svgDefs: [
     {
@@ -87,11 +87,11 @@ const siteInfo: SiteInfo = {
   intro:
     "I am just your average software engineer, specialized in web. Nothing special about me, I just happen to have a job as a web engineer, and can do my job as expected like everyone else.",
   socialLinks: [
-    {
-      label: "resume",
-      url: "https://google.com",
-      svgSymbolId: "doc"
-    },
+    // {
+    //   label: "resume",
+    //   url: "https://google.com",
+    //   svgSymbolId: "doc"
+    // },
     {
       label: "email",
       url: "mailto:harchcode@gmail.com",
@@ -126,7 +126,7 @@ const siteInfo: SiteInfo = {
         "Used Typescript on the codebase.",
         html`Used
           <a href="https://github.com/uber/react-digraph">react-digraph</a>
-          and customized it for creating directed graph.`,
+          for creating directed graph.`,
         "Done some basic infra works with Terraform."
       ]
     },
@@ -148,7 +148,7 @@ const siteInfo: SiteInfo = {
       jobTitle: "Programmer",
       tags: ["Ionic", "Slim", "PixiJS"],
       checklist: [
-        "Maintained and added new features to a mobile game built using Ionic Framework, PixieJS, and PHP."
+        "Maintained and added new features to a mobile game built using Ionic Framework, PixiJS, and Slim (PHP framework)."
       ]
     },
     {
@@ -180,12 +180,12 @@ const siteInfo: SiteInfo = {
         }
       ],
       description: html`<p>
-          This is a simple game where we controls a circle and try to eat other
-          circles.
+          This is a simple game where we control a circle and try to eat other
+          circles to become the biggest.
         </p>
         <p>
-          This game demonstrate the use of WebGL for rendering, some maths and
-          physics for motion and collision handling.
+          This game uses WebGL for rendering, some maths and physics for motion
+          and collision handling.
         </p>`
     },
     {
@@ -204,15 +204,22 @@ const siteInfo: SiteInfo = {
       ],
       description: html`<p>
           This is a library for creating a simple directed graph. It is heavily
-          inspired by react-digraph, but with far less features.
+          inspired by react-digraph, but with far less features, and also not
+          built for React :D
         </p>
         <p>
-          Some of the benefits of this library compared to react-digraph are:
-          <ol class="list-decimal ml-6">
-            <li>Very small size compared to react-digraph, because it has no dependencies.</li>
-            <li>Uses canvas for rendering instead of SVG, so the performance on large graph is better, you can compare the demo.</li>
-          </ol>
-        </p>`
+          The key difference of this library from react-digraph (apart from the
+          obviously less features xD) is the use of HTML5 Canvas for rendering,
+          instead of using SVG. Using Canvas gives better performance on large
+          graph. You can try generating 9999 nodes on the demo, and compare it
+          with react-digraph's demo.
+        </p>
+        <p>
+          Another benefit of this library is that it has no dependencies, unlike
+          react-digraph which is based on React and D3, and relies on some other
+          dependencies.
+        </p>
+        <p>Sorry for the wall of text :P</p>`
     },
     {
       name: "Simple Sudoku TS",
@@ -263,7 +270,7 @@ const siteInfo: SiteInfo = {
         </p>
         <p>
           Gaguna (from common Indonesian words "ga guna") means useless, and
-          this library is useless for most of you xD
+          this library is surely useless for most of you xD
         </p>`
     },
     {
@@ -283,7 +290,8 @@ const siteInfo: SiteInfo = {
         <p>
           This site is built using Astro as static site generator, Tailwind for
           styles, and Canvas for the annoying background you see on this site.
-        </p>`
+        </p>
+        <p>This site supports mobile and desktop view.</p>`
     },
     {
       name: "Kisstastic",
@@ -300,11 +308,10 @@ const siteInfo: SiteInfo = {
         }
       ],
       description: html`<p>
-          This is a simple, old game inspired by Flappy Bird (and hoping it got
-          as successful xD). Originally I created this game for Android (around
-          2014, was on Play Store, but now it already got removed '-'). I lost
-          the original source code, so i recreated this failure game for the
-          web.
+          This is a simple, old game inspired by Flappy Bird (wished it got as
+          successful xD). Originally I created this game for Android (around
+          2014, was on Play Store, but now it already got removed T.T). I lost
+          the original source code, so i recreated this dumb game for the web.
         </p>
         <p>
           This game is created using PixiJS, a 2D rendering framework for the

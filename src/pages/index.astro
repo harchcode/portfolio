@@ -12,12 +12,12 @@ import site from "../site-info";
     <title>{site.title}</title>
     <link rel="stylesheet" href={Astro.resolve("../style.css")} />
   </head>
-  <body>
+  <body class="tracking-wide">
     {site.svgDefs.map(svgDef => (
       <svg style="display: none" version="2.0">
         <defs>
           <symbol id={svgDef.id} viewbox={svgDef.viewBox}>
-            <path fill="#fff" d={svgDef.path}></path>
+            <path fill="#000" d={svgDef.path}></path>
           </symbol>
         </defs>
         <use href={`#${svgDef.id}`}></use>
@@ -31,7 +31,7 @@ import site from "../site-info";
     <div class="fixed w-full glass z-20 shadow">
       <div class="w-full max-w-screen-lg mx-auto px-4 py-2 z-20 h-12">
         <div class="flex items-center">
-          <div class="flex-auto space-x-2">
+          <div class="flex-auto space-x-2 tracking-wider">
             <a href="#about" class="inline-block underline text-black">About</a>
             <a href="#work" class="inline-block underline text-black">Works</a>
             <a href="#project" class="inline-block underline text-black"
@@ -58,12 +58,14 @@ import site from "../site-info";
             >
             </div>
           </div>
-          <div class="flex-auto px-4 md:px-0 -mt-24 md:mt-0 w-full">
-            <div class="text-2xl md:text-5xl font-bold">Hi, I am</div>
-            <div class="text-2xl md:text-5xl font-bold md:mt-2 typewriter">
-              <span class="border-r-4 text-black">Hartono Chandra</span>
+          <div
+            class="flex-auto px-4 md:px-0 -mt-24 md:mt-0 w-full tracking-wider"
+          >
+            <div class="text-2xl md:text-5xl">Hi&#10071; I am</div>
+            <div class="text-2xl md:text-5xl md:mt-2 typewriter">
+              <span class="border-r-4">Hartono Chandra</span>
             </div>
-            <div class="mt-2 md:mt-8 font-bold md:text-xl">
+            <div class="mt-2 md:mt-8 font-bold md:text-xl text-gray-800">
               Software Engineer - Web
             </div>
             <div class="mt-2 md:mt-8 md:text-lg">
@@ -76,7 +78,7 @@ import site from "../site-info";
             <a
               href={link.url}
               aria-label={link.label}
-              class="social-button w-12 h-12 p-3 md:w-16 md:h-16 md:p-4"
+              class="social-button w-12 h-12 p-3 md:w-16 md:h-16 md:p-4 bg-white border-2 border-black shadow"
             >
               <svg width="100%" height="100%" version="2.0">
                 <use href={`#${link.svgSymbolId}`} />
@@ -110,7 +112,9 @@ import site from "../site-info";
                     <div>
                       <span class="font-bold text-xs">{work.periode}</span>
                     </div>
-                    <div class="text-2xl md:mt-1">{work.companyName}</div>
+                    <div class="text-2xl md:mt-1 tracking-wider">
+                      {work.companyName}
+                    </div>
                     <div class="text-sm text-gray-800">{work.jobTitle}</div>
                     <div class="flex flex-wrap mt-1">
                       {work.tags.map(tag => (
@@ -150,8 +154,8 @@ import site from "../site-info";
                 style={`aspect-ratio: 1/1; min-height: 10rem; background-image: url(${project.imageSrc})`}
               ></div>
             </div>
-            <div class="mt-2 md:mt-0 md:ml-2 px-4 pt-2 pb-4 flex flex-col flex-1">
-              <div class="text-3xl">{project.name}</div>
+            <div class="mt-2 md:mt-0 md:ml-2 px-2 md:px-4 flex flex-col flex-1">
+              <div class="text-3xl tracking-wider">{project.name}</div>
               <div class="mt-1 flex flex-wrap">
                 {project.tags.map(tag => (
                   <div class="text-xs mr-1 mt-1 bg-gray-200 text-gray-800 px-1 py-0.5 rounded">

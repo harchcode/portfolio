@@ -128,9 +128,9 @@ export function initBackground() {
   ctx.globalAlpha = 0.1;
 
   const area = canvas.width * canvas.height;
-  const minScale = area / 2000000;
-  const maxScale = minScale * 2;
-  const shapeCount = getRandomIntInclusive(10, 20);
+  const minScale = 0.5;
+  const maxScale = 2.0;
+  const shapeCount = 3 + Math.ceil(area / 100000);
   const shapeTypeCount = Object.keys(ShapeType).length / 2;
   const colorCount = Object.keys(FillColor).length / 2;
 
@@ -139,8 +139,8 @@ export function initBackground() {
   for (let i = 0; i < shapeCount; i++) {
     const shape: Shape = {
       shapeType: getRandomIntInclusive(0, shapeTypeCount - 1) as ShapeType,
-      startX: getRandomIntInclusive(0, canvas.width),
-      startY: getRandomIntInclusive(0, canvas.height),
+      startX: getRandomIntInclusive(-100, canvas.width + 100),
+      startY: getRandomIntInclusive(-100, canvas.height + 100),
       startScale: getRandomArbitrary(minScale, maxScale),
       startRotation: getRandomIntInclusive(0, 360),
       endX: getRandomIntInclusive(0, canvas.width),

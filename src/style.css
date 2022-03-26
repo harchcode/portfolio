@@ -20,7 +20,7 @@ body {
 }
 
 .social-button {
-  @apply rounded-full overflow-hidden bg-black;
+  @apply rounded-full overflow-hidden;
 }
 
 .social-button svg path {
