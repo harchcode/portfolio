@@ -87,11 +87,11 @@ const siteInfo: SiteInfo = {
   intro:
     "I am just your average software engineer, specialized in web. Nothing special about me, I just happen to have a job as a web engineer, and can do my job as expected like everyone else.",
   socialLinks: [
-    // {
-    //   label: "resume",
-    //   url: "https://google.com",
-    //   svgSymbolId: "doc"
-    // },
+    {
+      label: "resume",
+      url: "https://e1.pcloud.link/publink/show?code=XZPXKHZV6cxy6RCdXXdIoG7dLHKRkplV8V7",
+      svgSymbolId: "doc"
+    },
     {
       label: "email",
       url: "mailto:harchcode@gmail.com",
@@ -114,20 +114,14 @@ const siteInfo: SiteInfo = {
       periode: "February 2020 - Present",
       companyName: "Traveloka",
       jobTitle: "Software Engineer - Web",
-      tags: [
-        "React",
-        "Semantic UI",
-        "react-digraph",
-        "Typescript",
-        "Unit Test"
-      ],
+      tags: ["React", "Semantic UI", "react-digraph", "Typescript", "Jest"],
       checklist: [
         "Used React and Semantic UI as frontend framework.",
-        "Used Typescript on the codebase.",
         html`Used
           <a href="https://github.com/uber/react-digraph">react-digraph</a>
           for creating directed graph.`,
-        "Done some basic infra works with Terraform."
+        "Done some basic infra works with Terraform.",
+        "Wrote unit tests with Jest and React Testing Library."
       ]
     },
     {
@@ -137,8 +131,8 @@ const siteInfo: SiteInfo = {
       jobTitle: "Software Engineer - Front End",
       tags: ["D3", "Vue", "Pug", "PWA"],
       checklist: [
-        "Used Vue as frontend framework.",
-        "Extensive use of D3 to create many kinds of graph."
+        "Used Vue and Pug as the frontend framework.",
+        "Built various kinds of charts using D3."
       ]
     },
     {
@@ -159,8 +153,8 @@ const siteInfo: SiteInfo = {
       tags: ["JQuery", "AngularJS", "Vue", "ASP.Net", "Crystal Reports"],
       checklist: [
         "Used JQuery, AngularJS, and later Vue as frontend framework.",
-        "Used ASP.Net Web Form and then migrated to REST API with ASP.Net using C# as the programming language.",
-        "Used Crystal Reports for creating reports."
+        "Migrated from ASP.Net Web Forms to REST API with ASP.Net using C# as the programming language.",
+        "Created reports with Crystal Reports."
       ]
     }
   ],
