@@ -4,6 +4,107 @@
 
 html,
 body {
+  @apply bg-white text-black font-sans;
   height: 100%;
-  overflow: hidden;
+}
+
+.border-paper {
+  border-bottom-left-radius: 15px 255px;
+  border-bottom-right-radius: 225px 15px;
+  border-top-left-radius: 255px 15px;
+  border-top-right-radius: 15px 225px;
+}
+
+.active {
+  @apply border-0 no-underline text-2xl;
+}
+
+.social-button {
+  @apply rounded-full overflow-hidden;
+}
+
+.social-button svg path {
+  fill: #fff;
+}
+
+.project-button {
+  @apply rounded-full overflow-hidden bg-black;
+}
+
+.project-button svg path {
+  fill: #fff;
+}
+
+a {
+  @apply text-blue-700;
+}
+
+.text-stroke {
+  color: white;
+  -webkit-text-fill-color: black; /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: white;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+ul.list-check {
+  list-style: none;
+}
+
+ul.list-check li {
+  position: relative;
+  padding-left: 1.5em;
+}
+
+ul.list-check li:before {
+  content: "✓";
+  position: absolute;
+  left: 0; /* place the SVG at the start of the padding */
+  width: 1em;
+  height: 1em;
+  @apply text-green-600 font-bold;
+}
+
+p + p {
+  margin-top: 0.5em;
+}
+
+.typewriter {
+  width: fit-content;
+}
+
+/* https://css-tricks.com/snippets/css/typewriter-effect/ */
+.typewriter span {
+  display: inline-block;
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  animation: typing 2.5s steps(40, end), blink-caret 0.75s step-end 8;
+  border-color: transparent;
+}
+
+/* The typing effect */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: black;
+  }
 }
