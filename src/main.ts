@@ -75,9 +75,9 @@ window.addEventListener("scroll", () => {
   }
 });
 
-window.addEventListener("resize", () => {
-  initBackground();
-});
+// window.addEventListener("resize", () => {
+//   initBackground();
+// });
 
 function initPage() {
   setActiveMenu(getActiveMenuId(window.scrollY));
