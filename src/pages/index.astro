@@ -1,4 +1,5 @@
 ---
+import "../style.css";
 import site from "../site-info";
 ---
 
@@ -10,7 +11,6 @@ import site from "../site-info";
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="My portfolio site" />
     <title>{site.title}</title>
-    <link rel="stylesheet" href={Astro.resolve("../style.css")} />
   </head>
   <body class="tracking-wide">
     {site.svgDefs.map(svgDef => (
@@ -68,9 +68,7 @@ import site from "../site-info";
             <div class="mt-2 md:mt-8 font-bold md:text-xl text-gray-800">
               Software Engineer - Web
             </div>
-            <div class="mt-2 md:mt-8 md:text-lg">
-              {site.intro}
-            </div>
+            <div class="mt-2 md:mt-8 md:text-lg" set:html={site.intro}></div>
           </div>
         </div>
         <div class="flex space-x-4 mt-2 md:mt-16">
@@ -120,7 +118,7 @@ import site from "../site-info";
                   <div class="flex-auto mt-2 md:mt-0">
                     <ul class="list-check">
                       {work.checklist.map(check => (
-                        <li>{check}</li>
+                        <li set:html={check}></li>
                       ))}
                     </ul>
                   </div>
@@ -156,7 +154,7 @@ import site from "../site-info";
                   </div>
                 ))}
               </div>
-              <div class="my-4 flex-auto">{project.description}</div>
+              <div class="my-4 flex-auto" set:html={project.description}></div>
               <div class="flex justify-end">
                 <ul class="space-y-2">
                   {project.links.map(link => (
@@ -172,6 +170,6 @@ import site from "../site-info";
       </div>
     </div>
 
-    <script type="module" src={Astro.resolve("../main.ts")}></script>
+    <script hoist> import "../main.ts"; </script>
   </body>
 </html>
