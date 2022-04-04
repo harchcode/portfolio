@@ -62,14 +62,16 @@ function onScroll(scrollPos: number) {
   drawBackground();
 }
 
+function handleScroll() {
+  onScroll(lastKnownScrollPosition);
+  ticking = false;
+}
+
 window.addEventListener("scroll", () => {
   lastKnownScrollPosition = window.scrollY;
 
   if (!ticking) {
-    window.requestAnimationFrame(function () {
-      onScroll(lastKnownScrollPosition);
-      ticking = false;
-    });
+    window.requestAnimationFrame(handleScroll);
 
     ticking = true;
   }
