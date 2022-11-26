@@ -4,6 +4,6 @@
 
 html,
 body {
-  @apply bg-white text-black font-sans;
+  @apply bg-white text-black font-sans tracking-wider overflow-hidden leading-normal;
   height: 100%;
 }

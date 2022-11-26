@@ -1,5 +1,6 @@
 ---
 import "../style.css";
+import picUrl from "../assets/login.svg";
 import site from "../site-info";
 ---
 
@@ -12,13 +13,73 @@ import site from "../site-info";
     <meta name="description" content="My portfolio site" />
     <title>{site.title}</title>
   </head>
-  <body class="tracking-wide">
-    <div class="bg-black">dfsd</div>
+  <body>
+    {
+      site.svgDefs.map(svgDef => (
+        <svg style="display: none" version="2.0">
+          <defs>
+            <symbol id={svgDef.id} viewBox={svgDef.viewBox}>
+              <path fill="#000" d={svgDef.path} />
+            </symbol>
+          </defs>
+          <use href={`#${svgDef.id}`} />
+        </svg>
+      ))
+    }
 
-    <script hoist>
+    <div class="flex items-center justify-center w-full h-full">
+      <div
+        class="w-full h-full p-8"
+        style="max-width: 80rem; max-height: 96rem;"
+      >
+        <div class="flex h-1/2 items-center">
+          <div class="flex-auto">
+            <div class="text-7xl tracking-widest font-extralight">
+              Hartono Chandra
+            </div>
+            <div class="text-xl tracking-widest font-bold mt-4">
+              Software Engineer - Web
+            </div>
+            <div class="mt-8 flex space-x-8">
+              {
+                site.socialLinks.map(link => (
+                  <a href={link.url} aria-label={link.label} class="w-8 h-8">
+                    <svg width="100%" height="100%" version="2.0">
+                      <use href={`#${link.svgSymbolId}`} />
+                    </svg>
+                  </a>
+                ))
+              }
+            </div>
+            <!-- <div class="mt-8 flex space-x-8">
+              <a
+                href="#"
+                class="block text-lg border-b-2 border-gray-600 tracking-widest h-8"
+                >Download CV</a
+              >
+              <div class="border border-black"></div>
+              <a href="#" class="block text-lg border-b-2 border-black h-8"
+                >Contact me</a
+              >
+            </div> -->
+          </div>
+          <div class="h-full">
+            <img
+              src={picUrl}
+              width="100%"
+              height="100%"
+              alt=""
+              class="w-full h-full"
+              style="transform: scaleX(-1)"
+            />
+          </div>
+        </div>
+        <div class="h-1/2 bg-green-50">Projects</div>
+      </div>
+    </div>
+
+    <script type="module" hoist>
       import "../main";
     </script>
-
-    <!-- <script type="module" src={Astro.resolve("../main.ts")}></script> -->
   </body>
 </html>
