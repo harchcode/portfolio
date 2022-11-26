@@ -1,3 +1,14 @@
+import tvlkLogo from "./assets/logo-tvlk.jpeg";
+import blLogo from "./assets/logo-bl.png";
+import xmiLogo from "./assets/logo-xmi.png";
+import gsgLogo from "./assets/logo-gsg.jpeg";
+import ssUbur from "./assets/ss-ubur.png";
+import ssWebDigraph from "./assets/ss-web-digraph.png";
+import ssSudoku from "./assets/ss-sudoku.png";
+import ssGaguna from "./assets/ss-gaguna.png";
+import ssPortfolio from "./assets/ss-portfolio.png";
+import ssKisstastic from "./assets/ss-kisstastic.png";
+
 type SVGSymbolId = "doc" | "email" | "github" | "linkedin" | "play";
 
 export type SVGDef = {
@@ -14,7 +25,8 @@ export type SocialLink = {
 
 export type Work = {
   imageSrc: string;
-  periode: string;
+  from: string;
+  to: string;
   companyName: string;
   jobTitle: string;
   checklist: string[];
@@ -53,7 +65,7 @@ function html(strings: TemplateStringsArray, ...values: unknown[]) {
   return str;
 }
 
-const siteInfo: SiteInfo = {
+export const site: SiteInfo = {
   title: "Hartono Chandra",
   description: "",
   svgDefs: [
@@ -110,8 +122,9 @@ const siteInfo: SiteInfo = {
   ],
   works: [
     {
-      imageSrc: "/assets/logo-tvlk.jpeg",
-      periode: "February 2020 - Present",
+      imageSrc: tvlkLogo,
+      from: "February 2020",
+      to: "Present",
       companyName: "Traveloka",
       jobTitle: "Software Engineer - Web",
       tags: ["React", "Semantic UI", "react-digraph", "Typescript", "Jest"],
@@ -125,8 +138,9 @@ const siteInfo: SiteInfo = {
       ]
     },
     {
-      imageSrc: "/assets/logo-bl.png",
-      periode: "September 2018 - September 2019",
+      imageSrc: blLogo,
+      from: "September 2018",
+      to: "September 2019",
       companyName: "Bukalapak",
       jobTitle: "Software Engineer - Front End",
       tags: ["D3", "Vue", "Pug", "PWA"],
@@ -136,8 +150,9 @@ const siteInfo: SiteInfo = {
       ]
     },
     {
-      imageSrc: "/assets/logo-xmi.png",
-      periode: "October 2017 - May 2018",
+      imageSrc: xmiLogo,
+      from: "October 2017",
+      to: "May 2018",
       companyName: "XMI",
       jobTitle: "Programmer",
       tags: ["Ionic", "Slim", "PixiJS"],
@@ -146,8 +161,9 @@ const siteInfo: SiteInfo = {
       ]
     },
     {
-      imageSrc: "/assets/logo-gsg.jpeg",
-      periode: "November 2013 - April 2017",
+      imageSrc: gsgLogo,
+      from: "November 2013",
+      to: "April 2017",
       companyName: "Growth Steel Group",
       jobTitle: "Programmer",
       tags: ["JQuery", "AngularJS", "Vue", "ASP.Net", "Crystal Reports"],
@@ -161,8 +177,8 @@ const siteInfo: SiteInfo = {
   projects: [
     {
       name: "Ubur",
-      imageSrc: "/assets/ss-ubur.png",
-      tags: ["Typescript", "WebGL", "Canvas"],
+      imageSrc: ssUbur,
+      tags: ["Rust", "WebAssembly", "Typescript", "WebGL", "Canvas"],
       links: [
         {
           text: "See it in action",
@@ -184,7 +200,7 @@ const siteInfo: SiteInfo = {
     },
     {
       name: "Web Digraph",
-      imageSrc: "/assets/ss-web-digraph.png",
+      imageSrc: ssWebDigraph,
       tags: ["Typescript", "Canvas", "Library", "Graph"],
       links: [
         {
@@ -217,8 +233,8 @@ const siteInfo: SiteInfo = {
     },
     {
       name: "Simple Sudoku TS",
-      imageSrc: "/assets/ss-sudoku.png",
-      tags: ["Typescript", "Sudoku"],
+      imageSrc: ssSudoku,
+      tags: ["Rust", "WebAssembly", "Typescript", "Sudoku"],
       links: [
         {
           text: "See it in action",
@@ -242,7 +258,7 @@ const siteInfo: SiteInfo = {
     },
     {
       name: "Gaguna",
-      imageSrc: "/assets/ss-gaguna.png",
+      imageSrc: ssGaguna,
       tags: ["Typescript", "Utils"],
       links: [
         {
@@ -268,8 +284,8 @@ const siteInfo: SiteInfo = {
         </p>`
     },
     {
-      name: "This Portfolio Site",
-      imageSrc: "/assets/ss-portfolio.png",
+      name: "This Site",
+      imageSrc: ssPortfolio,
       tags: ["Typescript", "Tailwind", "Astro", "Canvas"],
       links: [
         {
@@ -289,7 +305,7 @@ const siteInfo: SiteInfo = {
     },
     {
       name: "Kisstastic",
-      imageSrc: "/assets/ss-kisstastic.png",
+      imageSrc: ssKisstastic,
       tags: ["Typescript", "PixiJS"],
       links: [
         {
@@ -314,5 +330,3 @@ const siteInfo: SiteInfo = {
     }
   ]
 };
-
-export default siteInfo;

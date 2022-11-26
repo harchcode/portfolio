@@ -1,7 +1,7 @@
 ---
 import "../style.css";
 import picUrl from "../assets/login.svg";
-import site from "../site-info";
+import { site } from "../site-info";
 ---
 
 <!DOCTYPE html>
@@ -29,15 +29,15 @@ import site from "../site-info";
 
     <div class="flex items-center justify-center w-full h-full">
       <div
-        class="w-full h-full p-8"
+        class="w-full h-full p-8 flex flex-col justify-center"
         style="max-width: 80rem; max-height: 96rem;"
       >
-        <div class="flex h-1/2 items-center">
-          <div class="flex-auto">
+        <div class="flex items-center">
+          <div class="flex-auto py-4">
             <div class="text-7xl tracking-widest font-extralight">
               Hartono Chandra
             </div>
-            <div class="text-xl tracking-widest font-bold mt-4">
+            <div class="text-xl tracking-widest font-bold mt-4 text-gray-700">
               Software Engineer - Web
             </div>
             <div class="mt-8 flex space-x-8">
@@ -48,6 +48,37 @@ import site from "../site-info";
                       <use href={`#${link.svgSymbolId}`} />
                     </svg>
                   </a>
+                ))
+              }
+            </div>
+            <div class="mt-8 flex">
+              {
+                site.works.map((work, i) => (
+                  <div>
+                    <div class="flex items-center">
+                      <div class="w-24 h-24 overflow-hidden rounded-full border border-gray-400 shadow-md">
+                        <img
+                          src={work.imageSrc}
+                          alt={work.companyName}
+                          width="100%"
+                          height="100%"
+                          class="w-full h-full"
+                        />
+                      </div>
+                      {i < site.works.length - 1 && (
+                        <div class="w-24 border-t border-gray-400 shadow-md" />
+                      )}
+                    </div>
+                    <div class="mt-2 w-44">
+                      <div class="font-bold text-xs text-gray-500">
+                        {work.from} -
+                      </div>
+                      <div class="font-bold text-xs text-gray-500">
+                        {work.to}
+                      </div>
+                      <div class="tracking-widest">{work.companyName}</div>
+                    </div>
+                  </div>
                 ))
               }
             </div>
@@ -70,11 +101,35 @@ import site from "../site-info";
               height="100%"
               alt=""
               class="w-full h-full"
-              style="transform: scaleX(-1)"
+              style="transform: scale(-1.2,1.2)"
             />
           </div>
         </div>
-        <div class="h-1/2 bg-green-50">Projects</div>
+        <div class="py-4 overflow-x-auto space-x-8 whitespace-nowrap">
+          {
+            site.projects.map(project => (
+              <div class="inline-block w-80">
+                <div class="w-full h-64 overflow-hidden rounded-xl border border-gray-300 shadow-md">
+                  <img
+                    src={project.imageSrc}
+                    alt={project.name}
+                    width="100%"
+                    height="100%"
+                    class="w-full h-full object-cover object-center"
+                  />
+                </div>
+                <div class="mt-4 tracking-widest text-xl">{project.name}</div>
+                <div class="mt-1 flex flex-wrap">
+                  {project.tags.map(tag => (
+                    <div class="text-xs mr-1 mt-1 bg-gray-200 text-gray-800 px-1 py-0.5 rounded">
+                      {tag}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))
+          }
+        </div>
       </div>
     </div>
 
