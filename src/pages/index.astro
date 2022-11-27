@@ -27,11 +27,12 @@ import { site } from "../site-info";
       ))
     }
 
-    <div class="flex items-center justify-center w-full h-full">
-      <div class="w-full max-w-7xl relative">
+    <div class="flex items-center justify-center w-full min-h-full sm:p-4">
+      <div
+        class="w-full sm:max-w-md md:max-w-7xl relative shadow md:rounded bg-gradient-to-b from-white to-stone-100 overflow-hidden"
+      >
         <div
-          class="absolute top-0 right-0 overflow-visible"
-          style="width: 40rem; height: 40rem"
+          class="mx-auto md:absolute md:top-0 md:right-0 overflow-visible w-full md:w-128 md:h-128 lg:w-160 lg:h-160"
         >
           <img
             src={picUrl}
@@ -44,14 +45,21 @@ import { site } from "../site-info";
         </div>
 
         <div class="relative">
-          <div class="p-8">
-            <div class="text-7xl tracking-widest font-extralight">
+          <div class="p-4 md:p-8 text-center md:text-left">
+            <div
+              class="text-4xl md:text-5xl tracking-widest"
+              style="-webkit-text-stroke: 1px white;"
+            >
               Hartono Chandra
             </div>
-            <div class="text-xl tracking-widest font-bold mt-4 text-gray-700">
+            <div
+              class="text-base md:text-xl tracking-widest font-bold mt-1 md:mt-4 text-gray-700"
+            >
               Software Engineer - Web
             </div>
-            <div class="mt-8 flex space-x-8">
+            <div
+              class="mt-4 md:mt-8 flex space-x-8 justify-center md:justify-start"
+            >
               {
                 site.socialLinks.map(link => (
                   <a href={link.url} aria-label={link.label} class="w-8 h-8">
@@ -63,12 +71,12 @@ import { site } from "../site-info";
               }
             </div>
           </div>
-          <div class="p-8 flex overflow-x-auto">
+          <div class="p-4 md:p-8 flex overflow-x-auto">
             {
               site.works.map((work, i) => (
                 <div>
                   <div class="flex items-center">
-                    <div class="w-24 h-24 overflow-hidden rounded-full border border-gray-500 shadow-md">
+                    <div class="w-20 h-20 md:w-24 md:h-24 overflow-hidden rounded-full border-2 border-gray-500 shadow-md bg-white">
                       <img
                         src={work.imageSrc}
                         alt={work.companyName}
@@ -78,25 +86,30 @@ import { site } from "../site-info";
                       />
                     </div>
                     {i < site.works.length - 1 && (
-                      <div class="w-24 border-t border-gray-500 shadow-md" />
+                      <div class="w-20 md:w-24 border-t-2 border-gray-500 shadow-md" />
                     )}
                   </div>
-                  <div class="mt-2 w-44">
+                  <div class="mt-2 w-32 md:w-44">
                     <div class="font-bold text-xs text-gray-500">
                       {work.from} -
                     </div>
                     <div class="font-bold text-xs text-gray-500">{work.to}</div>
-                    <div class="tracking-widest">{work.companyName}</div>
+                    <div class="text-sm md:text-base tracking-widest truncate">
+                      {work.companyName}
+                    </div>
                   </div>
                 </div>
               ))
             }
           </div>
-          <div class="p-8 overflow-x-auto space-x-8 whitespace-nowrap">
+          <div class="p-4 md:p-8 overflow-x-auto space-x-8 whitespace-nowrap">
             {
               site.projects.map(project => (
-                <div class="inline-block w-80">
-                  <div class="w-full h-64 overflow-hidden rounded-xl shadow-md">
+                <div class="inline-block w-72 md:w-80">
+                  <div
+                    class="w-full overflow-hidden rounded-xl shadow-md"
+                    style="aspect-ratio: 4/3"
+                  >
                     <img
                       src={project.imageSrc}
                       alt={project.name}
@@ -105,7 +118,9 @@ import { site } from "../site-info";
                       class="object-cover object-center"
                     />
                   </div>
-                  <div class="mt-4 tracking-widest text-xl">{project.name}</div>
+                  <div class="mt-4 tracking-widest text-lg md:text-xl">
+                    {project.name}
+                  </div>
                   <div class="mt-1 flex flex-wrap">
                     {project.tags.map(tag => (
                       <div class="text-xs mr-1 mt-1 bg-gray-200 text-gray-800 px-1 py-0.5 rounded">
