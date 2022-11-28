@@ -4,7 +4,7 @@
 
 html,
 body {
-  @apply bg-gradient-to-b from-color2 to-white text-black font-sans overflow-x-hidden leading-normal tracking-wide;
+  @apply bg-gradient-to-b from-color2 to-white dark:from-black dark:to-dcolor2 text-black dark:text-white font-sans overflow-x-hidden leading-normal tracking-wide;
   height: 100%;
 }
 
