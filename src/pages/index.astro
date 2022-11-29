@@ -27,7 +27,9 @@ import { site } from "../site-info";
       ))
     }
 
-    <div class="flex items-center justify-center w-full min-h-full sm:p-4">
+    <div
+      class="flex items-center justify-center w-full min-h-full sm:p-4 md:p-8 lg:p-12"
+    >
       <div
         class="w-full sm:max-w-md md:max-w-7xl relative sm:shadow sm:border sm:border-color3 sm:dark:border-black sm:rounded-xl bg-gradient-to-b from-white to-color1 dark:from-dcolor1 dark:to-black overflow-hidden"
       >
@@ -75,13 +77,14 @@ import { site } from "../site-info";
               site.works.map((work, i) => (
                 <div>
                   <div class="flex items-center">
-                    <div class="w-20 h-20 md:w-24 md:h-24 overflow-hidden rounded-full border-2 border-color4 dark:border-dcolor4 bg-white">
+                    <div class="w-20 h-20 md:w-24 md:h-24 overflow-hidden rounded-full border-2 border-color4 dark:border-dcolor4 bg-white cursor-pointer">
                       <img
                         src={work.imageSrc}
                         alt={work.companyName}
                         width="100%"
                         height="100%"
                         class="object-cover object-center"
+                        style="aspect-ratio: 1/1"
                       />
                     </div>
                     {i < site.works.length - 1 && (
@@ -108,7 +111,7 @@ import { site } from "../site-info";
               site.projects.map(project => (
                 <div class="inline-block w-72 md:w-80">
                   <div
-                    class="w-full overflow-hidden rounded-xl shadow border border-color1 dark:border-dcolor1"
+                    class="w-full rounded-xl overflow-hidden shadow border bg-white border-color1 dark:border-dcolor1 cursor-pointer"
                     style="aspect-ratio: 4/3"
                   >
                     <img
@@ -117,9 +120,10 @@ import { site } from "../site-info";
                       width="100%"
                       height="100%"
                       class="object-cover object-center"
+                      style="aspect-ratio: 4/3"
                     />
                   </div>
-                  <div class="mt-4 tracking-widest text-lg md:text-xl text-color4 dark:text-dcolor4">
+                  <div class="mt-4 tracking-widest text-lg md:text-xl text-color4 dark:text-dcolor4 cursor-pointer">
                     {project.name}
                   </div>
                   <div class="mt-1 flex flex-wrap">
