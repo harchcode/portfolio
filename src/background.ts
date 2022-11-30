@@ -177,8 +177,8 @@ export function initBackground() {
   ctx.fillStyle = "#fff";
 
   const area = canvas.width * canvas.height;
-  const minScale = 0.5;
-  const maxScale = 2.0;
+  const minScale = 0.75;
+  const maxScale = 1.5;
   const shapeCount = 3 + Math.ceil(area / 100000);
   const shapeTypeCount = Object.keys(ShapeType).length / 2;
 
@@ -194,7 +194,7 @@ export function initBackground() {
       endX: getRandomIntInclusive(0, canvas.width),
       endY: getRandomIntInclusive(0, canvas.height),
       endScale: getRandomArbitrary(minScale, maxScale),
-      endRotation: getRandomIntInclusive(30, 1440)
+      endRotation: getRandomIntInclusive(30, 720)
     };
 
     shapes.push(shape);

@@ -10,7 +10,7 @@ import { site } from "../site-info";
     <meta charset="UTF-8" />
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="My portfolio site" />
+    <meta name="description" content={site.description} />
     <title>{site.title}</title>
   </head>
   <body>
@@ -55,12 +55,12 @@ import { site } from "../site-info";
             <div
               class="text-4xl md:text-5xl tracking-wider text-color4 dark:text-dcolor4"
             >
-              Hartono Chandra
+              {site.name}
             </div>
             <div
               class="text-base md:text-xl tracking-widest font-bold mt-1 md:mt-4 text-color3 dark:text-dcolor3"
             >
-              Software Engineer - Web
+              {site.jobTitle}
             </div>
             <div
               class="mt-4 md:mt-8 flex space-x-8 justify-center md:justify-start"
@@ -81,7 +81,7 @@ import { site } from "../site-info";
               site.works.map((work, i) => (
                 <div>
                   <div class="flex items-center">
-                    <div class="w-20 h-20 md:w-24 md:h-24 overflow-hidden rounded-full border-2 border-color4 dark:border-dcolor4 bg-white cursor-pointer">
+                    <div class="w-20 h-20 md:w-24 md:h-24 overflow-hidden rounded-full border-2 border-color4 dark:border-dcolor4 bg-white">
                       <img
                         src={work.imageSrc}
                         alt={work.companyName}
@@ -117,8 +117,9 @@ import { site } from "../site-info";
             {
               site.projects.map(project => (
                 <div class="inline-block w-72 md:w-80">
-                  <div
-                    class="w-full rounded-xl overflow-hidden shadow border bg-white border-color1 dark:border-dcolor1 cursor-pointer"
+                  <a
+                    href={project.url}
+                    class="block w-full rounded-xl overflow-hidden shadow border bg-white border-color1 dark:border-dcolor1"
                     style="aspect-ratio: 4/3"
                   >
                     <img
@@ -129,10 +130,13 @@ import { site } from "../site-info";
                       class="object-cover object-center"
                       style="aspect-ratio: 4/3"
                     />
-                  </div>
-                  <div class="mt-4 tracking-widest text-lg md:text-xl text-color4 dark:text-dcolor4 cursor-pointer">
+                  </a>
+                  <a
+                    href={project.url}
+                    class="block mt-4 tracking-widest text-lg md:text-xl text-color4 dark:text-dcolor4"
+                  >
                     {project.name}
-                  </div>
+                  </a>
                   <div class="mt-1 flex flex-wrap">
                     {project.tags.map(tag => (
                       <div class="text-xs mr-1 mt-1 bg-color2 dark:bg-dcolor2 text-gray-900 dark:text-gray-50 px-2 py-1 rounded">

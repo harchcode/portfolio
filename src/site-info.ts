@@ -38,6 +38,7 @@ export type Project = {
   imageSrc: string;
   tags: string[];
   description: string;
+  url: string;
   links: {
     text: string;
     url: string;
@@ -48,6 +49,8 @@ export type SiteInfo = {
   title: string;
   description: string;
   svgDefs: SVGDef[];
+  name: string;
+  jobTitle: string;
   photoUrl: string;
   intro: string;
   socialLinks: SocialLink[];
@@ -67,7 +70,9 @@ function html(strings: TemplateStringsArray, ...values: unknown[]) {
 
 export const site: SiteInfo = {
   title: "Hartono Chandra",
-  description: "",
+  description: "I am Hartono Chandra.",
+  name: "Hartono Chandra",
+  jobTitle: "Software Engineer - Web",
   svgDefs: [
     {
       id: "doc",
@@ -179,6 +184,7 @@ export const site: SiteInfo = {
       name: "Ubur",
       imageSrc: ssUbur,
       tags: ["Rust", "WebAssembly", "Typescript", "WebGL", "Canvas"],
+      url: "https://ubur.netlify.app/",
       links: [
         {
           text: "See it in action",
@@ -202,6 +208,7 @@ export const site: SiteInfo = {
       name: "Web Digraph",
       imageSrc: ssWebDigraph,
       tags: ["Typescript", "Canvas", "Library", "Graph"],
+      url: "https://web-digraph.netlify.app/",
       links: [
         {
           text: "See the demo",
@@ -235,6 +242,7 @@ export const site: SiteInfo = {
       name: "Simple Sudoku TS",
       imageSrc: ssSudoku,
       tags: ["Rust", "WebAssembly", "Typescript", "Sudoku"],
+      url: "https://simple-sudoku-ts.netlify.app/",
       links: [
         {
           text: "See it in action",
@@ -260,6 +268,7 @@ export const site: SiteInfo = {
       name: "Gaguna",
       imageSrc: ssGaguna,
       tags: ["Typescript", "Utils"],
+      url: "https://github.com/harchcode/gaguna",
       links: [
         {
           text: "Go to the docs site",
@@ -287,6 +296,7 @@ export const site: SiteInfo = {
       name: "This Site",
       imageSrc: ssPortfolio,
       tags: ["Typescript", "Tailwind", "Astro", "Canvas"],
+      url: "https://github.com/harchcode/portfolio",
       links: [
         {
           text: "See the source code",
@@ -307,6 +317,7 @@ export const site: SiteInfo = {
       name: "Kisstastic",
       imageSrc: ssKisstastic,
       tags: ["Typescript", "PixiJS"],
+      url: "https://kisstastic.netlify.app/",
       links: [
         {
           text: "See the source code",
