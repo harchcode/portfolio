@@ -12,6 +12,18 @@ import { site } from "../site-info";
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={site.description} />
     <title>{site.title}</title>
+
+    <script is:inline>
+      if (
+        localStorage.theme === "dark" ||
+        (!("theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    </script>
   </head>
   <body>
     {
@@ -149,11 +161,71 @@ import { site } from "../site-info";
             }
           </div>
         </div>
-      </div>
-    </div>
 
-    <script type="module" hoist>
-      import "../main";
-    </script>
+        <div class="absolute top-0 md:right-0 rounded-xl flex md:flex-col">
+          <button id="system-mode-button" type="button" class="w-12 h-12 p-2">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+              <title>Contrast</title>
+              <circle
+                cx="256"
+                cy="256"
+                r="208"
+                fill="none"
+                stroke="currentColor"
+                stroke-linejoin="round"
+                stroke-width="32"
+              >
+              </circle>
+              <path
+                fill="currentColor"
+                d="M256 464c-114.88 0-208-93.12-208-208S141.12 48 256 48z"
+              >
+              </path>
+            </svg>
+          </button>
+          <button id="light-mode-button" type="button" class="w-12 h-12 p-2">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="ionicon"
+              viewBox="0 0 512 512"
+              ><title>Sunny</title><path
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-miterlimit="10"
+                stroke-width="32"
+                d="M256 48v48M256 416v48M403.08 108.92l-33.94 33.94M142.86 369.14l-33.94 33.94M464 256h-48M96 256H48M403.08 403.08l-33.94-33.94M142.86 142.86l-33.94-33.94"
+              ></path><circle
+                cx="256"
+                cy="256"
+                r="80"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-miterlimit="10"
+                stroke-width="32"></circle>
+            </svg>
+          </button>
+          <button id="dark-mode-button" type="button" class="w-12 h-12 p-2">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="ionicon"
+              viewBox="0 0 512 512"
+              ><title>Moon</title><path
+                d="M160 136c0-30.62 4.51-61.61 16-88C99.57 81.27 48 159.32 48 248c0 119.29 96.71 216 216 216 88.68 0 166.73-51.57 200-128-26.39 11.49-57.38 16-88 16-119.29 0-216-96.71-216-216z"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="32"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <script type="module" hoist>
+        import "../main";
+      </script>
+    </div>
   </body>
 </html>
