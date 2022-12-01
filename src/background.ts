@@ -72,24 +72,20 @@ function draw() {
   const maxWorkScroll = workDiv.scrollWidth - workDiv.clientWidth;
   const maxProjectScroll = projectDiv.scrollWidth - projectDiv.clientWidth;
 
-  let c = 0;
   const total = maxWindowScroll + maxWorkScroll + maxProjectScroll;
   let totalScroll = 0;
   let progress = 0;
 
   if (maxWindowScroll > 0) {
     totalScroll += document.body.scrollTop;
-    c++;
   }
 
   if (maxWorkScroll > 0) {
     totalScroll += workDiv.scrollLeft;
-    c++;
   }
 
   if (maxProjectScroll > 0) {
     totalScroll += projectDiv.scrollLeft;
-    c++;
   }
 
   progress = totalScroll / (total || 1);
@@ -173,7 +169,7 @@ export function initBackground() {
 
   ctx.globalAlpha = 0.5;
   ctx.lineWidth = 1;
-  ctx.strokeStyle = "#ccc";
+  ctx.strokeStyle = "#666";
   ctx.fillStyle = "#fff";
 
   const area = canvas.width * canvas.height;

@@ -8,10 +8,6 @@ body {
   height: 100%;
 }
 
-body {
-  @apply min-h-full bg-gradient-to-b from-color2 to-white dark:from-black dark:to-dcolor2 text-black dark:text-white font-sans leading-normal tracking-wide;
-}
-
 button.active {
   @apply bg-color2 dark:bg-color4 rounded-xl;
 }
