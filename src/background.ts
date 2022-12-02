@@ -62,10 +62,7 @@ function draw() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
-    ctx.globalAlpha = 0.5;
-    ctx.lineWidth = 1;
-    ctx.strokeStyle = "#ccc";
-    ctx.fillStyle = "#fff";
+    resetCtx();
   }
 
   const maxWindowScroll = document.body.scrollHeight - window.innerHeight;
@@ -167,11 +164,6 @@ export function initBackground() {
   workDiv.addEventListener("scroll", requestDraw);
   projectDiv.addEventListener("scroll", requestDraw);
 
-  ctx.globalAlpha = 0.5;
-  ctx.lineWidth = 1;
-  ctx.strokeStyle = "#666";
-  ctx.fillStyle = "#fff";
-
   const area = canvas.width * canvas.height;
   const minScale = 0.75;
   const maxScale = 1.5;
@@ -194,6 +186,25 @@ export function initBackground() {
     };
 
     shapes.push(shape);
+  }
+
+  requestDraw();
+}
+
+let currentMode: "light" | "dark" = "light";
+export function resetCtx(mode?: "light" | "dark") {
+  currentMode = mode || currentMode;
+
+  if (currentMode === "light") {
+    ctx.globalAlpha = 0.5;
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "#666";
+    ctx.fillStyle = "#fff";
+  } else if (currentMode === "dark") {
+    ctx.globalAlpha = 0.5;
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "#fff";
+    ctx.fillStyle = "#333";
   }
 
   requestDraw();

@@ -1,4 +1,4 @@
-import { initBackground } from "./background";
+import { initBackground, resetCtx } from "./background";
 
 const systemModeButton = document.getElementById(
   "system-mode-button"
@@ -30,17 +30,28 @@ function initSelectedTheme() {
   }
 }
 
+function isDarkTheme() {
+  return (
+    localStorage.theme === "dark" ||
+    (!("theme" in localStorage) &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches)
+  );
+}
+
 function main() {
   initSelectedTheme();
   initBackground();
+  resetCtx(isDarkTheme() ? "dark" : "light");
 
   systemModeButton.addEventListener("click", () => {
     localStorage.removeItem("theme");
 
     if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
       document.documentElement.classList.add("dark");
+      resetCtx("dark");
     } else {
       document.documentElement.classList.remove("dark");
+      resetCtx("light");
     }
 
     clearSelectedTheme();
@@ -50,6 +61,7 @@ function main() {
   lightModeButton.addEventListener("click", () => {
     localStorage.theme = "light";
     document.documentElement.classList.remove("dark");
+    resetCtx("light");
 
     clearSelectedTheme();
     lightModeButton.classList.add("active");
@@ -58,6 +70,7 @@ function main() {
   darkModeButton.addEventListener("click", () => {
     localStorage.theme = "dark";
     document.documentElement.classList.add("dark");
+    resetCtx("dark");
 
     clearSelectedTheme();
     darkModeButton.classList.add("active");
