@@ -10,6 +10,7 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
+    "test": "echo 'no test'",
     "astro": "astro",
     "lint": "eslint src",
     "lint-staged": "lint-staged",
