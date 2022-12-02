@@ -11,3 +11,16 @@ body {
 button.active {
   @apply bg-color2 dark:bg-color4 rounded-xl;
 }
+
+.content {
+  animation: content-animation 1s;
+}
+
+@keyframes content-animation {
+  0% {
+    opacity: 0.001;
+  }
+  100% {
+    opacity: 1;
+  }
+}
