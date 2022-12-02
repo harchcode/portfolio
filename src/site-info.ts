@@ -1,3 +1,4 @@
+import profilePic from "./assets/login.svg";
 import tvlkLogo from "./assets/logo-tvlk.jpeg";
 import blLogo from "./assets/logo-bl.png";
 import xmiLogo from "./assets/logo-xmi.png";
@@ -100,7 +101,7 @@ export const site: SiteInfo = {
       path: "M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-3 17v-10l9 5.146-9 4.854z"
     }
   ],
-  photoUrl: "/assets/login.svg",
+  photoUrl: profilePic,
   intro:
     "I am just your average software engineer, specialized in web. Nothing special about me, I just happen to have a job as a web engineer, and can do my job as expected like everyone else.",
   socialLinks: [

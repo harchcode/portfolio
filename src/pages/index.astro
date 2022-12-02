@@ -1,6 +1,5 @@
 ---
 import "../style.css";
-import picUrl from "../assets/login.svg";
 import { site } from "../site-info";
 ---
 
@@ -26,7 +25,7 @@ import { site } from "../site-info";
     </script>
   </head>
   <body
-    class="transition-all duration-300 min-h-full bg-color2 dark:bg-dcolor1 text-black dark:text-white font-sans leading-normal tracking-wide"
+    class="transition-all duration-300 min-h-full bg-color2 dark:bg-dcolor2 text-black dark:text-white font-sans leading-normal tracking-wide"
   >
     {
       site.svgDefs.map(svgDef => (
@@ -49,13 +48,13 @@ import { site } from "../site-info";
       class="flex items-center justify-center w-full min-h-full sm:p-4 md:p-8 lg:p-12"
     >
       <div
-        class="w-full h-full sm:max-w-md md:max-w-7xl relative sm:shadow sm:rounded-xl bg-gradient-to-b from-white/50 to-zinc-100/50 dark:from-zinc-800/50 dark:to-black/50 overflow-hidden"
+        class="w-full h-full sm:max-w-md md:max-w-7xl relative sm:shadow sm:rounded-xl bg-gradient-to-b from-white/75 to-zinc-100/75 dark:from-zinc-800/75 dark:to-black/75 overflow-hidden"
       >
         <div
           class="mx-auto md:absolute md:top-0 md:right-0 overflow-visible w-full aspect-square md:w-128 md:h-128 lg:w-160 lg:h-160"
         >
           <img
-            src={picUrl}
+            src={site.photoUrl}
             width="100%"
             height="100%"
             alt=""

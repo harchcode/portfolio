@@ -198,13 +198,13 @@ export function resetCtx(mode?: "light" | "dark") {
   if (currentMode === "light") {
     ctx.globalAlpha = 0.5;
     ctx.lineWidth = 1;
-    ctx.strokeStyle = "#666";
+    ctx.strokeStyle = "#999";
     ctx.fillStyle = "#fff";
   } else if (currentMode === "dark") {
     ctx.globalAlpha = 0.5;
     ctx.lineWidth = 1;
     ctx.strokeStyle = "#fff";
-    ctx.fillStyle = "#333";
+    ctx.fillStyle = "#ccc";
   }
 
   requestDraw();
