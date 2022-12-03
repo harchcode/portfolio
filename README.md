@@ -4,3 +4,5 @@ Color Pallete:
 - https://colorhunt.co/palette/2c36393f4e4fa27b5cdcd7c9
 
 Icons: https://ionic.io/ionicons and https://www.flaticon.com/
+
+Profile pic: https://publicdomainvectors.org/en/free-clipart/Game-baddie-basic-guy-vector-image/16891.html
