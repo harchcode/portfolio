@@ -51,7 +51,7 @@ import { site } from "../site-info";
         class="content w-full h-full sm:max-w-md md:max-w-7xl relative sm:shadow sm:rounded-xl bg-gradient-to-b from-white/75 to-zinc-100/75 dark:from-zinc-800/75 dark:to-black/75 overflow-hidden"
       >
         <div
-          class="mx-auto md:absolute md:top-0 md:right-0 overflow-visible w-full aspect-square md:w-128 md:h-128 lg:w-160 lg:h-160"
+          class="mx-auto md:absolute md:top-0 md:right-0 overflow-visible w-full aspect-square md:w-128 md:h-128"
         >
           <img
             src={site.photoUrl}
@@ -93,27 +93,32 @@ import { site } from "../site-info";
               site.works.map((work, i) => (
                 <div>
                   <div class="flex items-center">
-                    <div class="w-20 h-20 md:w-24 md:h-24 rounded-full bg-white">
-                      <img
-                        src={work.imageSrc}
-                        alt={work.companyName}
-                        width="100%"
-                        height="100%"
-                        class="object-cover object-center rounded-full border-2 border-color4 dark:border-dcolor4"
-                        style="aspect-ratio: 1/1"
-                      />
+                    <div class="flex items-center bg-gradient-to-b from-white to-color1 dark:from-dcolor1 dark:to-black rounded-full overflow-hidden border-2 border-color3 dark:border-dcolor3">
+                      <div class="w-20 h-20 bg-white rounded-full">
+                        <img
+                          src={work.imageSrc}
+                          alt={work.companyName}
+                          width="100%"
+                          height="100%"
+                          class="w-20 h-20 object-cover object-center rounded-full"
+                        />
+                      </div>
+
+                      <div class="w-52 px-4">
+                        <div class="tracking-wider truncate text-color4 dark:text-dcolor4 font-bold">
+                          {work.companyName}
+                        </div>
+                        <div class="text-xs font-bold text-zinc-800 dark:text-zinc-100">
+                          {work.jobTitle}
+                        </div>
+                        <div class="text-xs text-gray-600 dark:text-gray-300 mt-2">
+                          {work.from} - {work.to}
+                        </div>
+                      </div>
                     </div>
                     {i < site.works.length - 1 && (
-                      <div class="w-24 md:w-28 border-t-2 border-color4 dark:border-dcolor4 shadow-md" />
+                      <div class="w-12 border-t-2 border-color3 dark:border-dcolor3 shadow-md" />
                     )}
-                  </div>
-                  <div class="mt-2 w-40 md:w-48 contrast-200">
-                    <div class="text-xs text-gray-600 dark:text-gray-300">
-                      {work.from} - {work.to}
-                    </div>
-                    <div class="text-sm md:text-base tracking-wider truncate text-color4 dark:text-dcolor4 font-bold">
-                      {work.companyName}
-                    </div>
                   </div>
                 </div>
               ))
