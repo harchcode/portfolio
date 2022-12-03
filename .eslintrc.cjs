@@ -12,10 +12,9 @@ module.exports = {
     // Error
     "arrow-parens": ["error", "as-needed", { requireForBlockBody: false }],
     "comma-dangle": ["error", "never"],
-    "max-lines": ["error", 600],
+    "max-lines": ["error", 5000],
     "no-console": ["error", { allow: ["warn", "error", "info"] }],
     "no-param-reassign": ["error", { props: false }],
-    "@typescript-eslint/no-use-before-define": ["error", { functions: false }],
-    "@typescript-eslint/no-unused-vars": ["error", { varsIgnorePattern: "el" }]
+    "@typescript-eslint/no-use-before-define": ["error", { functions: false }]
   }
 };

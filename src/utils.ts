@@ -51,8 +51,3 @@ export function tween(
     animate();
   });
 }
-
-export default {
-  tween,
-  easeInOutQuad
-};

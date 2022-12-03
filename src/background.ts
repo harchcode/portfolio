@@ -4,31 +4,11 @@ import {
   getRandomIntInclusive
 } from "./utils";
 
-enum ShapeType {
-  Triangle,
-  Circle,
-  Square
-}
+const canvas = document.getElementById("canvas") as HTMLCanvasElement;
+const workDiv = document.getElementById("work-div") as HTMLDivElement;
+const projectDiv = document.getElementById("project-div") as HTMLDivElement;
 
-enum FillColor {
-  RED,
-  YELLOW,
-  GREEN,
-  BLUE,
-  INDIGO,
-  PURPLE,
-  PINK
-}
-
-const fillColors: Record<FillColor, string> = {
-  [FillColor.RED]: "#F87171",
-  [FillColor.YELLOW]: "#FBBF24",
-  [FillColor.GREEN]: "#34D399",
-  [FillColor.BLUE]: "#60A5FA",
-  [FillColor.INDIGO]: "#818CF8",
-  [FillColor.PURPLE]: "#A78BFA",
-  [FillColor.PINK]: "#F472B6"
-};
+let ctx: CanvasRenderingContext2D;
 
 type Shape = {
   shapeType: ShapeType;
@@ -40,8 +20,16 @@ type Shape = {
   endY: number;
   endScale: number;
   endRotation: number;
-  color: FillColor;
 };
+
+enum ShapeType {
+  Triangle,
+  Circle,
+  Square
+}
+
+const shapes: Shape[] = [];
+let isDrawing = false;
 
 const cos30 = Math.cos((Math.PI * 30) / 180);
 const triangleRadius = 75;
@@ -51,21 +39,57 @@ const triangleSmallH = triangleRadius / 2;
 const squareWidth = 75;
 const circleRadius = 50;
 
-let canvas: HTMLCanvasElement;
-let ctx: CanvasRenderingContext2D;
-const shapes: Shape[] = [];
+function requestDraw() {
+  if (!isDrawing) {
+    requestAnimationFrame(requestDrawHandler);
+  }
 
-export function drawBackground() {
-  if (!canvas || !ctx) return;
+  isDrawing = true;
+}
 
-  const maxScroll = Math.max(
-    0,
-    document.body.scrollHeight - window.innerHeight
-  );
+function requestDrawHandler() {
+  isDrawing = false;
 
-  const progress = window.scrollY / maxScroll;
+  draw();
+}
+
+function draw() {
+  // resize canvas if needed
+  if (
+    canvas.width !== window.innerWidth ||
+    canvas.height !== window.innerHeight
+  ) {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    resetCtx();
+  }
+
+  const maxWindowScroll = document.body.scrollHeight - window.innerHeight;
+  const maxWorkScroll = workDiv.scrollWidth - workDiv.clientWidth;
+  const maxProjectScroll = projectDiv.scrollWidth - projectDiv.clientWidth;
+
+  const total = maxWindowScroll + maxWorkScroll + maxProjectScroll;
+  let totalScroll = 0;
+  let progress = 0;
+
+  if (maxWindowScroll > 0) {
+    totalScroll += document.body.scrollTop;
+  }
+
+  if (maxWorkScroll > 0) {
+    totalScroll += workDiv.scrollLeft;
+  }
+
+  if (maxProjectScroll > 0) {
+    totalScroll += projectDiv.scrollLeft;
+  }
+
+  progress = totalScroll / (total || 1);
 
   ctx.resetTransform();
+
+  // clear canvas
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
   for (let i = 0; i < shapes.length; i++) {
@@ -78,8 +102,7 @@ export function drawBackground() {
       endX,
       endY,
       endScale,
-      endRotation,
-      color
+      endRotation
     } = shapes[i];
 
     const x = easeInOutQuad(progress, startX, endX - startX, 1);
@@ -92,7 +115,6 @@ export function drawBackground() {
       1
     );
 
-    ctx.fillStyle = fillColors[color];
     ctx.resetTransform();
     ctx.translate(x, y);
     ctx.scale(scale, scale);
@@ -105,34 +127,48 @@ export function drawBackground() {
         squareWidth,
         squareWidth
       );
+      ctx.strokeRect(
+        -squareWidth * 0.5,
+        -squareWidth * 0.5,
+        squareWidth,
+        squareWidth
+      );
     } else if (shapeType === ShapeType.Circle) {
       ctx.beginPath();
       ctx.arc(0, 0, circleRadius, 0, Math.PI * 2);
       ctx.fill();
+      ctx.stroke();
     } else if (shapeType === ShapeType.Triangle) {
       ctx.beginPath();
       ctx.moveTo(-triangleSideHalf, triangleSmallH);
       ctx.lineTo(triangleSideHalf, triangleSmallH);
       ctx.lineTo(0, -triangleRadius);
+      ctx.closePath();
       ctx.fill();
+      ctx.stroke();
     }
   }
 }
 
 export function initBackground() {
-  canvas = document.getElementById("canvas") as HTMLCanvasElement;
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
 
-  ctx = canvas.getContext("2d");
-  ctx.globalAlpha = 0.1;
+  const context = canvas.getContext("2d");
+
+  if (!context) return;
+
+  ctx = context;
+
+  document.body.addEventListener("scroll", requestDraw);
+  workDiv.addEventListener("scroll", requestDraw);
+  projectDiv.addEventListener("scroll", requestDraw);
 
   const area = canvas.width * canvas.height;
-  const minScale = 0.5;
-  const maxScale = 2.0;
+  const minScale = 0.75;
+  const maxScale = 1.5;
   const shapeCount = 3 + Math.ceil(area / 100000);
   const shapeTypeCount = Object.keys(ShapeType).length / 2;
-  const colorCount = Object.keys(FillColor).length / 2;
 
   shapes.length = 0;
 
@@ -146,14 +182,30 @@ export function initBackground() {
       endX: getRandomIntInclusive(0, canvas.width),
       endY: getRandomIntInclusive(0, canvas.height),
       endScale: getRandomArbitrary(minScale, maxScale),
-      endRotation: getRandomIntInclusive(30, 1440),
-      color: getRandomIntInclusive(0, colorCount - 1) as FillColor
+      endRotation: getRandomIntInclusive(30, 720)
     };
 
     shapes.push(shape);
   }
 
-  requestAnimationFrame(() => {
-    drawBackground();
-  });
+  requestDraw();
+}
+
+let currentMode: "light" | "dark" = "light";
+export function resetCtx(mode?: "light" | "dark") {
+  currentMode = mode || currentMode;
+
+  if (currentMode === "light") {
+    ctx.globalAlpha = 0.5;
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "#999";
+    ctx.fillStyle = "#fff";
+  } else if (currentMode === "dark") {
+    ctx.globalAlpha = 0.5;
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "#fff";
+    ctx.fillStyle = "#ccc";
+  }
+
+  requestDraw();
 }

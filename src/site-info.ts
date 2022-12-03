@@ -1,3 +1,15 @@
+import profilePic from "./assets/profile.svg";
+import tvlkLogo from "./assets/logo-tvlk.jpeg";
+import blLogo from "./assets/logo-bl.png";
+import xmiLogo from "./assets/logo-xmi.png";
+import gsgLogo from "./assets/logo-gsg.jpeg";
+import ssUbur from "./assets/ss-ubur.png";
+import ssWebDigraph from "./assets/ss-web-digraph.png";
+import ssSudoku from "./assets/ss-sudoku.png";
+import ssGaguna from "./assets/ss-gaguna.png";
+import ssPortfolio from "./assets/ss-portfolio.png";
+import ssKisstastic from "./assets/ss-kisstastic.png";
+
 type SVGSymbolId = "doc" | "email" | "github" | "linkedin" | "play";
 
 export type SVGDef = {
@@ -14,7 +26,8 @@ export type SocialLink = {
 
 export type Work = {
   imageSrc: string;
-  periode: string;
+  from: string;
+  to: string;
   companyName: string;
   jobTitle: string;
   checklist: string[];
@@ -26,6 +39,7 @@ export type Project = {
   imageSrc: string;
   tags: string[];
   description: string;
+  url: string;
   links: {
     text: string;
     url: string;
@@ -36,6 +50,8 @@ export type SiteInfo = {
   title: string;
   description: string;
   svgDefs: SVGDef[];
+  name: string;
+  jobTitle: string;
   photoUrl: string;
   intro: string;
   socialLinks: SocialLink[];
@@ -53,9 +69,11 @@ function html(strings: TemplateStringsArray, ...values: unknown[]) {
   return str;
 }
 
-const siteInfo: SiteInfo = {
+export const site: SiteInfo = {
   title: "Hartono Chandra",
-  description: "",
+  description: "I am Hartono Chandra.",
+  name: "Hartono Chandra",
+  jobTitle: "Software Engineer - Web",
   svgDefs: [
     {
       id: "doc",
@@ -83,7 +101,7 @@ const siteInfo: SiteInfo = {
       path: "M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-3 17v-10l9 5.146-9 4.854z"
     }
   ],
-  photoUrl: "/assets/login.svg",
+  photoUrl: profilePic,
   intro:
     "I am just your average software engineer, specialized in web. Nothing special about me, I just happen to have a job as a web engineer, and can do my job as expected like everyone else.",
   socialLinks: [
@@ -110,8 +128,9 @@ const siteInfo: SiteInfo = {
   ],
   works: [
     {
-      imageSrc: "/assets/logo-tvlk.jpeg",
-      periode: "February 2020 - Present",
+      imageSrc: tvlkLogo,
+      from: "Feb 2020",
+      to: "Present",
       companyName: "Traveloka",
       jobTitle: "Software Engineer - Web",
       tags: ["React", "Semantic UI", "react-digraph", "Typescript", "Jest"],
@@ -125,10 +144,11 @@ const siteInfo: SiteInfo = {
       ]
     },
     {
-      imageSrc: "/assets/logo-bl.png",
-      periode: "September 2018 - September 2019",
+      imageSrc: blLogo,
+      from: "Sep 2018",
+      to: "Sep 2019",
       companyName: "Bukalapak",
-      jobTitle: "Software Engineer - Front End",
+      jobTitle: "Software Engineer - FE",
       tags: ["D3", "Vue", "Pug", "PWA"],
       checklist: [
         "Used Vue and Pug as the frontend framework.",
@@ -136,8 +156,9 @@ const siteInfo: SiteInfo = {
       ]
     },
     {
-      imageSrc: "/assets/logo-xmi.png",
-      periode: "October 2017 - May 2018",
+      imageSrc: xmiLogo,
+      from: "Oct 2017",
+      to: "May 2018",
       companyName: "XMI",
       jobTitle: "Programmer",
       tags: ["Ionic", "Slim", "PixiJS"],
@@ -146,8 +167,9 @@ const siteInfo: SiteInfo = {
       ]
     },
     {
-      imageSrc: "/assets/logo-gsg.jpeg",
-      periode: "November 2013 - April 2017",
+      imageSrc: gsgLogo,
+      from: "Nov 2013",
+      to: "Apr 2017",
       companyName: "Growth Steel Group",
       jobTitle: "Programmer",
       tags: ["JQuery", "AngularJS", "Vue", "ASP.Net", "Crystal Reports"],
@@ -161,8 +183,9 @@ const siteInfo: SiteInfo = {
   projects: [
     {
       name: "Ubur",
-      imageSrc: "/assets/ss-ubur.png",
-      tags: ["Typescript", "WebGL", "Canvas"],
+      imageSrc: ssUbur,
+      tags: ["Rust", "WebAssembly", "Typescript", "WebGL", "Canvas"],
+      url: "https://ubur.netlify.app/",
       links: [
         {
           text: "See it in action",
@@ -184,8 +207,9 @@ const siteInfo: SiteInfo = {
     },
     {
       name: "Web Digraph",
-      imageSrc: "/assets/ss-web-digraph.png",
+      imageSrc: ssWebDigraph,
       tags: ["Typescript", "Canvas", "Library", "Graph"],
+      url: "https://web-digraph.netlify.app/",
       links: [
         {
           text: "See the demo",
@@ -217,8 +241,9 @@ const siteInfo: SiteInfo = {
     },
     {
       name: "Simple Sudoku TS",
-      imageSrc: "/assets/ss-sudoku.png",
-      tags: ["Typescript", "Sudoku"],
+      imageSrc: ssSudoku,
+      tags: ["Rust", "WebAssembly", "Typescript", "Sudoku"],
+      url: "https://simple-sudoku-ts.netlify.app/",
       links: [
         {
           text: "See it in action",
@@ -242,8 +267,9 @@ const siteInfo: SiteInfo = {
     },
     {
       name: "Gaguna",
-      imageSrc: "/assets/ss-gaguna.png",
+      imageSrc: ssGaguna,
       tags: ["Typescript", "Utils"],
+      url: "https://github.com/harchcode/gaguna",
       links: [
         {
           text: "Go to the docs site",
@@ -268,9 +294,10 @@ const siteInfo: SiteInfo = {
         </p>`
     },
     {
-      name: "This Portfolio Site",
-      imageSrc: "/assets/ss-portfolio.png",
+      name: "This Site",
+      imageSrc: ssPortfolio,
       tags: ["Typescript", "Tailwind", "Astro", "Canvas"],
+      url: "https://github.com/harchcode/portfolio",
       links: [
         {
           text: "See the source code",
@@ -289,8 +316,9 @@ const siteInfo: SiteInfo = {
     },
     {
       name: "Kisstastic",
-      imageSrc: "/assets/ss-kisstastic.png",
+      imageSrc: ssKisstastic,
       tags: ["Typescript", "PixiJS"],
+      url: "https://kisstastic.netlify.app/",
       links: [
         {
           text: "See the source code",
@@ -314,5 +342,3 @@ const siteInfo: SiteInfo = {
     }
   ]
 };
-
-export default siteInfo;

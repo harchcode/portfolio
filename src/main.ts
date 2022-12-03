@@ -1,96 +1,80 @@
-import { drawBackground, initBackground } from "./background";
-import { tween } from "./utils";
+import { initBackground, resetCtx } from "./background";
 
-const menuAnchors: HTMLElement[] = [];
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  menuAnchors.push(anchor as HTMLElement);
-});
+const systemModeButton = document.getElementById(
+  "system-mode-button"
+) as HTMLButtonElement;
 
-const menuAnchorMap: Record<string, HTMLElement> = {};
-const menuDivs: HTMLElement[] = [];
-const menuDivMap: Record<string, HTMLElement> = {};
+const lightModeButton = document.getElementById(
+  "light-mode-button"
+) as HTMLButtonElement;
 
-const ACTIVE_MENU_CLASS = "active";
+const darkModeButton = document.getElementById(
+  "dark-mode-button"
+) as HTMLButtonElement;
 
-function windowScrollY(to: number) {
-  window.scrollTo(window.scrollX, to);
+function clearSelectedTheme() {
+  systemModeButton.classList.remove("active");
+  lightModeButton.classList.remove("active");
+  darkModeButton.classList.remove("active");
 }
 
-menuAnchors.forEach(anchor => {
-  const href = anchor.getAttribute("href");
-  const id = href.substr(1);
+function initSelectedTheme() {
+  clearSelectedTheme();
 
-  menuAnchorMap[id] = anchor;
+  if (!localStorage.theme) {
+    systemModeButton.classList.add("active");
+  } else if (localStorage.theme === "light") {
+    lightModeButton.classList.add("active");
+  } else if (localStorage.theme === "dark") {
+    darkModeButton.classList.add("active");
+  }
+}
 
-  const div = document.getElementById(id);
-  menuDivs.push(div);
-  menuDivMap[id] = div;
+function isDarkTheme() {
+  return (
+    localStorage.theme === "dark" ||
+    (!("theme" in localStorage) &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches)
+  );
+}
 
-  anchor.addEventListener("click", function (e) {
-    e.preventDefault();
+function main() {
+  initSelectedTheme();
+  initBackground();
+  resetCtx(isDarkTheme() ? "dark" : "light");
 
-    tween(window.scrollY, div.offsetTop, 1000, windowScrollY);
-  });
-});
+  systemModeButton.addEventListener("click", () => {
+    localStorage.removeItem("theme");
 
-let lastKnownScrollPosition = 0;
-let ticking = false;
-
-function getActiveMenuId(scrollPos: number): string {
-  for (let i = menuDivs.length - 1; i >= 0; i--) {
-    const menuDiv = menuDivs[i] as HTMLElement;
-
-    if (scrollPos >= menuDiv.offsetTop - 300) {
-      return menuDiv.id;
+    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      document.documentElement.classList.add("dark");
+      resetCtx("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+      resetCtx("light");
     }
-  }
 
-  return "";
+    clearSelectedTheme();
+    systemModeButton.classList.add("active");
+  });
+
+  lightModeButton.addEventListener("click", () => {
+    localStorage.theme = "light";
+    document.documentElement.classList.remove("dark");
+    resetCtx("light");
+
+    clearSelectedTheme();
+    lightModeButton.classList.add("active");
+  });
+
+  darkModeButton.addEventListener("click", () => {
+    localStorage.theme = "dark";
+    document.documentElement.classList.add("dark");
+    resetCtx("dark");
+
+    clearSelectedTheme();
+    darkModeButton.classList.add("active");
+  });
 }
 
-function setActiveMenu(id: string) {
-  for (const anchor of menuAnchors) {
-    anchor.classList.remove(ACTIVE_MENU_CLASS);
-  }
-
-  menuAnchorMap[id].classList.add(ACTIVE_MENU_CLASS);
-}
-
-function onScroll(scrollPos: number) {
-  setActiveMenu(getActiveMenuId(scrollPos));
-
-  drawBackground();
-}
-
-function handleScroll() {
-  onScroll(lastKnownScrollPosition);
-  ticking = false;
-}
-
-window.addEventListener("scroll", () => {
-  lastKnownScrollPosition = window.scrollY;
-
-  if (!ticking) {
-    window.requestAnimationFrame(handleScroll);
-
-    ticking = true;
-  }
-});
-
-// window.addEventListener("resize", () => {
-//   initBackground();
-// });
-
-function initPage() {
-  setActiveMenu(getActiveMenuId(window.scrollY));
-
-  const tmp = window.location.hash ? window.location.hash.substr(1) : undefined;
-  if (!tmp) return;
-
-  setTimeout(() => {
-    tween(window.scrollY, menuDivMap[tmp].offsetTop, 1000, windowScrollY);
-  }, 500);
-}
-
-initPage();
-initBackground();
+main();
