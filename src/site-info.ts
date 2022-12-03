@@ -129,7 +129,7 @@ export const site: SiteInfo = {
   works: [
     {
       imageSrc: tvlkLogo,
-      from: "February 2020",
+      from: "Feb 2020",
       to: "Present",
       companyName: "Traveloka",
       jobTitle: "Software Engineer - Web",
@@ -145,10 +145,10 @@ export const site: SiteInfo = {
     },
     {
       imageSrc: blLogo,
-      from: "September 2018",
-      to: "September 2019",
+      from: "Sep 2018",
+      to: "Sep 2019",
       companyName: "Bukalapak",
-      jobTitle: "Software Engineer - Front End",
+      jobTitle: "Software Engineer - FE",
       tags: ["D3", "Vue", "Pug", "PWA"],
       checklist: [
         "Used Vue and Pug as the frontend framework.",
@@ -157,7 +157,7 @@ export const site: SiteInfo = {
     },
     {
       imageSrc: xmiLogo,
-      from: "October 2017",
+      from: "Oct 2017",
       to: "May 2018",
       companyName: "XMI",
       jobTitle: "Programmer",
@@ -168,8 +168,8 @@ export const site: SiteInfo = {
     },
     {
       imageSrc: gsgLogo,
-      from: "November 2013",
-      to: "April 2017",
+      from: "Nov 2013",
+      to: "Apr 2017",
       companyName: "Growth Steel Group",
       jobTitle: "Programmer",
       tags: ["JQuery", "AngularJS", "Vue", "ASP.Net", "Crystal Reports"],

@@ -104,15 +104,12 @@ import { site } from "../site-info";
                       />
                     </div>
                     {i < site.works.length - 1 && (
-                      <div class="w-20 md:w-24 border-t-2 border-color4 dark:border-dcolor4 shadow-md" />
+                      <div class="w-24 md:w-28 border-t-2 border-color4 dark:border-dcolor4 shadow-md" />
                     )}
                   </div>
-                  <div class="mt-2 w-32 md:w-44">
+                  <div class="mt-2 w-40 md:w-48 contrast-200">
                     <div class="text-xs text-gray-600 dark:text-gray-300">
-                      {work.from} -
-                    </div>
-                    <div class="text-xs text-gray-600 dark:text-gray-300">
-                      {work.to}
+                      {work.from} - {work.to}
                     </div>
                     <div class="text-sm md:text-base tracking-wider truncate text-color4 dark:text-dcolor4 font-bold">
                       {work.companyName}
