@@ -58,6 +58,23 @@ export function createElementFromHTML(htmlString: string) {
   return template.content.children[0];
 }
 
+export function removeElement(el: Element) {
+  el.parentNode?.removeChild(el);
+}
+
+export function removeElementById(id: string) {
+  const el = document.getElementById(id);
+  el?.parentNode?.removeChild(el);
+}
+
+export function removeElementsByClassName(className: string, root = document) {
+  const els = root.getElementsByClassName(className);
+
+  for (const el of els) {
+    el.parentNode?.removeChild(el);
+  }
+}
+
 // Helper function for element transition in and out
 export async function transitionOut(
   el: HTMLElement,

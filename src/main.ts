@@ -1,13 +1,14 @@
-import { transitionIn, transitionOut } from "./gaguna";
+import { removeElement, removeElementById, transitionOut } from "./gaguna";
 import { wait } from "./gaguna/misc";
 
 async function main() {
-  const startTime = Date.now();
+  if (!("timeStart" in window) || typeof window.timeStart !== "number") return;
+
+  const startTime = window.timeStart;
+  console.log(startTime);
 
   const loadingDiv = document.getElementById("loading-div");
   if (!loadingDiv) return;
-
-  await transitionIn(loadingDiv);
 
   await import("./style.css");
 
@@ -18,11 +19,12 @@ async function main() {
     await wait(1000 - elapsed);
   }
 
+  removeElementById("initialization-script");
+
   await transitionOut(loadingDiv);
 
-  loadingDiv.parentNode?.removeChild(loadingDiv);
-  const loadingStyle = document.getElementById("loading-style");
-  loadingStyle?.parentNode?.removeChild(loadingStyle);
+  removeElement(loadingDiv);
+  removeElementById("loading-style");
 }
 
 main();
