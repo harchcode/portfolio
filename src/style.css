@@ -1,3 +1,52 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.talkbubble::before {
+  content: "";
+  position: absolute;
+  right: 100%;
+  top: 2rem;
+  width: 0;
+  height: 0;
+  border-top: 1rem solid transparent;
+  border-right: 2rem solid white;
+  border-bottom: 1rem solid transparent;
+}
+
+.typewriter {
+  width: fit-content;
+}
+
+/* https://css-tricks.com/snippets/css/typewriter-effect/ */
+.typewriter span {
+  display: inline-block;
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  animation:
+    typing 2.5s steps(40, end),
+    blink-caret 0.75s step-end 6;
+  border-color: transparent;
+}
+
+/* The typing effect */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: black;
+  }
+}

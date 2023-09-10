@@ -11,6 +11,17 @@ export async function loadImage(url: string): Promise<HTMLImageElement> {
   });
 }
 
+export async function loadImageWithEl(
+  img: HTMLImageElement,
+  url: string
+): Promise<void> {
+  return new Promise((resolve, reject) => {
+    img.onload = () => resolve();
+    img.onerror = reject;
+    img.src = url;
+  });
+}
+
 export async function loadSound(url: string): Promise<HTMLAudioElement> {
   const sound = new Audio();
 
