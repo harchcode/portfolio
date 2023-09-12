@@ -50,3 +50,7 @@
     border-color: black;
   }
 }
+
+.social-button svg path {
+  fill: #fff;
+}
