@@ -7,7 +7,7 @@ export function AboutSection() {
       class="px-4 py-16 max-w-screen-lg min-h-screen mx-auto flex flex-col items-center justify-center"
     >
       <div class="flex items-center w-full">
-        <div class="w-96 h-96 flex-shrink-0 flex-grow-0">
+        <div class="w-96 h-96 flex-none">
           <img
             src="/public/profile.svg"
             width="100%"
@@ -19,7 +19,7 @@ export function AboutSection() {
           class="bg-white px-6 py-4 flex-auto relative rounded-xl tracking-wider talkbubble"
           style="filter: drop-shadow(0 0 2px #ccc)"
         >
-          <div class="text-2xl md:text-5xl">Hi&#10071; I am</div>
+          <div class="text-2xl md:text-5xl">Hi, I am</div>
           <div class="text-2xl md:text-5xl md:mt-2 typewriter">
             <span class="border-r-4">Hartono Chandra</span>
           </div>

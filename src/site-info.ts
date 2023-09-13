@@ -1,4 +1,5 @@
 import logoTvlk from "./assets/logo-tvlk.jpeg";
+import ssUbur from "./assets/ss-ubur.png";
 
 type SVGSymbolId = "doc" | "email" | "github" | "linkedin" | "play";
 
@@ -163,7 +164,7 @@ const siteInfo: SiteInfo = {
   projects: [
     {
       name: "Ubur",
-      imageSrc: "/assets/ss-ubur.png",
+      imageSrc: ssUbur,
       tags: ["Typescript", "WebGL", "Canvas"],
       links: [
         {

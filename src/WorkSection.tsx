@@ -11,24 +11,27 @@ export function WorkSection() {
         <>
           <div class="relative">
             {i !== siteInfo.works.length - 1 && (
-              <div class="absolute w-12 md:w-24 h-full flex justify-center mt-8">
-                <div class="bg-black w-0.5 md:w-1 h-full"></div>
+              <div class="absolute w-12 md:w-24 h-full flex justify-center">
+                <div class="bg-black w-0.5 h-full"></div>
               </div>
             )}
 
             <div
               class={`relative flex space-x-4 md:space-x-12${
-                i === 0 ? "" : " mt-8"
+                i === siteInfo.works.length - 1 ? "" : " mb-24"
               }`}
             >
               <div
                 class="w-12 h-12 md:w-24 md:h-24 rounded-full bg-white border-black border-2 flex-none bg-contain"
                 style={`background-image: url(${work.imageSrc})`}
               ></div>
-              <div class="md:flex md:space-x-12">
+
+              <div class="md:flex md:space-x-12 flex-auto bg-white px-4 pt-3 pb-4 rounded shadow border-r-4 border-r-blue-600">
                 <div class="w-full md:w-64 md:flex-none">
                   <div>
-                    <span class="font-bold text-xs">{work.periode}</span>
+                    <span class="leading-none font-bold text-xs">
+                      {work.periode}
+                    </span>
                   </div>
                   <div class="text-2xl md:mt-1 tracking-wider">
                     {work.companyName}
@@ -44,14 +47,6 @@ export function WorkSection() {
                 </div>
               </div>
             </div>
-          </div>
-
-          <div class="flex-auto relative">
-            {i !== siteInfo.works.length - 1 && (
-              <div class="absolute w-12 md:w-24 h-full flex justify-center mt-8">
-                <div class="bg-black w-0.5 md:w-1 h-full"></div>
-              </div>
-            )}
           </div>
         </>
       ))}
