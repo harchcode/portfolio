@@ -1,3 +1,5 @@
+import logoTvlk from "./assets/logo-tvlk.jpeg";
+
 type SVGSymbolId = "doc" | "email" | "github" | "linkedin" | "play";
 
 export type SVGDef = {
@@ -110,7 +112,7 @@ const siteInfo: SiteInfo = {
   ],
   works: [
     {
-      imageSrc: "/assets/logo-tvlk.jpeg",
+      imageSrc: logoTvlk,
       periode: "February 2020 - Present",
       companyName: "Traveloka",
       jobTitle: "Software Engineer - Web",

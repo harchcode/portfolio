@@ -33,12 +33,12 @@ async function main() {
   removeElementById("initialization-script");
 
   const root = document.createElement("div");
-  root.className = "w-full h-full";
+  root.className = "w-full min-h-full bg-lime-50";
   root.style.display = "none";
   root.style.opacity = "0";
   document.body.appendChild(root);
 
-  render(() => <MainPage />, root);
+  render(MainPage, root);
 
   await transitionOut(loadingDiv);
 
