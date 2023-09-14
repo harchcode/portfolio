@@ -20,8 +20,8 @@ export function AboutSection() {
           style="filter: drop-shadow(0 0 2px #ccc)"
         >
           <div class="text-2xl md:text-5xl">Hi, I am</div>
-          <div class="text-2xl md:text-5xl md:mt-2">
-            <span>Hartono Chandra</span>
+          <div class="text-2xl md:text-5xl md:mt-2 typewriter">
+            <span class="border-r-4">Hartono Chandra</span>
           </div>
           <div class="mt-2 md:mt-8 font-bold md:text-xl text-gray-800">
             Software Engineer - Web
