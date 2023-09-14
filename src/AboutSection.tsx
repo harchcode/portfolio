@@ -4,10 +4,10 @@ export function AboutSection() {
   return (
     <div
       id="about"
-      class="px-4 pt-4 pb-16 max-w-screen-lg min-h-screen mx-auto flex flex-col items-center justify-center"
+      class="px-4 py-16 max-w-screen-lg min-h-screen mx-auto flex flex-col items-center justify-center"
     >
-      <div class="w-full flex flex-col md:flex-row items-center">
-        <div class="w-96 h-96 flex-none">
+      <div class="w-full flex-auto flex flex-col md:flex-row items-center justify-center">
+        <div class="w-full max-w-lg md:w-80 lg:w-96 flex-none">
           <img
             src={siteInfo.photoUrl}
             width="100%"
@@ -20,8 +20,8 @@ export function AboutSection() {
           style="filter: drop-shadow(0 0 2px #ccc)"
         >
           <div class="text-2xl md:text-5xl">Hi, I am</div>
-          <div class="text-2xl md:text-5xl md:mt-2 typewriter">
-            <span class="border-r-4">Hartono Chandra</span>
+          <div class="text-2xl md:text-5xl md:mt-2">
+            <span>Hartono Chandra</span>
           </div>
           <div class="mt-2 md:mt-8 font-bold md:text-xl text-gray-800">
             Software Engineer - Web
