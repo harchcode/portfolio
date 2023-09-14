@@ -7,8 +7,6 @@ import {
 import { wait } from "./gaguna/misc";
 import { render } from "solid-js/web";
 import { MainPage } from "./MainPage";
-import { getAssetUrl, loadUrls } from "./assets";
-import { loadImageWithEl } from "./gaguna/loader";
 
 async function main() {
   if (!("timeStart" in window) || typeof window.timeStart !== "number") return;
@@ -19,7 +17,6 @@ async function main() {
   const startTime = window.timeStart;
 
   await import("./style.css");
-  await loadUrls();
 
   const root = document.createElement("div");
   root.className = "w-full min-h-full bg-lime-50";
@@ -29,18 +26,24 @@ async function main() {
 
   render(MainPage, root);
 
+  //=================================
+  // Wait until all images are loaded
+  //=================================
   const imgElements = root.getElementsByTagName("img");
   const imgLoadPromises: Promise<void>[] = [];
 
   for (const imgEl of imgElements) {
-    const imageId = imgEl.dataset?.imageId;
+    if (!imgEl.src) continue;
 
-    if (!imageId) continue;
+    const promise = new Promise<void>(resolve => {
+      imgEl.onload = () => resolve();
+    });
 
-    imgLoadPromises.push(loadImageWithEl(imgEl, getAssetUrl(imageId)));
+    imgLoadPromises.push(promise);
   }
 
   await Promise.all(imgLoadPromises);
+  //=================================
 
   console.log("done");
 

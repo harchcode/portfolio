@@ -4,19 +4,19 @@ export function AboutSection() {
   return (
     <div
       id="about"
-      class="px-4 py-16 max-w-screen-lg min-h-screen mx-auto flex flex-col items-center justify-center"
+      class="px-4 pt-4 pb-16 max-w-screen-lg min-h-screen mx-auto flex flex-col items-center justify-center"
     >
-      <div class="flex items-center w-full">
+      <div class="w-full flex flex-col md:flex-row items-center">
         <div class="w-96 h-96 flex-none">
           <img
-            src="/public/profile.svg"
+            src={siteInfo.photoUrl}
             width="100%"
             height="100%"
             style="filter: drop-shadow(0 0 2px #666)"
           />
         </div>
         <div
-          class="bg-white px-6 py-4 flex-auto relative rounded-xl tracking-wider talkbubble"
+          class="bg-white px-6 py-4 flex-auto relative rounded-xl tracking-wider"
           style="filter: drop-shadow(0 0 2px #ccc)"
         >
           <div class="text-2xl md:text-5xl">Hi, I am</div>
@@ -33,7 +33,7 @@ export function AboutSection() {
           </div>
         </div>
       </div>
-      <div class="flex space-x-4 mt-2 md:mt-16">
+      <div class="flex space-x-4 mt-8 md:mt-16">
         {siteInfo.socialLinks.map(link => (
           <a
             href={link.url}

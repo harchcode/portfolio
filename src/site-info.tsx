@@ -1,5 +1,15 @@
 import { JSX } from "solid-js/jsx-runtime";
+import profilePic from "./assets/profile.svg";
+import tvlkLogo from "./assets/logo-tvlk.jpeg";
+import blLogo from "./assets/logo-bl.png";
+import xmiLogo from "./assets/logo-xmi.png";
+import gsgLogo from "./assets/logo-gsg.jpeg";
 import ssUbur from "./assets/ss-ubur.png";
+import ssWebDigraph from "./assets/ss-web-digraph.png";
+import ssSudoku from "./assets/ss-sudoku.png";
+import ssGaguna from "./assets/ss-gaguna.png";
+import ssPortfolio from "./assets/ss-portfolio.png";
+import ssKisstastic from "./assets/ss-kisstastic.png";
 
 type SVGSymbolId = "doc" | "email" | "github" | "linkedin" | "play";
 
@@ -16,7 +26,7 @@ export type SocialLink = {
 };
 
 export type Work = {
-  imageId: string;
+  imageSrc: string;
   periode: string;
   companyName: string;
   jobTitle: string;
@@ -27,13 +37,14 @@ export type Work = {
 
 export type Project = {
   name: string;
-  imageId: string;
+  imageSrc: string;
   tags: string[];
   description: string | JSX.Element;
   links: {
     text: string;
     url: string;
   }[];
+  borderClass: string;
 };
 
 export type SiteInfo = {
@@ -77,7 +88,7 @@ const siteInfo: SiteInfo = {
       path: "M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-3 17v-10l9 5.146-9 4.854z"
     }
   ],
-  photoUrl: "/assets/login.svg",
+  photoUrl: profilePic,
   intro:
     "I am just your average software engineer, specialized in web. Nothing special about me, I just happen to have a job as a web engineer, and can do my job as expected like everyone else.",
   socialLinks: [
@@ -104,7 +115,7 @@ const siteInfo: SiteInfo = {
   ],
   works: [
     {
-      imageId: "logo-tvlk.jpeg",
+      imageSrc: tvlkLogo,
       periode: "February 2020 - Present",
       companyName: "Traveloka",
       jobTitle: "Software Engineer - Web",
@@ -112,8 +123,7 @@ const siteInfo: SiteInfo = {
       checklist: [
         "Used React and Semantic UI as frontend framework.",
         <>
-          Used
-          <a href="https://github.com/uber/react-digraph">react-digraph</a>
+          Used <a href="https://github.com/uber/react-digraph">react-digraph</a>{" "}
           for creating directed graph.
         </>,
         "Done some basic infra works with Terraform.",
@@ -122,7 +132,7 @@ const siteInfo: SiteInfo = {
       borderClass: "border-blue-600"
     },
     {
-      imageId: "logo-bl.png",
+      imageSrc: blLogo,
       periode: "September 2018 - September 2019",
       companyName: "Bukalapak",
       jobTitle: "Software Engineer - Front End",
@@ -134,7 +144,7 @@ const siteInfo: SiteInfo = {
       borderClass: "border-red-600"
     },
     {
-      imageId: "logo-xmi.png",
+      imageSrc: xmiLogo,
       periode: "October 2017 - May 2018",
       companyName: "XMI",
       jobTitle: "Programmer",
@@ -145,7 +155,7 @@ const siteInfo: SiteInfo = {
       borderClass: "border-zinc-500"
     },
     {
-      imageId: "logo-gsg.jpeg",
+      imageSrc: gsgLogo,
       periode: "November 2013 - April 2017",
       companyName: "Growth Steel Group",
       jobTitle: "Programmer",
@@ -155,13 +165,14 @@ const siteInfo: SiteInfo = {
         "Migrated from ASP.Net Web Forms to REST API with ASP.Net using C# as the programming language.",
         "Created reports with Crystal Reports."
       ],
-      borderClass: "border-stone-400"
+      borderClass: "border-indigo-600"
     }
   ],
   projects: [
     {
       name: "Ubur",
-      imageId: ssUbur,
+      imageSrc: ssUbur,
+      borderClass: "border-fuchsia-800",
       tags: ["Typescript", "WebGL", "Canvas"],
       links: [
         {
@@ -188,7 +199,8 @@ const siteInfo: SiteInfo = {
     },
     {
       name: "Web Digraph",
-      imageId: "/assets/ss-web-digraph.png",
+      imageSrc: ssWebDigraph,
+      borderClass: "border-sky-600",
       tags: ["Typescript", "Canvas", "Library", "Graph"],
       links: [
         {
@@ -225,7 +237,8 @@ const siteInfo: SiteInfo = {
     },
     {
       name: "Simple Sudoku TS",
-      imageId: "/assets/ss-sudoku.png",
+      imageSrc: ssSudoku,
+      borderClass: "border-stone-600",
       tags: ["Typescript", "Sudoku"],
       links: [
         {
@@ -254,7 +267,8 @@ const siteInfo: SiteInfo = {
     },
     {
       name: "Gaguna",
-      imageId: "/assets/ss-gaguna.png",
+      imageSrc: ssGaguna,
+      borderClass: "border-teal-600",
       tags: ["Typescript", "Utils"],
       links: [
         {
@@ -284,8 +298,9 @@ const siteInfo: SiteInfo = {
       )
     },
     {
-      name: "This Portfolio Site",
-      imageId: "/assets/ss-portfolio.png",
+      name: "This Site",
+      imageSrc: ssPortfolio,
+      borderClass: "border-lime-600",
       tags: ["Typescript", "Tailwind", "Astro", "Canvas"],
       links: [
         {
@@ -310,7 +325,8 @@ const siteInfo: SiteInfo = {
     },
     {
       name: "Kisstastic",
-      imageId: "/assets/ss-kisstastic.png",
+      imageSrc: ssKisstastic,
+      borderClass: "border-green-800",
       tags: ["Typescript", "PixiJS"],
       links: [
         {
