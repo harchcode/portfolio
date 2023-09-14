@@ -54,3 +54,42 @@
 .social-button svg path {
   fill: #fff;
 }
+
+a {
+  @apply text-blue-700;
+}
+
+.text-stroke {
+  color: white;
+  -webkit-text-fill-color: black; /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: white;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+ul.list-check {
+  list-style: none;
+}
+
+ul.list-check li {
+  position: relative;
+  padding-left: 1.5em;
+}
+
+ul.list-check li:before {
+  content: "✓";
+  position: absolute;
+  left: 0; /* place the SVG at the start of the padding */
+  width: 1em;
+  height: 1em;
+  @apply text-green-600 font-bold;
+}
+
+p + p {
+  margin-top: 0.5em;
+}

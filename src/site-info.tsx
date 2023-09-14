@@ -1,4 +1,4 @@
-import logoTvlk from "./assets/logo-tvlk.jpeg";
+import { JSX } from "solid-js/jsx-runtime";
 import ssUbur from "./assets/ss-ubur.png";
 
 type SVGSymbolId = "doc" | "email" | "github" | "linkedin" | "play";
@@ -16,19 +16,20 @@ export type SocialLink = {
 };
 
 export type Work = {
-  imageSrc: string;
+  imageId: string;
   periode: string;
   companyName: string;
   jobTitle: string;
-  checklist: string[];
+  checklist: (string | JSX.Element)[];
   tags: string[];
+  borderClass: string;
 };
 
 export type Project = {
   name: string;
-  imageSrc: string;
+  imageId: string;
   tags: string[];
-  description: string;
+  description: string | JSX.Element;
   links: {
     text: string;
     url: string;
@@ -40,21 +41,11 @@ export type SiteInfo = {
   description: string;
   svgDefs: SVGDef[];
   photoUrl: string;
-  intro: string;
+  intro: JSX.Element | string;
   socialLinks: SocialLink[];
   works: Work[];
   projects: Project[];
 };
-
-function html(strings: TemplateStringsArray, ...values: unknown[]) {
-  let str = strings[0];
-
-  for (let i = 0; i < values.length; i++) {
-    str += values[i] + strings[i + 1];
-  }
-
-  return str;
-}
 
 const siteInfo: SiteInfo = {
   title: "Hartono Chandra",
@@ -113,22 +104,25 @@ const siteInfo: SiteInfo = {
   ],
   works: [
     {
-      imageSrc: logoTvlk,
+      imageId: "logo-tvlk.jpeg",
       periode: "February 2020 - Present",
       companyName: "Traveloka",
       jobTitle: "Software Engineer - Web",
       tags: ["React", "Semantic UI", "react-digraph", "Typescript", "Jest"],
       checklist: [
         "Used React and Semantic UI as frontend framework.",
-        html`Used
+        <>
+          Used
           <a href="https://github.com/uber/react-digraph">react-digraph</a>
-          for creating directed graph.`,
+          for creating directed graph.
+        </>,
         "Done some basic infra works with Terraform.",
         "Wrote unit tests with Jest and React Testing Library."
-      ]
+      ],
+      borderClass: "border-blue-600"
     },
     {
-      imageSrc: "/assets/logo-bl.png",
+      imageId: "logo-bl.png",
       periode: "September 2018 - September 2019",
       companyName: "Bukalapak",
       jobTitle: "Software Engineer - Front End",
@@ -136,20 +130,22 @@ const siteInfo: SiteInfo = {
       checklist: [
         "Used Vue and Pug as the frontend framework.",
         "Built various kinds of charts using D3."
-      ]
+      ],
+      borderClass: "border-red-600"
     },
     {
-      imageSrc: "/assets/logo-xmi.png",
+      imageId: "logo-xmi.png",
       periode: "October 2017 - May 2018",
       companyName: "XMI",
       jobTitle: "Programmer",
       tags: ["Ionic", "Slim", "PixiJS"],
       checklist: [
         "Maintained and added new features to a mobile game built using Ionic Framework, PixiJS, and Slim (PHP framework)."
-      ]
+      ],
+      borderClass: "border-zinc-500"
     },
     {
-      imageSrc: "/assets/logo-gsg.jpeg",
+      imageId: "logo-gsg.jpeg",
       periode: "November 2013 - April 2017",
       companyName: "Growth Steel Group",
       jobTitle: "Programmer",
@@ -158,13 +154,14 @@ const siteInfo: SiteInfo = {
         "Used JQuery, AngularJS, and later Vue as frontend framework.",
         "Migrated from ASP.Net Web Forms to REST API with ASP.Net using C# as the programming language.",
         "Created reports with Crystal Reports."
-      ]
+      ],
+      borderClass: "border-stone-400"
     }
   ],
   projects: [
     {
       name: "Ubur",
-      imageSrc: ssUbur,
+      imageId: ssUbur,
       tags: ["Typescript", "WebGL", "Canvas"],
       links: [
         {
@@ -176,18 +173,22 @@ const siteInfo: SiteInfo = {
           url: "https://github.com/harchcode/ubur"
         }
       ],
-      description: html`<p>
-          This is a simple game where we control a circle and try to eat other
-          circles to become the biggest.
-        </p>
-        <p>
-          This game uses WebGL for rendering, some maths and physics for motion
-          and collision handling.
-        </p>`
+      description: (
+        <>
+          <p>
+            This is a simple game where we control a circle and try to eat other
+            circles to become the biggest.
+          </p>
+          <p>
+            This game uses WebGL for rendering, some maths and physics for
+            motion and collision handling.
+          </p>
+        </>
+      )
     },
     {
       name: "Web Digraph",
-      imageSrc: "/assets/ss-web-digraph.png",
+      imageId: "/assets/ss-web-digraph.png",
       tags: ["Typescript", "Canvas", "Library", "Graph"],
       links: [
         {
@@ -199,28 +200,32 @@ const siteInfo: SiteInfo = {
           url: "https://github.com/harchcode/web-digraph"
         }
       ],
-      description: html`<p>
-          This is a library for creating a simple directed graph. It is heavily
-          inspired by react-digraph, but with far less features, and also not
-          built for React :D
-        </p>
-        <p>
-          The key difference of this library from react-digraph (apart from the
-          obviously less features xD) is the use of HTML5 Canvas for rendering,
-          instead of using SVG. Using Canvas gives better performance on large
-          graph. You can try generating 9999 nodes on the demo, and compare it
-          with react-digraph's demo.
-        </p>
-        <p>
-          Another benefit of this library is that it has no dependencies, unlike
-          react-digraph which is based on React and D3, and relies on some other
-          dependencies.
-        </p>
-        <p>Sorry for the wall of text :P</p>`
+      description: (
+        <>
+          <p>
+            This is a library for creating a simple directed graph. It is
+            heavily inspired by react-digraph, but with far less features, and
+            also not built for React :D
+          </p>
+          <p>
+            The key difference of this library from react-digraph (apart from
+            the obviously less features xD) is the use of HTML5 Canvas for
+            rendering, instead of using SVG. Using Canvas gives better
+            performance on large graph. You can try generating 9999 nodes on the
+            demo, and compare it with react-digraph's demo.
+          </p>
+          <p>
+            Another benefit of this library is that it has no dependencies,
+            unlike react-digraph which is based on React and D3, and relies on
+            some other dependencies.
+          </p>
+          <p>Sorry for the wall of text :P</p>
+        </>
+      )
     },
     {
       name: "Simple Sudoku TS",
-      imageSrc: "/assets/ss-sudoku.png",
+      imageId: "/assets/ss-sudoku.png",
       tags: ["Typescript", "Sudoku"],
       links: [
         {
@@ -232,20 +237,24 @@ const siteInfo: SiteInfo = {
           url: "https://github.com/harchcode/simple-sudoku-ts"
         }
       ],
-      description: html`<p>A simple 3x3 sudoku game.</p>
-        <p>
-          This game shows how to generate simple 3x3 sudoku problems, and also
-          how to implement a sudoku solver.
-        </p>
-        <p>
-          I actually created this originally around 2011, and I already forgot
-          where I got the algorithm for the problem generator with difficulty.
-          Please let me know if you know.
-        </p>`
+      description: (
+        <>
+          <p>A simple 3x3 sudoku game.</p>
+          <p>
+            This game shows how to generate simple 3x3 sudoku problems, and also
+            how to implement a sudoku solver.
+          </p>
+          <p>
+            I actually created this originally around 2011, and I already forgot
+            where I got the algorithm for the problem generator with difficulty.
+            Please let me know if you know.
+          </p>
+        </>
+      )
     },
     {
       name: "Gaguna",
-      imageSrc: "/assets/ss-gaguna.png",
+      imageId: "/assets/ss-gaguna.png",
       tags: ["Typescript", "Utils"],
       links: [
         {
@@ -257,22 +266,26 @@ const siteInfo: SiteInfo = {
           url: "https://github.com/harchcode/gaguna"
         }
       ],
-      description: html`<p>
-          This library is a collection of utils/functions that I found useful
-          (maybe).
-        </p>
-        <p>
-          This library contains things like easing functions, debounce function,
-          bitset, etc.
-        </p>
-        <p>
-          Gaguna (from common Indonesian words "ga guna") means useless, and
-          this library is surely useless for most of you xD
-        </p>`
+      description: (
+        <>
+          <p>
+            This library is a collection of utils/functions that I found useful
+            (maybe).
+          </p>
+          <p>
+            This library contains things like easing functions, debounce
+            function, bitset, etc.
+          </p>
+          <p>
+            Gaguna (from common Indonesian words "ga guna") means useless, and
+            this library is surely useless for most of you xD
+          </p>
+        </>
+      )
     },
     {
       name: "This Portfolio Site",
-      imageSrc: "/assets/ss-portfolio.png",
+      imageId: "/assets/ss-portfolio.png",
       tags: ["Typescript", "Tailwind", "Astro", "Canvas"],
       links: [
         {
@@ -280,19 +293,24 @@ const siteInfo: SiteInfo = {
           url: "https://github.com/harchcode/portfolio"
         }
       ],
-      description: html`<p>
-          Yes, this portfolio site that you are currently viewing is also part
-          of my portfolio!
-        </p>
-        <p>
-          This site is built using Astro as static site generator, Tailwind for
-          styles, and Canvas for the annoying background you see on this site.
-        </p>
-        <p>This site supports mobile and desktop view.</p>`
+      description: (
+        <>
+          <p>
+            Yes, this portfolio site that you are currently viewing is also part
+            of my portfolio!
+          </p>
+          <p>
+            This site is built using Astro as static site generator, Tailwind
+            for styles, and Canvas for the annoying background you see on this
+            site.
+          </p>
+          <p>This site supports mobile and desktop view.</p>
+        </>
+      )
     },
     {
       name: "Kisstastic",
-      imageSrc: "/assets/ss-kisstastic.png",
+      imageId: "/assets/ss-kisstastic.png",
       tags: ["Typescript", "PixiJS"],
       links: [
         {
@@ -304,16 +322,20 @@ const siteInfo: SiteInfo = {
           url: "https://kisstastic.netlify.app/"
         }
       ],
-      description: html`<p>
-          This is a simple, old game inspired by Flappy Bird (wished it got as
-          successful xD). Originally I created this game for Android (around
-          2014, was on Play Store, but now it already got removed T.T). I lost
-          the original source code, so i recreated this dumb game for the web.
-        </p>
-        <p>
-          This game is created using PixiJS, a 2D rendering framework for the
-          web.
-        </p>`
+      description: (
+        <>
+          <p>
+            This is a simple, old game inspired by Flappy Bird (wished it got as
+            successful xD). Originally I created this game for Android (around
+            2014, was on Play Store, but now it already got removed T.T). I lost
+            the original source code, so i recreated this dumb game for the web.
+          </p>
+          <p>
+            This game is created using PixiJS, a 2D rendering framework for the
+            web.
+          </p>
+        </>
+      )
     }
   ]
 };

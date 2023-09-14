@@ -5,10 +5,10 @@ import {
   transitionOut
 } from "./gaguna";
 import { wait } from "./gaguna/misc";
-import profileSrc from "./assets/profile.svg";
-import { loadImage } from "./gaguna/loader";
 import { render } from "solid-js/web";
 import { MainPage } from "./MainPage";
+import { getAssetUrl, loadUrls } from "./assets";
+import { loadImageWithEl } from "./gaguna/loader";
 
 async function main() {
   if (!("timeStart" in window) || typeof window.timeStart !== "number") return;
@@ -19,9 +19,30 @@ async function main() {
   const startTime = window.timeStart;
 
   await import("./style.css");
+  await loadUrls();
 
-  const imgEl = await loadImage(profileSrc);
-  console.log(imgEl);
+  const root = document.createElement("div");
+  root.className = "w-full min-h-full bg-lime-50";
+  root.style.display = "none";
+  root.style.opacity = "0";
+  document.body.appendChild(root);
+
+  render(MainPage, root);
+
+  const imgElements = root.getElementsByTagName("img");
+  const imgLoadPromises: Promise<void>[] = [];
+
+  for (const imgEl of imgElements) {
+    const imageId = imgEl.dataset?.imageId;
+
+    if (!imageId) continue;
+
+    imgLoadPromises.push(loadImageWithEl(imgEl, getAssetUrl(imageId)));
+  }
+
+  await Promise.all(imgLoadPromises);
+
+  console.log("done");
 
   const endTime = Date.now();
   const elapsed = endTime - startTime;
@@ -31,14 +52,6 @@ async function main() {
   }
 
   removeElementById("initialization-script");
-
-  const root = document.createElement("div");
-  root.className = "w-full min-h-full bg-lime-50";
-  root.style.display = "none";
-  root.style.opacity = "0";
-  document.body.appendChild(root);
-
-  render(MainPage, root);
 
   await transitionOut(loadingDiv);
 

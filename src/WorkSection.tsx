@@ -21,12 +21,13 @@ export function WorkSection() {
                 i === siteInfo.works.length - 1 ? "" : " mb-24"
               }`}
             >
-              <div
-                class="w-12 h-12 md:w-24 md:h-24 rounded-full bg-white border-black border-2 flex-none bg-contain"
-                style={`background-image: url(${work.imageSrc})`}
-              ></div>
+              <div class="w-12 h-12 md:w-24 md:h-24 rounded-full bg-white border-black border-2 flex-none overflow-hidden">
+                <img data-image-id={work.imageId} width="100%" height="100%" />
+              </div>
 
-              <div class="md:flex md:space-x-12 flex-auto bg-white px-4 pt-3 pb-4 rounded shadow border-r-4 border-r-blue-600">
+              <div
+                class={`md:flex md:space-x-12 flex-auto bg-white px-4 pt-3 pb-4 rounded shadow border-r-4 ${work.borderClass}`}
+              >
                 <div class="w-full md:w-64 md:flex-none">
                   <div>
                     <span class="leading-none font-bold text-xs">
