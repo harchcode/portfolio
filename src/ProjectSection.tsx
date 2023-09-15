@@ -4,7 +4,7 @@ export function ProjectSection() {
   return (
     <div
       id="project"
-      class="px-4 py-16 max-w-screen-lg min-h-screen mx-auto grid grid-cols-1 md:grid-cols-2 gap-4 auto-rows-[1fr]"
+      class="px-4 py-16 max-w-screen-lg min-h-screen mx-auto grid grid-cols-1 lg:grid-cols-2 gap-4 auto-rows-[1fr]"
     >
       {siteInfo.projects.map(project => (
         <div

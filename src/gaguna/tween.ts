@@ -21,11 +21,12 @@ export function tween(
       elapsed = Date.now() - startTime;
 
       currentValue = from + easingFn(elapsed / duration) * change;
-      onUpdate(currentValue);
 
       if (elapsed < duration) {
+        onUpdate(currentValue);
         raf(animate);
       } else {
+        onUpdate(to);
         resolve();
       }
     };

@@ -7,6 +7,7 @@ import {
 import { wait } from "./gaguna/misc";
 import { render } from "solid-js/web";
 import { MainPage } from "./MainPage";
+import { setToInitialPageScroll } from "./Navbar";
 
 async function main() {
   if (!("timeStart" in window) || typeof window.timeStart !== "number") return;
@@ -64,6 +65,8 @@ async function main() {
   root.style.display = "block";
 
   await transitionIn(root);
+
+  setToInitialPageScroll();
 }
 
 main();
