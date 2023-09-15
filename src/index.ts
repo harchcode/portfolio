@@ -19,7 +19,7 @@ async function main() {
   await import("./style.css");
 
   const root = document.createElement("div");
-  root.className = "w-full min-h-full bg-lime-50";
+  root.className = "w-full min-h-full";
   root.style.display = "none";
   root.style.opacity = "0";
   document.body.appendChild(root);

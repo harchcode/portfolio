@@ -4,14 +4,14 @@ export function ProjectSection() {
   return (
     <div
       id="project"
-      class="px-4 py-16 max-w-screen-lg min-h-screen mx-auto grid grid-cols-1 md:grid-cols-2 gap-4"
+      class="px-4 py-16 max-w-screen-lg min-h-screen mx-auto grid grid-cols-1 md:grid-cols-2 gap-4 auto-rows-[1fr]"
     >
       {siteInfo.projects.map(project => (
         <div
           class={`bg-white p-4 rounded-xl border-2 ${project.borderClass} flex flex-col`}
         >
           <div class="flex-none flex">
-            <div class="flex-none w-20 h-20 bg-black rounded-lg overflow-hidden">
+            <div class="flex-none w-20 h-20 bg-black rounded-lg overflow-hidden shadow border">
               <img src={project.imageSrc} width="100%" height="100%" />
             </div>
             <div class="flex-auto ml-4 flex flex-col">
@@ -25,9 +25,7 @@ export function ProjectSection() {
               </div>
             </div>
           </div>
-          <div class="mt-4 flex-none max-h-48 overflow-auto">
-            {project.description}
-          </div>
+          <div class="mt-4 flex-none">{project.description}</div>
           <div class="mt-4 flex-auto flex justify-end">
             <ul class="flex flex-col justify-end">
               {project.links.map(link => (
