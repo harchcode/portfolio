@@ -221,7 +221,7 @@ export function resetCtx(mode?: "light" | "dark") {
   ctx.lineWidth = 1;
 
   if (currentMode === "light") {
-    ctx.strokeStyle = "#999";
+    ctx.strokeStyle = "#333";
     ctx.fillStyle = "#fff";
   } else if (currentMode === "dark") {
     ctx.strokeStyle = "#fff";

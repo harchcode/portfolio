@@ -34,11 +34,12 @@ export function WorkSection() {
                 <div class="text-sm text-gray-800">{work.jobTitle}</div>
               </div>
               <div class="flex-auto mt-4">
-                <ul class="list-check">
+                {work.content}
+                {/* <ul class="list-check">
                   {work.checklist.map(check => (
                     <li>{check}</li>
                   ))}
-                </ul>
+                </ul> */}
               </div>
             </div>
           </div>

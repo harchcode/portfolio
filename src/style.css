@@ -86,7 +86,8 @@ ul.list-check {
 
 ul.list-check li {
   position: relative;
-  padding-left: 1.5em;
+  padding-left: 1.2rem;
+  margin-right: 1rem;
 }
 
 ul.list-check li:before {

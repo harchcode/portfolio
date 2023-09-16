@@ -25,12 +25,19 @@ export type SocialLink = {
   svgSymbolId: SVGSymbolId;
 };
 
+export type About = {
+  name: string;
+  imageSrc: string;
+  jobTitle: JSX.Element | string;
+  intro: JSX.Element | string;
+};
+
 export type Work = {
   imageSrc: string;
   periode: string;
   companyName: string;
   jobTitle: string;
-  checklist: (string | JSX.Element)[];
+  content: string | JSX.Element;
   tags: string[];
   borderClass: string;
 };
@@ -49,10 +56,8 @@ export type Project = {
 
 export type SiteInfo = {
   title: string;
-  description: string;
   svgDefs: SVGDef[];
-  photoUrl: string;
-  intro: JSX.Element | string;
+  about: About;
   socialLinks: SocialLink[];
   works: Work[];
   projects: Project[];
@@ -60,7 +65,6 @@ export type SiteInfo = {
 
 const siteInfo: SiteInfo = {
   title: "Hartono Chandra",
-  description: "",
   svgDefs: [
     {
       id: "doc",
@@ -88,9 +92,23 @@ const siteInfo: SiteInfo = {
       path: "M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-3 17v-10l9 5.146-9 4.854z"
     }
   ],
-  photoUrl: profilePic,
-  intro:
-    "I am just your average software engineer, specialized in web. Nothing special about me, I just happen to have a job as a web engineer, and can do my job as expected like everyone else.",
+  about: {
+    imageSrc: profilePic,
+    jobTitle: "Software Engineer - Web",
+    name: "Hartono Chandra",
+    intro: (
+      <>
+        <p>
+          I am an average software engineer, specialized in web. Nothing special
+          about me, I just happen to have a job, and can do my job as expected.
+        </p>
+        <p>
+          You can check out some of my toy projects in the Projects section. If
+          you want to know more about me, please contact me.
+        </p>
+      </>
+    )
+  },
   socialLinks: [
     {
       label: "resume",
@@ -120,15 +138,28 @@ const siteInfo: SiteInfo = {
       companyName: "Traveloka",
       jobTitle: "Software Engineer - Web",
       tags: ["React", "Semantic UI", "react-digraph", "Typescript", "Jest"],
-      checklist: [
-        "Used React and Semantic UI as frontend framework.",
+      content: (
         <>
-          Used <a href="https://github.com/uber/react-digraph">react-digraph</a>{" "}
-          for creating directed graph.
-        </>,
-        "Done some basic infra works with Terraform.",
-        "Wrote unit tests with Jest and React Testing Library."
-      ],
+          <p>
+            I worked on various Corportate Technology applications. Most notable
+            challenge is developing and maintaining a rather complex graph
+            editor.
+          </p>
+          <p>
+            I became a mentor for Kampus Merdeka internship program cycle 1 and
+            3.
+          </p>
+          {/* <p>Tech stack:</p>
+          <ul class="list-check flex flex-wrap">
+            <li>react-digraph</li>
+            <li>React</li>
+            <li>Semantic UI</li>
+            <li>Next JS</li>
+            <li>Typescript</li>
+            <li>Jest and React Testing Library</li>
+          </ul> */}
+        </>
+      ),
       borderClass: "border-blue-600"
     },
     {
@@ -137,10 +168,22 @@ const siteInfo: SiteInfo = {
       companyName: "Bukalapak",
       jobTitle: "Software Engineer - Front End",
       tags: ["D3", "Vue", "Pug", "PWA"],
-      checklist: [
-        "Used Vue and Pug as the frontend framework.",
-        "Built various kinds of charts using D3."
-      ],
+      content: (
+        <>
+          <p>
+            I was mostly working on a dashboard with many customized charts,
+            like 3D pie charts, a very customized bar charts, combined line and
+            bar chart, etc.
+          </p>
+          <p>I also have worked on some features on the Mitra Bukalapak PWA.</p>
+          {/* <p>Tech stack:</p>
+          <ul class="list-check flex">
+            <li>D3</li>
+            <li>Vue</li>
+            <li>Pug</li>
+          </ul> */}
+        </>
+      ),
       borderClass: "border-red-600"
     },
     {
@@ -149,9 +192,16 @@ const siteInfo: SiteInfo = {
       companyName: "XMI",
       jobTitle: "Programmer",
       tags: ["Ionic", "Slim", "PixiJS"],
-      checklist: [
-        "Maintained and added new features to a mobile game built using Ionic Framework, PixiJS, and Slim (PHP framework)."
-      ],
+      content: (
+        <>
+          <p>
+            Worked on maintaining a mobile game project, fixing bugs and add
+            some new features. The most "challenging" part was for a certain
+            reason, the source code was gone and I (and the new team) was
+            basically working on the built code. :D
+          </p>
+        </>
+      ),
       borderClass: "border-zinc-500"
     },
     {
@@ -160,11 +210,14 @@ const siteInfo: SiteInfo = {
       companyName: "Growth Steel Group",
       jobTitle: "Programmer",
       tags: ["JQuery", "AngularJS", "Vue", "ASP.Net", "Crystal Reports"],
-      checklist: [
-        "Used JQuery, AngularJS, and later Vue as frontend framework.",
-        "Migrated from ASP.Net Web Forms to REST API with ASP.Net using C# as the programming language.",
-        "Created reports with Crystal Reports."
-      ],
+      content: (
+        <>
+          <p>
+            I was part of a team that worked on developing and maintaining
+            various features of a business application.
+          </p>
+        </>
+      ),
       borderClass: "border-indigo-600"
     }
   ],
@@ -173,7 +226,7 @@ const siteInfo: SiteInfo = {
       name: "Ubur",
       imageSrc: ssUbur,
       borderClass: "border-fuchsia-800",
-      tags: ["Typescript", "WebGL", "Canvas"],
+      tags: ["Rust", "WebAssembly", "Typescript", "WebGL", "Canvas"],
       links: [
         {
           text: "See it in action",
@@ -192,7 +245,9 @@ const siteInfo: SiteInfo = {
           </p>
           <p>
             This game uses WebGL for rendering, some maths and physics for
-            motion and collision handling.
+            motion and collision handling, implementing Quad Tree for optimized
+            collision detection, and I was also experimenting with WebAssembly
+            and Rust.
           </p>
         </>
       )
@@ -216,22 +271,16 @@ const siteInfo: SiteInfo = {
         <>
           <p>
             This is a library for creating a simple directed graph. It is
-            heavily inspired by react-digraph, but with far less features, and
-            also not built for React :D
+            heavily inspired by react-digraph, but with far less features, not
+            as polished, and also not built for React :D
           </p>
           <p>
-            The key difference of this library from react-digraph (apart from
-            the obviously less features xD) is the use of HTML5 Canvas for
-            rendering, instead of using SVG. Using Canvas gives better
-            performance on large graph. You can try generating 9999 nodes on the
-            demo, and compare it with react-digraph's demo.
+            I initially created this for practice, to make a graph editor
+            library that is fast, simple, and no dependency. I use Canvas and
+            implemented Quad Tree to achieve the performance. You can try
+            generating 1,000 nodes on react-digraph vs generating 999,999 nodes
+            on web-digraph and then interact with the graph.
           </p>
-          <p>
-            Another benefit of this library is that it has no dependencies,
-            unlike react-digraph which is based on React and D3, and relies on
-            some other dependencies.
-          </p>
-          <p>Sorry for the wall of text :P</p>
         </>
       )
     },
@@ -239,7 +288,7 @@ const siteInfo: SiteInfo = {
       name: "Simple Sudoku TS",
       imageSrc: ssSudoku,
       borderClass: "border-stone-600",
-      tags: ["Typescript", "Sudoku"],
+      tags: ["Rust", "WebAssembly", "Typescript", "Sudoku"],
       links: [
         {
           text: "See it in action",
@@ -255,7 +304,8 @@ const siteInfo: SiteInfo = {
           <p>A simple 3x3 sudoku game.</p>
           <p>
             This game shows how to generate simple 3x3 sudoku problems, and also
-            how to implement a sudoku solver.
+            how to implement a sudoku solver. I also updated this to use Rust
+            and WebAssembly for experimentation.
           </p>
           <p>
             I actually created this originally around 2011, and I already forgot
@@ -292,7 +342,7 @@ const siteInfo: SiteInfo = {
           </p>
           <p>
             Gaguna (from common Indonesian words "ga guna") means useless, and
-            this library is surely useless for most of you xD
+            this library is surely useless for most of you. xD
           </p>
         </>
       )
@@ -301,7 +351,7 @@ const siteInfo: SiteInfo = {
       name: "This Site",
       imageSrc: ssPortfolio,
       borderClass: "border-lime-600",
-      tags: ["Typescript", "Tailwind", "Astro", "Canvas"],
+      tags: ["Typescript", "Tailwind", "SolidJS", "Canvas"],
       links: [
         {
           text: "See the source code",
@@ -315,9 +365,10 @@ const siteInfo: SiteInfo = {
             of my portfolio!
           </p>
           <p>
-            This site is built using Astro as static site generator, Tailwind
-            for styles, and Canvas for the annoying background you see on this
-            site.
+            This site is originally built using, but I updated it to use SolidJS
+            and do client-side rendering instead of static site like before
+            because I don't need SEO. I also use Tailwind for styles, and Canvas
+            for the annoying background you see on this site.
           </p>
           <p>This site supports mobile and desktop view.</p>
         </>
