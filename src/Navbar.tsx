@@ -35,6 +35,8 @@ function initMenuScrolling() {
     anchor.addEventListener("click", async function (e) {
       e.preventDefault();
 
+      if (!shouldHandleScroll) return;
+
       shouldHandleScroll = false;
       setActiveId(id);
 
@@ -94,7 +96,16 @@ export async function setToInitialPageScroll() {
     ? window.location.hash.substring(1)
     : undefined;
 
-  if (!id || !menuDivMap[id] || window.scrollY === menuDivMap[id].offsetTop) {
+  if (!id || !menuDivMap[id]) {
+    return;
+  }
+
+  const menuDiv = menuDivMap[id];
+
+  if (
+    window.scrollY >= menuDiv.offsetTop &&
+    window.scrollY < menuDiv.offsetTop + menuDiv.scrollHeight
+  ) {
     return;
   }
 
@@ -102,7 +113,7 @@ export async function setToInitialPageScroll() {
 
   shouldHandleScroll = false;
 
-  await tween(window.scrollY, menuDivMap[id].offsetTop, 1000, windowScrollY);
+  await tween(window.scrollY, menuDiv.offsetTop, 1000, windowScrollY);
 
   shouldHandleScroll = true;
 }

@@ -8,6 +8,7 @@ import { wait } from "./gaguna/misc";
 import { render } from "solid-js/web";
 import { MainPage } from "./MainPage";
 import { setToInitialPageScroll } from "./Navbar";
+import { initBackground } from "./background";
 
 async function main() {
   if (!("timeStart" in window) || typeof window.timeStart !== "number") return;
@@ -45,6 +46,8 @@ async function main() {
 
   await Promise.all(imgLoadPromises);
   //=================================
+
+  initBackground();
 
   console.log("done");
 

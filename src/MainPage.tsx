@@ -18,9 +18,9 @@ export function MainPage() {
         </svg>
       ))}
 
-      {/* <div class="fixed h-full w-full">
+      <div class="fixed h-full w-full -z-10">
         <canvas id="canvas"></canvas>
-      </div> */}
+      </div>
 
       <NavBar />
       <AboutSection />
