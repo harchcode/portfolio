@@ -12,12 +12,12 @@ export function AboutSection() {
             src={siteInfo.about.imageSrc}
             width="100%"
             height="100%"
-            style="filter: drop-shadow(0 0 2px #666)"
+            style="filter: drop-shadow(0 0 1px black)"
           />
         </div>
         <div
-          class="bg-white px-6 py-4 flex-auto relative rounded-xl tracking-wider talkbubble"
-          style="filter: drop-shadow(0 0 2px #ccc)"
+          class="bg-white px-6 py-4 flex-auto relative rounded-xl tracking-wider talkbubble drop-shadow-sm"
+          style="filter: drop-shadow(0 0 1px black)"
         >
           <div class="text-2xl md:text-5xl">Hi&#10071; I am</div>
           <div class="text-2xl md:text-5xl md:mt-2 tracking-normal typewriter">

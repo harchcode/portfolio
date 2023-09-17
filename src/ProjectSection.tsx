@@ -18,7 +18,7 @@ export function ProjectSection() {
               <div class="text-xl">{project.name}</div>
               <div class="flex flex-wrap">
                 {project.tags.map(tag => (
-                  <div class="text-xs mr-1 mt-1 bg-gray-200 text-black px-2 py-1 rounded">
+                  <div class="text-xs mr-1 mt-1 bg-slate-200 text-black px-2 py-1 rounded">
                     {tag}
                   </div>
                 ))}

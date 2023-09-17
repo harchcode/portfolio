@@ -376,15 +376,12 @@ const siteInfo: SiteInfo = {
       ],
       description: (
         <>
+          <p>This is the site you are currently viewing.</p>
           <p>
-            Yes, this portfolio site that you are currently viewing is also part
-            of my portfolio!
-          </p>
-          <p>
-            This site is originally built using, but I updated it to use SolidJS
-            and do client-side rendering instead of static site like before
-            because I don't need SEO. I also use Tailwind for styles, and Canvas
-            for the annoying background you see on this site.
+            This site is originally built using Astro, but I updated it to use
+            SolidJS and do client-side rendering instead because I don't need
+            SEO. I also use Tailwind for styles, and Canvas for the annoying
+            background.
           </p>
           <p>This site supports mobile and desktop view.</p>
         </>
