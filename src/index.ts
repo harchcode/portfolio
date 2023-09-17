@@ -49,8 +49,6 @@ async function main() {
 
   initBackground();
 
-  console.log("done");
-
   const endTime = Date.now();
   const elapsed = endTime - startTime;
 
