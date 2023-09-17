@@ -18,8 +18,6 @@ async function main() {
 
   const startTime = window.timeStart;
 
-  await import("./style.css");
-
   const root = document.createElement("div");
   root.className = "w-full min-h-full";
   root.style.display = "none";
@@ -29,10 +27,10 @@ async function main() {
   render(MainPage, root);
 
   //=================================
-  // Wait until all images are loaded
+  // Wait until all CSS and images are loaded
   //=================================
+  const loadPromises: Promise<unknown>[] = [import("./style.css")];
   const imgElements = root.getElementsByTagName("img");
-  const imgLoadPromises: Promise<void>[] = [];
 
   for (const imgEl of imgElements) {
     if (!imgEl.src) continue;
@@ -41,10 +39,10 @@ async function main() {
       imgEl.onload = () => resolve();
     });
 
-    imgLoadPromises.push(promise);
+    loadPromises.push(promise);
   }
 
-  await Promise.all(imgLoadPromises);
+  await Promise.all(loadPromises);
   //=================================
 
   initBackground();
