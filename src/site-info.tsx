@@ -137,7 +137,15 @@ const siteInfo: SiteInfo = {
       periode: "February 2020 - Present",
       companyName: "Traveloka",
       jobTitle: "Software Engineer - Web",
-      tags: ["React", "Semantic UI", "react-digraph", "Typescript", "Jest"],
+      tags: [
+        "Graph",
+        "React",
+        "NextJS",
+        "Semantic UI",
+        "Typescript",
+        "React Testing Library",
+        "Terraform"
+      ],
       content: (
         <>
           <p>
@@ -146,8 +154,8 @@ const siteInfo: SiteInfo = {
             editor.
           </p>
           <p>
-            I became a mentor for Kampus Merdeka internship program cycle 1 and
-            3.
+            I also got a chance to become a mentor for Kampus Merdeka internship
+            program cycle 1 and 3.
           </p>
           {/* <p>Tech stack:</p>
           <ul class="list-check flex flex-wrap">
@@ -191,7 +199,7 @@ const siteInfo: SiteInfo = {
       periode: "October 2017 - May 2018",
       companyName: "XMI",
       jobTitle: "Programmer",
-      tags: ["Ionic", "Slim", "PixiJS"],
+      tags: ["Ionic", "Slim (PHP)", "PixiJS", "Firebase"],
       content: (
         <>
           <p>
@@ -209,7 +217,15 @@ const siteInfo: SiteInfo = {
       periode: "November 2013 - April 2017",
       companyName: "Growth Steel Group",
       jobTitle: "Programmer",
-      tags: ["JQuery", "AngularJS", "Vue", "ASP.Net", "Crystal Reports"],
+      tags: [
+        "ASP Web Forms",
+        "C#",
+        "JQuery",
+        "AngularJS",
+        "Vue",
+        "ASP.Net",
+        "Crystal Reports"
+      ],
       content: (
         <>
           <p>

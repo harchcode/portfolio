@@ -20,7 +20,7 @@ export function WorkSection() {
             </div>
 
             <div
-              class={`flex-auto bg-white px-4 pt-3 pb-4 rounded-xl shadow border-t-4 h-full ${work.borderClass}`}
+              class={`flex flex-col flex-auto bg-white px-4 pt-3 pb-4 rounded-xl shadow border-t-4 h-full ${work.borderClass}`}
             >
               <div class="w-full md:w-64 md:flex-none">
                 <div>
@@ -33,14 +33,13 @@ export function WorkSection() {
                 </div>
                 <div class="text-sm text-gray-800">{work.jobTitle}</div>
               </div>
-              <div class="flex-auto mt-4">
-                {work.content}
-                {/* <ul class="list-check">
-                  {work.checklist.map(check => (
-                    <li>{check}</li>
-                  ))}
-                </ul> */}
-              </div>
+              <div class="flex-auto mt-4">{work.content}</div>
+
+              <ul class="list-check flex flex-wrap mt-4 text-xs font-bold text-zinc-500">
+                {work.tags.map(check => (
+                  <li>{check}</li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>
