@@ -28,6 +28,12 @@
   }
 }
 
+@media (min-height: 80rem) {
+  #about {
+    min-height: 80rem;
+  }
+}
+
 .typewriter {
   width: fit-content;
 }
