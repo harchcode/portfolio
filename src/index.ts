@@ -2,9 +2,9 @@ import {
   removeElement,
   removeElementById,
   transitionIn,
-  transitionOut
-} from "./gaguna";
-import { wait } from "./gaguna/misc";
+  transitionOut,
+  wait
+} from "./utils";
 import { render } from "solid-js/web";
 import { MainPage } from "./MainPage";
 import { initMenuScrolling, setToInitialPageScroll } from "./Navbar";

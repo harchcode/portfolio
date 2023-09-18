@@ -1,5 +1,6 @@
 import { createSignal } from "solid-js";
-import { easeInOutQuad, tween } from "./gaguna";
+import { tween } from "./utils";
+import { addScrollEventListener } from "./utils";
 
 const [activeId, setActiveId] = createSignal("about");
 
@@ -40,20 +41,11 @@ export function initMenuScrolling() {
       shouldHandleScroll = false;
       setActiveId(id);
 
-      await tween(
-        window.scrollY,
-        div.offsetTop,
-        1000,
-        windowScrollY,
-        easeInOutQuad
-      );
+      await tween(window.scrollY, div.offsetTop, 1000, windowScrollY);
 
       shouldHandleScroll = true;
     });
   }
-
-  let lastKnownScrollPosition = 0;
-  let ticking = false;
 
   function getActiveMenuId(scrollPos: number): string {
     for (let i = menuDivs.length - 1; i >= 0; i--) {
@@ -67,28 +59,15 @@ export function initMenuScrolling() {
     return "";
   }
 
-  function onScroll(scrollPos: number) {
+  function onScroll(_scrollX: number, scrollY: number) {
     if (!shouldHandleScroll) return;
 
-    const id = getActiveMenuId(scrollPos);
+    const id = getActiveMenuId(scrollY);
 
     setActiveId(id);
   }
 
-  function handleScroll() {
-    onScroll(lastKnownScrollPosition);
-    ticking = false;
-  }
-
-  window.addEventListener("scroll", () => {
-    lastKnownScrollPosition = window.scrollY;
-
-    if (!ticking) {
-      window.requestAnimationFrame(handleScroll);
-
-      ticking = true;
-    }
-  });
+  addScrollEventListener(onScroll);
 }
 
 export async function setToInitialPageScroll() {

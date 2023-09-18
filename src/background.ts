@@ -1,23 +1,9 @@
-function getRandomIntInclusive(min: number, max: number): number {
-  return Math.floor(Math.random() * (max - min + 1) + min); //The maximum is inclusive and the minimum is inclusive
-}
-
-function getRandomArbitrary(min: number, max: number): number {
-  return Math.random() * (max - min) + min;
-}
-
-function easeInOutQuad(
-  dt: number,
-  start: number,
-  change: number,
-  duration: number
-): number {
-  const dt2 = dt / (duration / 2);
-
-  if (dt2 < 1) return (change / 2) * dt2 * dt2 + start;
-
-  return (-change / 2) * ((dt2 - 1) * (dt2 - 3) - 1) + start;
-}
+import {
+  addScrollEventListener,
+  easeInOutQuad,
+  getRandomArbitrary,
+  getRandomIntInclusive
+} from "./utils";
 
 let canvas: HTMLCanvasElement;
 let ctx: CanvasRenderingContext2D;
@@ -62,7 +48,7 @@ const fillColors: Record<FillColor, string> = {
 };
 
 const shapes: Shape[] = [];
-let isDrawing = false;
+let requestDraw = () => {};
 
 const cos30 = Math.cos((Math.PI * 30) / 180);
 const triangleRadius = 75;
@@ -72,21 +58,7 @@ const triangleSmallH = triangleRadius / 2;
 const squareWidth = 75;
 const circleRadius = 50;
 
-function requestDraw() {
-  if (!isDrawing) {
-    requestAnimationFrame(requestDrawHandler);
-  }
-
-  isDrawing = true;
-}
-
-function requestDrawHandler() {
-  isDrawing = false;
-
-  draw();
-}
-
-function draw() {
+function draw(_scrollX: number, scrollY: number) {
   // resize canvas if needed
   if (
     canvas.width !== window.innerWidth ||
@@ -99,7 +71,7 @@ function draw() {
   }
 
   const maxWindowScroll = document.body.scrollHeight - window.innerHeight || 1;
-  const progress = window.scrollY / maxWindowScroll;
+  const progress = scrollY / maxWindowScroll;
 
   ctx.resetTransform();
 
@@ -120,15 +92,11 @@ function draw() {
       color
     } = shapes[i];
 
-    const x = easeInOutQuad(progress, startX, endX - startX, 1);
-    const y = easeInOutQuad(progress, startY, endY - startY, 1);
-    const scale = easeInOutQuad(progress, startScale, endScale - startScale, 1);
-    const rotation = easeInOutQuad(
-      progress,
-      startRotation,
-      endRotation - startRotation,
-      1
-    );
+    const delta = easeInOutQuad(progress);
+    const x = startX + delta * (endX - startX);
+    const y = startY + delta * (endY - startY);
+    const scale = startScale + delta * (endScale - startScale);
+    const rotation = startRotation + delta * (endRotation - startRotation);
 
     ctx.fillStyle = fillColors[color];
     ctx.resetTransform();
@@ -181,7 +149,7 @@ export function initBackground() {
 
   ctx = context;
 
-  window.addEventListener("scroll", requestDraw);
+  [requestDraw] = addScrollEventListener(draw);
 
   const area = canvas.width * canvas.height;
   const minScale = 0.75;
