@@ -16,7 +16,12 @@ export function WorkSection() {
 
           <div class={`relative flex space-x-4 md:space-x-12 h-full pb-24`}>
             <div class="w-12 h-12 md:w-24 md:h-24 rounded-full bg-white border-black border-2 flex-none overflow-hidden">
-              <img src={work.imageSrc} width="100%" height="100%" />
+              <img
+                src={work.imageSrc}
+                alt={`Logo of ${work.companyName}`}
+                width="100%"
+                height="100%"
+              />
             </div>
 
             <div

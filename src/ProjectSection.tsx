@@ -12,7 +12,12 @@ export function ProjectSection() {
         >
           <div class="flex-none flex">
             <div class="flex-none w-20 h-20 bg-black rounded-lg overflow-hidden shadow border">
-              <img src={project.imageSrc} width="100%" height="100%" />
+              <img
+                src={project.imageSrc}
+                alt={`Screenshot of ${project.name}`}
+                width="100%"
+                height="100%"
+              />
             </div>
             <div class="flex-auto ml-4 flex flex-col">
               <div class="text-xl">{project.name}</div>
@@ -27,7 +32,7 @@ export function ProjectSection() {
           </div>
           <div class="mt-4 flex-none">{project.description}</div>
           <div class="mt-4 flex-auto flex justify-end">
-            <ul class="flex flex-col justify-end">
+            <ul class="flex flex-col justify-end space-y-2">
               {project.links.map(link => (
                 <li>
                   <a href={link.url}>{link.text}</a>

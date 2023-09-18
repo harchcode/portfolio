@@ -7,7 +7,7 @@ import {
 import { wait } from "./gaguna/misc";
 import { render } from "solid-js/web";
 import { MainPage } from "./MainPage";
-import { setToInitialPageScroll } from "./Navbar";
+import { initMenuScrolling, setToInitialPageScroll } from "./Navbar";
 import { initBackground } from "./background";
 
 async function main() {
@@ -45,6 +45,7 @@ async function main() {
   await Promise.all(loadPromises);
   //=================================
 
+  initMenuScrolling();
   initBackground();
 
   const endTime = Date.now();

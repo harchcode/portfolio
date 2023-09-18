@@ -1,4 +1,4 @@
-import { createSignal, onMount } from "solid-js";
+import { createSignal } from "solid-js";
 import { easeInOutQuad, tween } from "./gaguna";
 
 const [activeId, setActiveId] = createSignal("about");
@@ -13,7 +13,7 @@ function windowScrollY(to: number) {
   window.scrollTo(window.scrollX, to);
 }
 
-function initMenuScrolling() {
+export function initMenuScrolling() {
   menuAnchors = document.querySelectorAll(
     'a[href^="#"]'
   ) as NodeListOf<HTMLAnchorElement>;
@@ -136,10 +136,6 @@ function Divider() {
 }
 
 export function NavBar() {
-  onMount(() => {
-    initMenuScrolling();
-  });
-
   return (
     <div class="fixed w-full z-20 backdrop-blur-sm shadow">
       <div class="w-full max-w-screen-lg mx-auto px-4 py-2">

@@ -10,6 +10,7 @@ export function AboutSection() {
         <div class="w-full max-w-md md:w-80 lg:w-96 flex-none">
           <img
             src={siteInfo.about.imageSrc}
+            alt="Profile picture"
             width="100%"
             height="100%"
             style="filter: drop-shadow(0 0 1px black)"
