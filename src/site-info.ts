@@ -55,6 +55,7 @@ export type Project = {
 
 export type SiteInfo = {
   title: string;
+  description: string;
   svgDefs: SVGDef[];
   about: About;
   socialLinks: SocialLink[];
@@ -64,6 +65,7 @@ export type SiteInfo = {
 
 const siteInfo: SiteInfo = {
   title: "Hartono Chandra",
+  description: "My Portfolio Site",
   svgDefs: [
     {
       id: "doc",
@@ -152,15 +154,6 @@ const siteInfo: SiteInfo = {
             I also got a chance to become a mentor for Kampus Merdeka internship
             program cycle 1 and 3.
           </p>
-          {/* <p>Tech stack:</p>
-          <ul class="list-check flex flex-wrap">
-            <li>react-digraph</li>
-            <li>React</li>
-            <li>Semantic UI</li>
-            <li>Next JS</li>
-            <li>Typescript</li>
-            <li>Jest and React Testing Library</li>
-          </ul> */}
         `,
       borderClass: "border-blue-600"
     },
@@ -177,12 +170,6 @@ const siteInfo: SiteInfo = {
             bar chart, etc.
           </p>
           <p>I also have worked on some features on the Mitra Bukalapak PWA.</p>
-          {/* <p>Tech stack:</p>
-          <ul class="list-check flex">
-            <li>D3</li>
-            <li>Vue</li>
-            <li>Pug</li>
-          </ul> */}
         `,
       borderClass: "border-red-600"
     },
