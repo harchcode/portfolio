@@ -344,9 +344,7 @@ const siteInfo: SiteInfo = {
       description: `
           <p>This is the site you are currently viewing.</p>
           <p>
-            This site is originally built using Astro, but I updated it to use
-            SolidJS and do client-side rendering instead because I don't need
-            SEO. I also use Tailwind for styles, and Canvas for the annoying
+          This site is built using Astro as static site generator, Tailwind for styles, and Canvas for the annoying
             background.
           </p>
           <p>This site supports mobile and desktop view.</p>
