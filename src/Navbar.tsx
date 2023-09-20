@@ -1,137 +1,139 @@
-import { createSignal } from "solid-js";
-import { tween } from "./utils";
-import { addScrollEventListener } from "./utils";
+export default 2;
 
-const [activeId, setActiveId] = createSignal("about");
+// import { createSignal } from "solid-js";
+// import { tween } from "./utils";
+// import { addScrollEventListener } from "./utils";
 
-let shouldHandleScroll = true;
-let menuAnchors: NodeListOf<HTMLAnchorElement> | undefined = undefined;
-const menuAnchorMap: Record<string, HTMLElement> = {};
-const menuDivs: HTMLElement[] = [];
-const menuDivMap: Record<string, HTMLElement> = {};
+// const [activeId, setActiveId] = createSignal("about");
 
-function windowScrollY(to: number) {
-  window.scrollTo(window.scrollX, to);
-}
+// let shouldHandleScroll = true;
+// let menuAnchors: NodeListOf<HTMLAnchorElement> | undefined = undefined;
+// const menuAnchorMap: Record<string, HTMLElement> = {};
+// const menuDivs: HTMLElement[] = [];
+// const menuDivMap: Record<string, HTMLElement> = {};
 
-export function initMenuScrolling() {
-  menuAnchors = document.querySelectorAll(
-    'a[href^="#"]'
-  ) as NodeListOf<HTMLAnchorElement>;
+// function windowScrollY(to: number) {
+//   window.scrollTo(window.scrollX, to);
+// }
 
-  for (const anchor of menuAnchors) {
-    const href = anchor.getAttribute("href");
-    if (!href) continue;
+// export function initMenuScrolling() {
+//   menuAnchors = document.querySelectorAll(
+//     'a[href^="#"]'
+//   ) as NodeListOf<HTMLAnchorElement>;
 
-    const id = href.substring(1);
+//   for (const anchor of menuAnchors) {
+//     const href = anchor.getAttribute("href");
+//     if (!href) continue;
 
-    menuAnchorMap[id] = anchor;
+//     const id = href.substring(1);
 
-    const div = document.getElementById(id);
-    if (!div) continue;
+//     menuAnchorMap[id] = anchor;
 
-    menuDivs.push(div);
-    menuDivMap[id] = div;
+//     const div = document.getElementById(id);
+//     if (!div) continue;
 
-    anchor.addEventListener("click", async function (e) {
-      e.preventDefault();
+//     menuDivs.push(div);
+//     menuDivMap[id] = div;
 
-      if (!shouldHandleScroll) return;
+//     anchor.addEventListener("click", async function (e) {
+//       e.preventDefault();
 
-      shouldHandleScroll = false;
-      setActiveId(id);
+//       if (!shouldHandleScroll) return;
 
-      await tween(window.scrollY, div.offsetTop, 1000, windowScrollY);
+//       shouldHandleScroll = false;
+//       setActiveId(id);
 
-      shouldHandleScroll = true;
-    });
-  }
+//       await tween(window.scrollY, div.offsetTop, 1000, windowScrollY);
 
-  function getActiveMenuId(scrollPos: number): string {
-    for (let i = menuDivs.length - 1; i >= 0; i--) {
-      const menuDiv = menuDivs[i] as HTMLElement;
+//       shouldHandleScroll = true;
+//     });
+//   }
 
-      if (scrollPos >= menuDiv.offsetTop - 300) {
-        return menuDiv.id;
-      }
-    }
+//   function getActiveMenuId(scrollPos: number): string {
+//     for (let i = menuDivs.length - 1; i >= 0; i--) {
+//       const menuDiv = menuDivs[i] as HTMLElement;
 
-    return "";
-  }
+//       if (scrollPos >= menuDiv.offsetTop - 300) {
+//         return menuDiv.id;
+//       }
+//     }
 
-  function onScroll(_scrollX: number, scrollY: number) {
-    if (!shouldHandleScroll) return;
+//     return "";
+//   }
 
-    const id = getActiveMenuId(scrollY);
+//   function onScroll(_scrollX: number, scrollY: number) {
+//     if (!shouldHandleScroll) return;
 
-    setActiveId(id);
-  }
+//     const id = getActiveMenuId(scrollY);
 
-  addScrollEventListener(onScroll);
-}
+//     setActiveId(id);
+//   }
 
-export async function setToInitialPageScroll() {
-  const id = window.location.hash
-    ? window.location.hash.substring(1)
-    : undefined;
+//   addScrollEventListener(onScroll);
+// }
 
-  if (!id || !menuDivMap[id]) {
-    return;
-  }
+// export async function setToInitialPageScroll() {
+//   const id = window.location.hash
+//     ? window.location.hash.substring(1)
+//     : undefined;
 
-  const menuDiv = menuDivMap[id];
+//   if (!id || !menuDivMap[id]) {
+//     return;
+//   }
 
-  if (
-    window.scrollY >= menuDiv.offsetTop &&
-    window.scrollY < menuDiv.offsetTop + menuDiv.scrollHeight
-  ) {
-    return;
-  }
+//   const menuDiv = menuDivMap[id];
 
-  setActiveId(id);
+//   if (
+//     window.scrollY >= menuDiv.offsetTop &&
+//     window.scrollY < menuDiv.offsetTop + menuDiv.scrollHeight
+//   ) {
+//     return;
+//   }
 
-  shouldHandleScroll = false;
+//   setActiveId(id);
 
-  await tween(window.scrollY, menuDiv.offsetTop, 1000, windowScrollY);
+//   shouldHandleScroll = false;
 
-  shouldHandleScroll = true;
-}
+//   await tween(window.scrollY, menuDiv.offsetTop, 1000, windowScrollY);
 
-function MenuLink(props: { children: string; href: string; active?: boolean }) {
-  return (
-    <a
-      href={props.href}
-      class={`block text-black ${
-        props.active ? "bg-indigo-600 font-bold text-white" : "bg-indigo-100"
-      } px-2 py-1 border-2 border-black rounded-full w-20 text-center`}
-    >
-      {props.children}
-    </a>
-  );
-}
+//   shouldHandleScroll = true;
+// }
 
-function Divider() {
-  return <div class="w-8 border-t border-b border-black"></div>;
-}
+// function MenuLink(props: { children: string; href: string; active?: boolean }) {
+//   return (
+//     <a
+//       href={props.href}
+//       class={`block text-black ${
+//         props.active ? "bg-indigo-600 font-bold text-white" : "bg-indigo-100"
+//       } px-2 py-1 border-2 border-black rounded-full w-20 text-center`}
+//     >
+//       {props.children}
+//     </a>
+//   );
+// }
 
-export function NavBar() {
-  return (
-    <div class="fixed w-full z-20 backdrop-blur-sm shadow">
-      <div class="w-full max-w-screen-lg mx-auto px-4 py-2">
-        <div class="flex items-center justify-center md:justify-normal">
-          <MenuLink href="#about" active={activeId() === "about"}>
-            About
-          </MenuLink>
-          <Divider />
-          <MenuLink href="#work" active={activeId() === "work"}>
-            Works
-          </MenuLink>
-          <Divider />
-          <MenuLink href="#project" active={activeId() === "project"}>
-            Projects
-          </MenuLink>
-        </div>
-      </div>
-    </div>
-  );
-}
+// function Divider() {
+//   return <div class="w-8 border-t border-b border-black"></div>;
+// }
+
+// export function NavBar() {
+//   return (
+//     <div class="fixed w-full z-20 backdrop-blur-sm shadow">
+//       <div class="w-full max-w-screen-lg mx-auto px-4 py-2">
+//         <div class="flex items-center justify-center md:justify-normal">
+//           <MenuLink href="#about" active={activeId() === "about"}>
+//             About
+//           </MenuLink>
+//           <Divider />
+//           <MenuLink href="#work" active={activeId() === "work"}>
+//             Works
+//           </MenuLink>
+//           <Divider />
+//           <MenuLink href="#project" active={activeId() === "project"}>
+//             Projects
+//           </MenuLink>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// }

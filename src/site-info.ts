@@ -1,4 +1,3 @@
-import { JSX } from "solid-js/jsx-runtime";
 import profilePic from "./assets/profile.svg";
 import tvlkLogo from "./assets/logo-tvlk.jpeg";
 import blLogo from "./assets/logo-bl.png";
@@ -27,26 +26,26 @@ export type SocialLink = {
 
 export type About = {
   name: string;
-  imageSrc: string;
-  jobTitle: JSX.Element | string;
-  intro: JSX.Element | string;
+  imageSrc: ImageMetadata;
+  jobTitle: string;
+  intro: string;
 };
 
 export type Work = {
-  imageSrc: string;
+  imageSrc: ImageMetadata;
   periode: string;
   companyName: string;
   jobTitle: string;
-  content: string | JSX.Element;
+  content: string;
   tags: string[];
   borderClass: string;
 };
 
 export type Project = {
   name: string;
-  imageSrc: string;
+  imageSrc: ImageMetadata;
   tags: string[];
-  description: string | JSX.Element;
+  description: string;
   links: {
     text: string;
     url: string;
@@ -96,8 +95,7 @@ const siteInfo: SiteInfo = {
     imageSrc: profilePic,
     jobTitle: "Software Engineer - Web",
     name: "Hartono Chandra",
-    intro: (
-      <>
+    intro: `
         <p>
           I am an average software engineer, specialized in web. Nothing special
           about me, I just happen to have a job, and can do my job as expected.
@@ -105,9 +103,7 @@ const siteInfo: SiteInfo = {
         <p>
           You can check out some of my toy projects in the Projects section. If
           you want to know more about me, please contact me.
-        </p>
-      </>
-    )
+        </p>`
   },
   socialLinks: [
     {
@@ -146,8 +142,7 @@ const siteInfo: SiteInfo = {
         "React Testing Library",
         "Terraform"
       ],
-      content: (
-        <>
+      content: `
           <p>
             I worked on various Corportate Technology applications. Most notable
             challenge is developing and maintaining a rather complex graph
@@ -166,8 +161,7 @@ const siteInfo: SiteInfo = {
             <li>Typescript</li>
             <li>Jest and React Testing Library</li>
           </ul> */}
-        </>
-      ),
+        `,
       borderClass: "border-blue-600"
     },
     {
@@ -176,8 +170,7 @@ const siteInfo: SiteInfo = {
       companyName: "Bukalapak",
       jobTitle: "Software Engineer - Front End",
       tags: ["D3", "Vue", "Pug", "PWA"],
-      content: (
-        <>
+      content: `
           <p>
             I was mostly working on a dashboard with many customized charts,
             like 3D pie charts, a very customized bar charts, combined line and
@@ -190,8 +183,7 @@ const siteInfo: SiteInfo = {
             <li>Vue</li>
             <li>Pug</li>
           </ul> */}
-        </>
-      ),
+        `,
       borderClass: "border-red-600"
     },
     {
@@ -200,16 +192,14 @@ const siteInfo: SiteInfo = {
       companyName: "XMI",
       jobTitle: "Programmer",
       tags: ["Ionic", "Slim (PHP)", "PixiJS", "Firebase"],
-      content: (
-        <>
+      content: `
           <p>
             Worked on maintaining a mobile game project, fixing bugs and add
             some new features. The most "challenging" part was for a certain
             reason, the source code was gone and I (and the new team) was
             basically working on the built code. :D
           </p>
-        </>
-      ),
+        `,
       borderClass: "border-zinc-500"
     },
     {
@@ -226,14 +216,12 @@ const siteInfo: SiteInfo = {
         "ASP.Net",
         "Crystal Reports"
       ],
-      content: (
-        <>
+      content: `
           <p>
             I was part of a team that worked on developing and maintaining
             various features of a business application.
           </p>
-        </>
-      ),
+        `,
       borderClass: "border-indigo-600"
     }
   ],
@@ -253,8 +241,7 @@ const siteInfo: SiteInfo = {
           url: "https://github.com/harchcode/ubur"
         }
       ],
-      description: (
-        <>
+      description: `
           <p>
             This is a simple game where we control a circle and try to eat other
             circles to become the biggest.
@@ -265,8 +252,7 @@ const siteInfo: SiteInfo = {
             collision detection, and I was also experimenting with WebAssembly
             and Rust.
           </p>
-        </>
-      )
+        `
     },
     {
       name: "Web Digraph",
@@ -283,8 +269,7 @@ const siteInfo: SiteInfo = {
           url: "https://github.com/harchcode/web-digraph"
         }
       ],
-      description: (
-        <>
+      description: `
           <p>
             This is a library for creating a simple directed graph. It is
             heavily inspired by react-digraph, but with far less features, not
@@ -297,8 +282,7 @@ const siteInfo: SiteInfo = {
             generating 1,000 nodes on react-digraph vs generating 999,999 nodes
             on web-digraph and then interact with the graph.
           </p>
-        </>
-      )
+        `
     },
     {
       name: "Simple Sudoku TS",
@@ -315,8 +299,7 @@ const siteInfo: SiteInfo = {
           url: "https://github.com/harchcode/simple-sudoku-ts"
         }
       ],
-      description: (
-        <>
+      description: `
           <p>A simple 3x3 sudoku game.</p>
           <p>
             This game shows how to generate simple 3x3 sudoku problems, and also
@@ -328,8 +311,7 @@ const siteInfo: SiteInfo = {
             where I got the algorithm for the problem generator with difficulty.
             Please let me know if you know.
           </p>
-        </>
-      )
+        `
     },
     {
       name: "Gaguna",
@@ -346,8 +328,7 @@ const siteInfo: SiteInfo = {
           url: "https://github.com/harchcode/gaguna"
         }
       ],
-      description: (
-        <>
+      description: `
           <p>
             This library is a collection of utils/functions that I found useful
             (maybe).
@@ -360,8 +341,7 @@ const siteInfo: SiteInfo = {
             Gaguna (from common Indonesian words "ga guna") means useless, and
             this library is surely useless for most of you. xD
           </p>
-        </>
-      )
+        `
     },
     {
       name: "This Site",
@@ -374,8 +354,7 @@ const siteInfo: SiteInfo = {
           url: "https://github.com/harchcode/portfolio"
         }
       ],
-      description: (
-        <>
+      description: `
           <p>This is the site you are currently viewing.</p>
           <p>
             This site is originally built using Astro, but I updated it to use
@@ -384,8 +363,7 @@ const siteInfo: SiteInfo = {
             background.
           </p>
           <p>This site supports mobile and desktop view.</p>
-        </>
-      )
+        `
     },
     {
       name: "Kisstastic",
@@ -402,8 +380,7 @@ const siteInfo: SiteInfo = {
           url: "https://kisstastic.netlify.app/"
         }
       ],
-      description: (
-        <>
+      description: `
           <p>
             This is a simple, old game inspired by Flappy Bird (wished it got as
             successful xD). Originally I created this game for Android (around
@@ -414,8 +391,7 @@ const siteInfo: SiteInfo = {
             This game is created using PixiJS, a 2D rendering framework for the
             web.
           </p>
-        </>
-      )
+        `
     }
   ]
 };

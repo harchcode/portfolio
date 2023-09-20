@@ -8,6 +8,10 @@
   "eslint.validate": ["javascript", "typescript", "YAML"],
   "typescript.tsdk": "node_modules/typescript/lib",
   "css.lint.unknownAtRules": "ignore",
+  "prettier.documentSelectors": ["**/*.astro"],
+  "[astro]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
 
   "workbench.colorCustomizations": {
     "terminal.background": "#131212",
