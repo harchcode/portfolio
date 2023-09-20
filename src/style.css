@@ -4,13 +4,11 @@
 
 html,
 body {
-  @apply bg-lime-50;
-
   height: 100%;
 }
 
 body {
-  @apply tracking-wide leading-normal;
+  @apply bg-lime-50 tracking-wide leading-normal;
 
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-size: 16px;
