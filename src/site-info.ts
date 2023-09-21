@@ -344,7 +344,7 @@ const siteInfo: SiteInfo = {
       description: `
           <p>This is the site you are currently viewing.</p>
           <p>
-          This site is built using Astro as static site generator, Tailwind for styles, and Canvas for the annoying
+            This site is built using Astro as static site generator, Tailwind for styles, and Canvas for the annoying
             background.
           </p>
           <p>This site supports mobile and desktop view.</p>
