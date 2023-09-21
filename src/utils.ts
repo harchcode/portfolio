@@ -45,48 +45,6 @@ export function tween(
   });
 }
 
-// Helper function for element transition in and out
-export async function transitionOut(
-  el: HTMLElement,
-  duration = 150,
-  easingFn = easeInOutQuad
-) {
-  await tween(
-    1,
-    0,
-    duration,
-    v => {
-      el.style.opacity = v.toString();
-    },
-    easingFn
-  );
-}
-
-export async function transitionIn(
-  el: HTMLElement,
-  duration = 150,
-  easingFn = easeInOutQuad
-) {
-  await tween(
-    0,
-    1,
-    duration,
-    v => {
-      el.style.opacity = v.toString();
-    },
-    easingFn
-  );
-}
-
-export function removeElement(el: Element) {
-  el.parentNode?.removeChild(el);
-}
-
-export function removeElementById(id: string) {
-  const el = document.getElementById(id);
-  el?.parentNode?.removeChild(el);
-}
-
 export function addScrollEventListener(
   fn: (scrollX: number, scrollY: number) => void
 ) {
@@ -114,12 +72,4 @@ export function addScrollEventListener(
   window.addEventListener("scroll", listener);
 
   return [handleScroll, () => window.removeEventListener("scroll", listener)];
-}
-
-export async function wait(milliseconds: number) {
-  return new Promise<void>(resolve => {
-    setTimeout(() => {
-      resolve();
-    }, milliseconds);
-  });
 }
