@@ -2,6 +2,7 @@
 import "../style.css";
 import site from "../site-info";
 import { Image } from "astro:assets";
+import MenuLink from "../components/MenuLink.astro";
 ---
 
 <!doctype html>
@@ -35,162 +36,154 @@ import { Image } from "astro:assets";
     <div class="fixed w-full z-20 backdrop-blur-sm shadow">
       <div class="w-full max-w-screen-lg mx-auto px-4 py-2">
         <div class="flex items-center justify-center md:justify-normal">
-          <a
-            href="#about"
-            class={`block text-black bg-indigo-100 px-2 py-1 border-2 border-black rounded-full w-20 text-center`}
-            >About</a
-          >
+          <MenuLink id="about" label="About" />
           <div class="w-8 border-t border-b border-black"></div>
-          <a
-            href="#work"
-            class={`block text-black bg-indigo-100 px-2 py-1 border-2 border-black rounded-full w-20 text-center`}
-            >Works</a
-          >
+          <MenuLink id="work" label="Works" />
           <div class="w-8 border-t border-b border-black"></div>
-          <a
-            href="#project"
-            class={`block text-black bg-indigo-100 px-2 py-1 border-2 border-black rounded-full w-20 text-center`}
-            >Projects</a
-          >
+          <MenuLink id="project" label="Projects" />
         </div>
       </div>
     </div>
 
-    <div
-      id="about"
-      class="px-4 py-16 max-w-screen-lg min-h-screen mx-auto flex flex-col items-center justify-center"
-    >
+    <div class="content h-full px-4 max-w-md md:max-w-7xl mx-auto">
       <div
-        class="w-full flex-auto md:flex-none flex flex-col md:flex-row items-center justify-center"
+        id="about"
+        class="py-16 min-h-full flex flex-col items-center justify-center"
       >
-        <div class="w-full max-w-md md:w-80 lg:w-96 flex-none">
-          <Image
-            src={site.about.imageSrc}
-            alt="Profile picture"
-            style="filter: drop-shadow(0 0 1px black)"
-            loading="eager"
-          />
-        </div>
         <div
-          class="bg-white px-6 py-4 flex-auto relative rounded-xl tracking-wider talkbubble drop-shadow-sm"
-          style="filter: drop-shadow(0 0 1px black)"
+          class="w-full flex-auto md:flex-none flex flex-col md:flex-row items-center justify-center"
         >
-          <div class="text-2xl md:text-5xl">Hi&#10071; I am</div>
-          <div class="text-2xl md:text-5xl md:mt-2 tracking-normal typewriter">
-            <span class="border-r-4">{site.about.name}</span>
+          <div class="w-full max-w-md md:w-80 lg:w-96 flex-none">
+            <Image
+              src={site.about.imageSrc}
+              alt="Profile picture"
+              style="filter: drop-shadow(0 0 1px black)"
+              loading="eager"
+            />
           </div>
-          <div class="mt-2 md:mt-8 font-bold md:text-xl text-gray-800">
-            {site.about.jobTitle}
+          <div
+            class="bg-white px-6 py-4 flex-auto relative rounded-xl tracking-wider talkbubble drop-shadow-sm"
+            style="filter: drop-shadow(0 0 1px black)"
+          >
+            <div class="text-2xl md:text-5xl">Hi&#10071; I am</div>
+            <div
+              class="text-2xl md:text-5xl md:mt-2 tracking-normal typewriter"
+            >
+              <span class="border-r-4">{site.about.name}</span>
+            </div>
+            <div class="mt-2 md:mt-8 font-bold md:text-xl text-gray-800">
+              {site.about.jobTitle}
+            </div>
+            <div class="mt-2 md:mt-8 md:text-lg" set:html={site.about.intro} />
           </div>
-          <div class="mt-2 md:mt-8 md:text-lg" set:html={site.about.intro} />
+        </div>
+        <div class="flex space-x-4 mt-8 md:mt-16">
+          {
+            site.socialLinks.map(link => (
+              <a
+                href={link.url}
+                aria-label={link.label}
+                class="social-button w-12 h-12 p-3 md:w-16 md:h-16 md:p-4 bg-white border-2 border-black shadow rounded-full overflow-hidden"
+              >
+                <svg width="100%" height="100%" version="2.0">
+                  <use href={`#${link.svgSymbolId}`} />
+                </svg>
+              </a>
+            ))
+          }
         </div>
       </div>
-      <div class="flex space-x-4 mt-8 md:mt-16">
+
+      <div
+        id="work"
+        class="py-16 min-h-full relative grid grid-cols-1 auto-rows-[1fr]"
+      >
         {
-          site.socialLinks.map(link => (
-            <a
-              href={link.url}
-              aria-label={link.label}
-              class="social-button w-12 h-12 p-3 md:w-16 md:h-16 md:p-4 bg-white border-2 border-black shadow rounded-full overflow-hidden"
-            >
-              <svg width="100%" height="100%" version="2.0">
-                <use href={`#${link.svgSymbolId}`} />
-              </svg>
-            </a>
+          site.works.map((work, i) => (
+            <div class="relative">
+              {i !== site.works.length - 1 && (
+                <div class="absolute w-12 md:w-24 h-full flex justify-center">
+                  <div class="bg-black w-0.5 h-full" />
+                </div>
+              )}
+
+              <div class={`relative flex space-x-4 md:space-x-12 h-full pb-24`}>
+                <div class="w-12 h-12 md:w-24 md:h-24 rounded-full bg-white border-black border-2 flex-none overflow-hidden">
+                  <Image
+                    src={work.imageSrc}
+                    alt={`Logo of ${work.companyName}`}
+                  />
+                </div>
+
+                <div
+                  class={`flex flex-col flex-auto bg-white px-4 pt-3 pb-4 rounded-xl shadow border-t-4 h-full ${work.borderClass}`}
+                >
+                  <div class="w-full md:w-64 md:flex-none">
+                    <div>
+                      <span class="leading-none font-bold text-xs">
+                        {work.periode}
+                      </span>
+                    </div>
+                    <div class="text-2xl md:mt-1 tracking-wider">
+                      {work.companyName}
+                    </div>
+                    <div class="text-sm text-gray-800">{work.jobTitle}</div>
+                  </div>
+                  <div class="flex-auto mt-4" set:html={work.content} />
+
+                  <ul class="list-check flex flex-wrap mt-4 text-xs font-bold text-zinc-500">
+                    {work.tags.map(check => (
+                      <li>{check}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
           ))
         }
       </div>
-    </div>
 
-    <div
-      id="work"
-      class="px-4 py-16 max-w-screen-lg min-h-screen mx-auto relative grid grid-cols-1 auto-rows-[1fr]"
-    >
-      {
-        site.works.map((work, i) => (
-          <div class="relative">
-            {i !== site.works.length - 1 && (
-              <div class="absolute w-12 md:w-24 h-full flex justify-center">
-                <div class="bg-black w-0.5 h-full" />
-              </div>
-            )}
-
-            <div class={`relative flex space-x-4 md:space-x-12 h-full pb-24`}>
-              <div class="w-12 h-12 md:w-24 md:h-24 rounded-full bg-white border-black border-2 flex-none overflow-hidden">
-                <Image
-                  src={work.imageSrc}
-                  alt={`Logo of ${work.companyName}`}
-                />
-              </div>
-
-              <div
-                class={`flex flex-col flex-auto bg-white px-4 pt-3 pb-4 rounded-xl shadow border-t-4 h-full ${work.borderClass}`}
-              >
-                <div class="w-full md:w-64 md:flex-none">
-                  <div>
-                    <span class="leading-none font-bold text-xs">
-                      {work.periode}
-                    </span>
-                  </div>
-                  <div class="text-2xl md:mt-1 tracking-wider">
-                    {work.companyName}
-                  </div>
-                  <div class="text-sm text-gray-800">{work.jobTitle}</div>
+      <div
+        id="project"
+        class="py-16 min-h-full grid grid-cols-1 lg:grid-cols-2 gap-4 auto-rows-[1fr]"
+      >
+        {
+          site.projects.map(project => (
+            <div
+              class={`bg-white p-4 rounded-xl border-2 ${project.borderClass} flex flex-col`}
+            >
+              <div class="flex-none flex">
+                <div class="flex-none w-20 h-20 bg-black rounded-lg overflow-hidden shadow border">
+                  <Image
+                    src={project.imageSrc}
+                    alt={`Screenshot of ${project.name}`}
+                  />
                 </div>
-                <div class="flex-auto mt-4" set:html={work.content} />
-
-                <ul class="list-check flex flex-wrap mt-4 text-xs font-bold text-zinc-500">
-                  {work.tags.map(check => (
-                    <li>{check}</li>
+                <div class="flex-auto ml-4 flex flex-col">
+                  <div class="text-xl">{project.name}</div>
+                  <div class="flex flex-wrap">
+                    {project.tags.map(tag => (
+                      <div class="text-xs mr-1 mt-1 bg-slate-200 text-black px-2 py-1 rounded">
+                        {tag}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+              <div class="mt-4 flex-none" set:html={project.description} />
+              <div class="mt-4 flex-auto flex justify-end">
+                <ul class="flex flex-col justify-end space-y-2">
+                  {project.links.map(link => (
+                    <li>
+                      <a href={link.url}>{link.text}</a>
+                    </li>
                   ))}
                 </ul>
               </div>
             </div>
-          </div>
-        ))
-      }
-    </div>
-
-    <div
-      id="project"
-      class="px-4 py-16 max-w-screen-lg min-h-screen mx-auto grid grid-cols-1 lg:grid-cols-2 gap-4 auto-rows-[1fr]"
-    >
-      {
-        site.projects.map(project => (
-          <div
-            class={`bg-white p-4 rounded-xl border-2 ${project.borderClass} flex flex-col`}
-          >
-            <div class="flex-none flex">
-              <div class="flex-none w-20 h-20 bg-black rounded-lg overflow-hidden shadow border">
-                <Image
-                  src={project.imageSrc}
-                  alt={`Screenshot of ${project.name}`}
-                />
-              </div>
-              <div class="flex-auto ml-4 flex flex-col">
-                <div class="text-xl">{project.name}</div>
-                <div class="flex flex-wrap">
-                  {project.tags.map(tag => (
-                    <div class="text-xs mr-1 mt-1 bg-slate-200 text-black px-2 py-1 rounded">
-                      {tag}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-            <div class="mt-4 flex-none" set:html={project.description} />
-            <div class="mt-4 flex-auto flex justify-end">
-              <ul class="flex flex-col justify-end space-y-2">
-                {project.links.map(link => (
-                  <li>
-                    <a href={link.url}>{link.text}</a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        ))
-      }
+          ))
+        }
+      </div>
     </div>
 
     <script src="../main.ts"></script>
