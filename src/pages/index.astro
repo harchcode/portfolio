@@ -150,31 +150,45 @@ import MenuLink from "../components/MenuLink.astro";
         id="project"
         class="section py-16 min-h-full flex items-center justify-center"
       >
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 auto-rows-[1fr]">
+        <div class="grid grid-cols-1 gap-8 auto-rows-[1fr] w-full">
           {
             site.projects.map(project => (
-              <div
-                class={`bg-white p-4 rounded-xl border-2 ${project.borderClass} flex flex-col`}
-              >
-                <div class="flex-none flex">
-                  <div class="flex-none w-20 h-20 bg-black rounded-lg overflow-hidden shadow border">
+              <div class={`flex flex-col`}>
+                <div
+                  class={`bg-white rounded-xl flex-none flex shadow overflow-hidden border-2 ${project.borderClass}`}
+                >
+                  <div class="flex-none w-28 h-28 md:w-32 md:h-32 bg-black overflow-hidden">
                     <Image
                       src={project.imageSrc}
                       alt={`Screenshot of ${project.name}`}
                     />
                   </div>
-                  <div class="flex-auto ml-4 flex flex-col">
-                    <div class="text-xl -mt-1">{project.name}</div>
-                    <div class="flex flex-wrap">
+                  <div class="flex-auto flex flex-col px-4 py-2">
+                    <div class="text-xl md:text-2xl -mt-1">{project.name}</div>
+                    <div class="flex flex-wrap mt-2">
                       {project.tags.map(tag => (
                         <div class="text-xs mr-1 mt-1 bg-slate-200 text-black px-2 py-1 rounded">
                           {tag}
                         </div>
                       ))}
                     </div>
+                    <div class="mt-4 flex-auto items-end hidden md:flex w-full">
+                      <ul class="flex space-x-2 w-full justify-end">
+                        {project.links.map(link => (
+                          <li class="flex-none w-32">
+                            <a
+                              href={link.url}
+                              class="block w-full text-center bg-stone-100 border border-stone-400 text-stone-700 font-bold text-xs p-2 rounded"
+                            >
+                              {link.text}
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
                 </div>
-                <div class="mt-4 flex-auto items-end flex w-full">
+                <div class="mt-2 flex-auto items-end flex md:hidden w-full">
                   <ul class="flex space-x-2 w-full">
                     {project.links.map(link => (
                       <li class="flex-1">
