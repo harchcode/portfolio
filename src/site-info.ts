@@ -99,8 +99,7 @@ const siteInfo: SiteInfo = {
     name: "Hartono Chandra",
     intro: `
         <p>
-          I am an average software engineer, specialized in web. Nothing special
-          about me, I just happen to have a job, and can do my job as expected.
+          I am an average software engineer, specialized in web. 
         </p>
         <p>
           You can check out some of my toy projects in the Projects section. If
@@ -139,6 +138,7 @@ const siteInfo: SiteInfo = {
         "Graph",
         "React",
         "NextJS",
+        "Kampus Merdeka as Mentor",
         "Semantic UI",
         "Typescript",
         "React Testing Library",
@@ -178,7 +178,7 @@ const siteInfo: SiteInfo = {
       periode: "October 2017 - May 2018",
       companyName: "XMI",
       jobTitle: "Programmer",
-      tags: ["Ionic", "Slim (PHP)", "PixiJS", "Firebase"],
+      tags: ["Ionic Framework", "Slim (PHP)", "PixiJS", "Firebase"],
       content: `
           <p>
             Worked on maintaining a mobile game project, fixing bugs and add
@@ -201,7 +201,8 @@ const siteInfo: SiteInfo = {
         "AngularJS",
         "Vue",
         "ASP.Net",
-        "Crystal Reports"
+        "Crystal Reports",
+        "MSSQL"
       ],
       content: `
           <p>
@@ -220,11 +221,11 @@ const siteInfo: SiteInfo = {
       tags: ["Rust", "WebAssembly", "Typescript", "WebGL", "Canvas"],
       links: [
         {
-          text: "See it in action",
+          text: "Play",
           url: "https://ubur.netlify.app/"
         },
         {
-          text: "See the source code",
+          text: "GitHub Repo",
           url: "https://github.com/harchcode/ubur"
         }
       ],
@@ -248,12 +249,16 @@ const siteInfo: SiteInfo = {
       tags: ["Typescript", "Canvas", "Library", "Graph"],
       links: [
         {
-          text: "See the demo",
+          text: "Demo",
           url: "https://web-digraph.netlify.app/"
         },
         {
-          text: "Go to the GitHub page",
+          text: "GitHub Repo",
           url: "https://github.com/harchcode/web-digraph"
+        },
+        {
+          text: "NPM Page",
+          url: "https://www.npmjs.com/package/web-digraph"
         }
       ],
       description: `
@@ -278,11 +283,11 @@ const siteInfo: SiteInfo = {
       tags: ["Rust", "WebAssembly", "Typescript", "Sudoku"],
       links: [
         {
-          text: "See it in action",
+          text: "Play",
           url: "https://simple-sudoku-ts.netlify.app/"
         },
         {
-          text: "See the source code",
+          text: "GitHub Repo",
           url: "https://github.com/harchcode/simple-sudoku-ts"
         }
       ],
@@ -307,11 +312,11 @@ const siteInfo: SiteInfo = {
       tags: ["Typescript", "Utils"],
       links: [
         {
-          text: "Go to the docs site",
-          url: "https://github.com/harchcode/gaguna"
+          text: "NPM Page",
+          url: "https://www.npmjs.com/package/gaguna"
         },
         {
-          text: "Go to the GitHub page",
+          text: "GitHub Repo",
           url: "https://github.com/harchcode/gaguna"
         }
       ],
@@ -337,7 +342,7 @@ const siteInfo: SiteInfo = {
       tags: ["Typescript", "Tailwind", "SolidJS", "Canvas"],
       links: [
         {
-          text: "See the source code",
+          text: "GitHub Repo",
           url: "https://github.com/harchcode/portfolio"
         }
       ],
@@ -357,11 +362,11 @@ const siteInfo: SiteInfo = {
       tags: ["Typescript", "PixiJS"],
       links: [
         {
-          text: "See the source code",
+          text: "GitHub Repo",
           url: "https://github.com/harchcode/kisstastic"
         },
         {
-          text: "See it in action (lower your volume first xD)",
+          text: "Play",
           url: "https://kisstastic.netlify.app/"
         }
       ],

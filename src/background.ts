@@ -18,7 +18,7 @@ type Shape = {
   endY: number;
   endScale: number;
   endRotation: number;
-  color: FillColor;
+  color: string;
 };
 
 enum ShapeType {
@@ -27,25 +27,15 @@ enum ShapeType {
   Square
 }
 
-enum FillColor {
-  RED,
-  YELLOW,
-  GREEN,
-  BLUE,
-  INDIGO,
-  PURPLE,
-  PINK
-}
-
-const fillColors: Record<FillColor, string> = {
-  [FillColor.RED]: "#F87171",
-  [FillColor.YELLOW]: "#FBBF24",
-  [FillColor.GREEN]: "#34D399",
-  [FillColor.BLUE]: "#60A5FA",
-  [FillColor.INDIGO]: "#818CF8",
-  [FillColor.PURPLE]: "#A78BFA",
-  [FillColor.PINK]: "#F472B6"
-};
+const fillColors = [
+  "#F87171",
+  "#FBBF24",
+  "#34D399",
+  "#60A5FA",
+  "#818CF8",
+  "#A78BFA",
+  "#F472B6"
+];
 
 const shapes: Shape[] = [];
 let requestDraw = () => {};
@@ -98,7 +88,7 @@ function draw(_scrollX: number, scrollY: number) {
     const scale = startScale + delta * (endScale - startScale);
     const rotation = startRotation + delta * (endRotation - startRotation);
 
-    ctx.fillStyle = fillColors[color];
+    ctx.fillStyle = color;
     ctx.resetTransform();
     ctx.translate(x, y);
     ctx.scale(scale, scale);
@@ -154,9 +144,8 @@ export function initBackground() {
   const area = canvas.width * canvas.height;
   const minScale = 0.75;
   const maxScale = 1.5;
-  const shapeCount = 3 + Math.ceil(area / 100000);
+  const shapeCount = Math.max(Math.min(Math.ceil(area / 100000), 20), 3);
   const shapeTypeCount = Object.keys(ShapeType).length / 2;
-  const colorCount = Object.keys(FillColor).length / 2;
 
   shapes.length = 0;
 
@@ -171,7 +160,7 @@ export function initBackground() {
       endY: getRandomIntInclusive(0, canvas.height),
       endScale: getRandomArbitrary(minScale, maxScale),
       endRotation: getRandomIntInclusive(30, 720),
-      color: getRandomIntInclusive(0, colorCount - 1) as FillColor
+      color: fillColors[getRandomIntInclusive(0, fillColors.length - 1)]
     };
 
     shapes.push(shape);

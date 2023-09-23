@@ -10,7 +10,6 @@ body {
 body {
   @apply bg-lime-50 tracking-wide leading-normal;
 
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-size: 16px;
 }
 
@@ -67,7 +66,7 @@ a.active {
 }
 
 @media (min-height: 80rem) {
-  #about {
+  .section {
     min-height: 80rem;
   }
 }
@@ -118,8 +117,7 @@ a {
 }
 
 .text-stroke {
-  color: white;
-  -webkit-text-fill-color: black; /* Will override color (regardless of order) */
+  -webkit-text-fill-color: #3730a3; /* Will override color (regardless of order) */
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: white;
 }
@@ -130,14 +128,13 @@ ul.list-check {
 
 ul.list-check li {
   position: relative;
-  padding-left: 1.2rem;
-  margin-right: 1rem;
+  padding-left: 2rem;
 }
 
 ul.list-check li:before {
   content: "✓";
   position: absolute;
-  left: 0; /* place the SVG at the start of the padding */
+  left: 1rem; /* place the SVG at the start of the padding */
   width: 1em;
   height: 1em;
   @apply text-green-600 font-bold;
