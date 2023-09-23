@@ -24,56 +24,48 @@ export type SocialLink = {
   svgSymbolId: SVGSymbolId;
 };
 
+export type About = {
+  name: string;
+  imageSrc: ImageMetadata;
+  jobTitle: string;
+  intro: string;
+};
+
 export type Work = {
-  imageSrc: string;
-  from: string;
-  to: string;
+  imageSrc: ImageMetadata;
+  periode: string;
   companyName: string;
   jobTitle: string;
-  checklist: string[];
+  content: string;
   tags: string[];
+  borderClass: string;
 };
 
 export type Project = {
   name: string;
-  imageSrc: string;
+  imageSrc: ImageMetadata;
   tags: string[];
   description: string;
-  url: string;
   links: {
     text: string;
     url: string;
   }[];
+  borderClass: string;
 };
 
 export type SiteInfo = {
   title: string;
   description: string;
   svgDefs: SVGDef[];
-  name: string;
-  jobTitle: string;
-  photoUrl: string;
-  intro: string;
+  about: About;
   socialLinks: SocialLink[];
   works: Work[];
   projects: Project[];
 };
 
-function html(strings: TemplateStringsArray, ...values: unknown[]) {
-  let str = strings[0];
-
-  for (let i = 0; i < values.length; i++) {
-    str += values[i] + strings[i + 1];
-  }
-
-  return str;
-}
-
-export const site: SiteInfo = {
+const siteInfo: SiteInfo = {
   title: "Hartono Chandra",
-  description: "I am Hartono Chandra.",
-  name: "Hartono Chandra",
-  jobTitle: "Software Engineer - Web",
+  description: "My Portfolio Site",
   svgDefs: [
     {
       id: "doc",
@@ -101,9 +93,19 @@ export const site: SiteInfo = {
       path: "M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-3 17v-10l9 5.146-9 4.854z"
     }
   ],
-  photoUrl: profilePic,
-  intro:
-    "I am just your average software engineer, specialized in web. Nothing special about me, I just happen to have a job as a web engineer, and can do my job as expected like everyone else.",
+  about: {
+    imageSrc: profilePic,
+    jobTitle: "Software Engineer - Web",
+    name: "Hartono Chandra",
+    intro: `
+        <p>
+          I am an average software engineer, specialized in web. 
+        </p>
+        <p>
+          You can check out some of my toy projects in the Projects section. If
+          you want to know more about me, please contact me.
+        </p>`
+  },
   socialLinks: [
     {
       label: "resume",
@@ -129,216 +131,259 @@ export const site: SiteInfo = {
   works: [
     {
       imageSrc: tvlkLogo,
-      from: "Feb 2020",
-      to: "Present",
+      periode: "February 2020 - Present",
       companyName: "Traveloka",
       jobTitle: "Software Engineer - Web",
-      tags: ["React", "Semantic UI", "react-digraph", "Typescript", "Jest"],
-      checklist: [
-        "Used React and Semantic UI as frontend framework.",
-        html`Used
-          <a href="https://github.com/uber/react-digraph">react-digraph</a>
-          for creating directed graph.`,
-        "Done some basic infra works with Terraform.",
-        "Wrote unit tests with Jest and React Testing Library."
-      ]
+      tags: [
+        "Graph",
+        "React",
+        "NextJS",
+        "Kampus Merdeka as Mentor",
+        "Semantic UI",
+        "Typescript",
+        "React Testing Library",
+        "Terraform"
+      ],
+      content: `
+          <p>
+            I worked on various Corportate Technology applications. Most notable
+            challenge is developing and maintaining a rather complex graph
+            editor.
+          </p>
+          <p>
+            I also got a chance to become a mentor for Kampus Merdeka internship
+            program cycle 1 and 3.
+          </p>
+        `,
+      borderClass: "border-blue-600"
     },
     {
       imageSrc: blLogo,
-      from: "Sep 2018",
-      to: "Sep 2019",
+      periode: "September 2018 - September 2019",
       companyName: "Bukalapak",
-      jobTitle: "Software Engineer - FE",
+      jobTitle: "Software Engineer - Front End",
       tags: ["D3", "Vue", "Pug", "PWA"],
-      checklist: [
-        "Used Vue and Pug as the frontend framework.",
-        "Built various kinds of charts using D3."
-      ]
+      content: `
+          <p>
+            I was mostly working on a dashboard with many customized charts,
+            like 3D pie charts, a very customized bar charts, combined line and
+            bar chart, etc.
+          </p>
+          <p>I also have worked on some features on the Mitra Bukalapak PWA.</p>
+        `,
+      borderClass: "border-red-600"
     },
     {
       imageSrc: xmiLogo,
-      from: "Oct 2017",
-      to: "May 2018",
+      periode: "October 2017 - May 2018",
       companyName: "XMI",
       jobTitle: "Programmer",
-      tags: ["Ionic", "Slim", "PixiJS"],
-      checklist: [
-        "Maintained and added new features to a mobile game built using Ionic Framework, PixiJS, and Slim (PHP framework)."
-      ]
+      tags: ["Ionic Framework", "Slim (PHP)", "PixiJS", "Firebase"],
+      content: `
+          <p>
+            Worked on maintaining a mobile game project, fixing bugs and add
+            some new features. The most "challenging" part was for a certain
+            reason, the source code was gone and I (and the new team) was
+            basically working on the built code. :D
+          </p>
+        `,
+      borderClass: "border-zinc-500"
     },
     {
       imageSrc: gsgLogo,
-      from: "Nov 2013",
-      to: "Apr 2017",
+      periode: "November 2013 - April 2017",
       companyName: "Growth Steel Group",
       jobTitle: "Programmer",
-      tags: ["JQuery", "AngularJS", "Vue", "ASP.Net", "Crystal Reports"],
-      checklist: [
-        "Used JQuery, AngularJS, and later Vue as frontend framework.",
-        "Migrated from ASP.Net Web Forms to REST API with ASP.Net using C# as the programming language.",
-        "Created reports with Crystal Reports."
-      ]
+      tags: [
+        "ASP Web Forms",
+        "C#",
+        "JQuery",
+        "AngularJS",
+        "Vue",
+        "ASP.Net",
+        "Crystal Reports",
+        "MSSQL"
+      ],
+      content: `
+          <p>
+            I was part of a team that worked on developing and maintaining
+            various features of a business application.
+          </p>
+        `,
+      borderClass: "border-indigo-600"
     }
   ],
   projects: [
     {
       name: "Ubur",
       imageSrc: ssUbur,
+      borderClass: "border-fuchsia-800",
       tags: ["Rust", "WebAssembly", "Typescript", "WebGL", "Canvas"],
-      url: "https://ubur.netlify.app/",
       links: [
         {
-          text: "See it in action",
+          text: "Play",
           url: "https://ubur.netlify.app/"
         },
         {
-          text: "See the source code",
+          text: "GitHub Repo",
           url: "https://github.com/harchcode/ubur"
         }
       ],
-      description: html`<p>
-          This is a simple game where we control a circle and try to eat other
-          circles to become the biggest.
-        </p>
-        <p>
-          This game uses WebGL for rendering, some maths and physics for motion
-          and collision handling.
-        </p>`
+      description: `
+          <p>
+            This is a simple game where we control a circle and try to eat other
+            circles to become the biggest.
+          </p>
+          <p>
+            This game uses WebGL for rendering, some maths and physics for
+            motion and collision handling, implementing Quad Tree for optimized
+            collision detection, and I was also experimenting with WebAssembly
+            and Rust.
+          </p>
+        `
     },
     {
       name: "Web Digraph",
       imageSrc: ssWebDigraph,
+      borderClass: "border-sky-600",
       tags: ["Typescript", "Canvas", "Library", "Graph"],
-      url: "https://web-digraph.netlify.app/",
       links: [
         {
-          text: "See the demo",
+          text: "Demo",
           url: "https://web-digraph.netlify.app/"
         },
         {
-          text: "Go to the GitHub page",
+          text: "GitHub Repo",
           url: "https://github.com/harchcode/web-digraph"
+        },
+        {
+          text: "NPM Page",
+          url: "https://www.npmjs.com/package/web-digraph"
         }
       ],
-      description: html`<p>
-          This is a library for creating a simple directed graph. It is heavily
-          inspired by react-digraph, but with far less features, and also not
-          built for React :D
-        </p>
-        <p>
-          The key difference of this library from react-digraph (apart from the
-          obviously less features xD) is the use of HTML5 Canvas for rendering,
-          instead of using SVG. Using Canvas gives better performance on large
-          graph. You can try generating 9999 nodes on the demo, and compare it
-          with react-digraph's demo.
-        </p>
-        <p>
-          Another benefit of this library is that it has no dependencies, unlike
-          react-digraph which is based on React and D3, and relies on some other
-          dependencies.
-        </p>
-        <p>Sorry for the wall of text :P</p>`
+      description: `
+          <p>
+            This is a library for creating a simple directed graph. It is
+            heavily inspired by react-digraph, but with far less features, not
+            as polished, and also not built for React :D
+          </p>
+          <p>
+            I initially created this for practice, to make a graph editor
+            library that is fast, simple, and no dependency. I use Canvas and
+            implemented Quad Tree to achieve the performance. You can try
+            generating 1,000 nodes on react-digraph vs generating 999,999 nodes
+            on web-digraph and then interact with the graph.
+          </p>
+        `
     },
     {
       name: "Simple Sudoku TS",
       imageSrc: ssSudoku,
+      borderClass: "border-stone-600",
       tags: ["Rust", "WebAssembly", "Typescript", "Sudoku"],
-      url: "https://simple-sudoku-ts.netlify.app/",
       links: [
         {
-          text: "See it in action",
+          text: "Play",
           url: "https://simple-sudoku-ts.netlify.app/"
         },
         {
-          text: "See the source code",
+          text: "GitHub Repo",
           url: "https://github.com/harchcode/simple-sudoku-ts"
         }
       ],
-      description: html`<p>A simple 3x3 sudoku game.</p>
-        <p>
-          This game shows how to generate simple 3x3 sudoku problems, and also
-          how to implement a sudoku solver.
-        </p>
-        <p>
-          I actually created this originally around 2011, and I already forgot
-          where I got the algorithm for the problem generator with difficulty.
-          Please let me know if you know.
-        </p>`
+      description: `
+          <p>A simple 3x3 sudoku game.</p>
+          <p>
+            This game shows how to generate simple 3x3 sudoku problems, and also
+            how to implement a sudoku solver. I also updated this to use Rust
+            and WebAssembly for experimentation.
+          </p>
+          <p>
+            I actually created this originally around 2011, and I already forgot
+            where I got the algorithm for the problem generator with difficulty.
+            Please let me know if you know.
+          </p>
+        `
     },
     {
       name: "Gaguna",
       imageSrc: ssGaguna,
+      borderClass: "border-teal-600",
       tags: ["Typescript", "Utils"],
-      url: "https://github.com/harchcode/gaguna",
       links: [
         {
-          text: "Go to the docs site",
-          url: "https://github.com/harchcode/gaguna"
+          text: "NPM Page",
+          url: "https://www.npmjs.com/package/gaguna"
         },
         {
-          text: "Go to the GitHub page",
+          text: "GitHub Repo",
           url: "https://github.com/harchcode/gaguna"
         }
       ],
-      description: html`<p>
-          This library is a collection of utils/functions that I found useful
-          (maybe).
-        </p>
-        <p>
-          This library contains things like easing functions, debounce function,
-          bitset, etc.
-        </p>
-        <p>
-          Gaguna (from common Indonesian words "ga guna") means useless, and
-          this library is surely useless for most of you xD
-        </p>`
+      description: `
+          <p>
+            This library is a collection of utils/functions that I found useful
+            (maybe).
+          </p>
+          <p>
+            This library contains things like easing functions, debounce
+            function, bitset, etc.
+          </p>
+          <p>
+            Gaguna (from common Indonesian words "ga guna") means useless, and
+            this library is surely useless for most of you. xD
+          </p>
+        `
     },
     {
       name: "This Site",
       imageSrc: ssPortfolio,
-      tags: ["Typescript", "Tailwind", "Astro", "Canvas"],
-      url: "https://github.com/harchcode/portfolio",
+      borderClass: "border-lime-600",
+      tags: ["Typescript", "Tailwind", "SolidJS", "Canvas"],
       links: [
         {
-          text: "See the source code",
+          text: "GitHub Repo",
           url: "https://github.com/harchcode/portfolio"
         }
       ],
-      description: html`<p>
-          Yes, this portfolio site that you are currently viewing is also part
-          of my portfolio!
-        </p>
-        <p>
-          This site is built using Astro as static site generator, Tailwind for
-          styles, and Canvas for the annoying background you see on this site.
-        </p>
-        <p>This site supports mobile and desktop view.</p>`
+      description: `
+          <p>This is the site you are currently viewing.</p>
+          <p>
+            This site is built using Astro as static site generator, Tailwind for styles, and Canvas for the annoying
+            background.
+          </p>
+          <p>This site supports mobile and desktop view.</p>
+        `
     },
     {
       name: "Kisstastic",
       imageSrc: ssKisstastic,
+      borderClass: "border-green-800",
       tags: ["Typescript", "PixiJS"],
-      url: "https://kisstastic.netlify.app/",
       links: [
         {
-          text: "See the source code",
+          text: "GitHub Repo",
           url: "https://github.com/harchcode/kisstastic"
         },
         {
-          text: "See it in action (lower your volume first xD)",
+          text: "Play",
           url: "https://kisstastic.netlify.app/"
         }
       ],
-      description: html`<p>
-          This is a simple, old game inspired by Flappy Bird (wished it got as
-          successful xD). Originally I created this game for Android (around
-          2014, was on Play Store, but now it already got removed T.T). I lost
-          the original source code, so i recreated this dumb game for the web.
-        </p>
-        <p>
-          This game is created using PixiJS, a 2D rendering framework for the
-          web.
-        </p>`
+      description: `
+          <p>
+            This is a simple, old game inspired by Flappy Bird (wished it got as
+            successful xD). Originally I created this game for Android (around
+            2014, was on Play Store, but now it already got removed T.T). I lost
+            the original source code, so i recreated this dumb game for the web.
+          </p>
+          <p>
+            This game is created using PixiJS, a 2D rendering framework for the
+            web.
+          </p>
+        `
     }
   ]
 };
+
+export default siteInfo;

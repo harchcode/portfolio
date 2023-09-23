@@ -1,46 +1,48 @@
 {
-  "name": "hartono-chandra-portfolio",
+  "name": "my-portfolio",
   "version": "0.0.0",
   "type": "module",
   "engines": {
-    "node": ">=14"
+    "node": ">=18"
   },
   "scripts": {
-    "dev": "astro dev --host",
-    "start": "astro dev",
+    "start": "astro dev --host",
+    "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview",
-    "test": "echo 'no test'",
+    "preview": "astro preview --host",
     "astro": "astro",
+    "test": "echo 'no test'",
     "lint": "eslint src",
     "lint-staged": "lint-staged",
     "prepare": "husky install",
+    "update-all": "ncu -u",
     "size": "size-limit"
   },
   "devDependencies": {
-    "@size-limit/file": "^8.1.0",
-    "@typescript-eslint/eslint-plugin": "^5.44.0",
-    "@typescript-eslint/parser": "^5.44.0",
-    "astro": "^1.6.11",
-    "autoprefixer": "^10.4.13",
-    "eslint": "^8.28.0",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-prettier": "^4.2.1",
-    "husky": "^8.0.2",
-    "lint-staged": "^13.0.3",
-    "postcss": "^8.4.19",
-    "prettier": "^2.8.0",
-    "prettier-plugin-astro": "^0.7.0",
-    "size-limit": "^8.1.0",
-    "tailwindcss": "^3.2.4",
-    "typescript": "^4.9.3"
+    "@size-limit/file": "^9.0.0",
+    "@types/node": "^20.5.9",
+    "@typescript-eslint/eslint-plugin": "^6.6.0",
+    "@typescript-eslint/parser": "^6.6.0",
+    "astro": "^3.1.1",
+    "autoprefixer": "^10.4.15",
+    "eslint": "^8.48.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^14.0.1",
+    "npm-check-updates": "^16.13.2",
+    "postcss": "^8.4.29",
+    "prettier": "^3.0.3",
+    "prettier-plugin-astro": "^0.12.0",
+    "size-limit": "^9.0.0",
+    "tailwindcss": "^3.3.3",
+    "typescript": "^5.2.2",
+    "vite": "^4.4.9",
+    "vite-plugin-solid": "^2.7.0"
   },
   "lint-staged": {
-    "src/**/*.{js,ts}": [
-      "eslint --fix"
-    ],
-    "*.{html,css}": [
-      "prettier --write"
+    "{src,test}/**/*.{js,ts}": [
+      "eslint"
     ]
   },
   "size-limit": [

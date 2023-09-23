@@ -4,12 +4,13 @@
 
 html,
 body {
-  @apply overflow-x-hidden;
   height: 100%;
 }
 
-button.active {
-  @apply bg-color2 dark:bg-color4 rounded-xl;
+body {
+  @apply bg-lime-50 tracking-wide leading-normal;
+
+  font-size: 16px;
 }
 
 .content {
@@ -23,4 +24,122 @@ button.active {
   100% {
     opacity: 1;
   }
+}
+
+body,
+div,
+input,
+button {
+  -webkit-tap-highlight-color: transparent;
+  margin: 0;
+  padding: 0;
+}
+
+a.active {
+  @apply bg-indigo-600 font-bold text-white;
+}
+
+.talkbubble::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  right: 2rem;
+  width: 0;
+  height: 0;
+  border-top: 2rem solid transparent;
+  border-right: 2rem solid transparent;
+  border-bottom: 1.5rem solid white;
+}
+
+@media (min-width: 768px) {
+  .talkbubble::before {
+    content: "";
+    position: absolute;
+    right: 100%;
+    top: 2rem;
+    width: 0;
+    height: 0;
+    border-top: 1rem solid transparent;
+    border-right: 2rem solid white;
+    border-bottom: 1rem solid transparent;
+  }
+}
+
+@media (min-height: 80rem) {
+  .section {
+    min-height: 80rem;
+  }
+}
+
+.typewriter {
+  width: fit-content;
+}
+
+/* https://css-tricks.com/snippets/css/typewriter-effect/ */
+.typewriter span {
+  display: inline-block;
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  animation:
+    typing 2.5s steps(40, end),
+    blink-caret 0.75s step-end 6;
+  border-color: transparent;
+}
+
+/* The typing effect */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: black;
+  }
+}
+
+.social-button svg path {
+  fill: #fff;
+}
+
+a {
+  @apply text-blue-700;
+}
+
+.text-stroke {
+  -webkit-text-fill-color: #3730a3; /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: white;
+}
+
+ul.list-check {
+  list-style: none;
+}
+
+ul.list-check li {
+  position: relative;
+  padding-left: 2rem;
+}
+
+ul.list-check li:before {
+  content: "✓";
+  position: absolute;
+  left: 1rem; /* place the SVG at the start of the padding */
+  width: 1em;
+  height: 1em;
+  @apply text-green-600 font-bold;
+}
+
+p + p {
+  margin-top: 0.5em;
 }
