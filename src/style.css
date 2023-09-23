@@ -128,13 +128,13 @@ ul.list-check {
 
 ul.list-check li {
   position: relative;
-  padding-left: 2rem;
+  padding-left: 1rem;
 }
 
 ul.list-check li:before {
   content: "✓";
   position: absolute;
-  left: 1rem; /* place the SVG at the start of the padding */
+  left: 0; /* place the SVG at the start of the padding */
   width: 1em;
   height: 1em;
   @apply text-green-600 font-bold;
