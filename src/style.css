@@ -8,7 +8,7 @@ body {
 }
 
 body {
-  @apply bg-lime-50 tracking-wide leading-normal;
+  @apply bg-white tracking-wide leading-normal;
 
   font-size: 16px;
 }

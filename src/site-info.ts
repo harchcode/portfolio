@@ -21,6 +21,7 @@ export type SVGDef = {
 export type SocialLink = {
   label: string;
   url: string;
+  linkText?: string;
   svgSymbolId: SVGSymbolId;
 };
 
@@ -29,6 +30,7 @@ export type About = {
   imageSrc: ImageMetadata;
   jobTitle: string;
   intro: string;
+  resumeUrl: string;
 };
 
 export type Work = {
@@ -104,27 +106,27 @@ const siteInfo: SiteInfo = {
         <p>
           You can check out some of my toy projects in the Projects section. If
           you want to know more about me, please contact me.
-        </p>`
+        </p>`,
+    resumeUrl:
+      "https://filedn.eu/lr4y52Kp8s082m7yYRgv8eL/resume-hartono-chandra.pdf"
   },
   socialLinks: [
     {
-      label: "resume",
-      url: "https://e1.pcloud.link/publink/show?code=XZPXKHZV6cxy6RCdXXdIoG7dLHKRkplV8V7",
-      svgSymbolId: "doc"
-    },
-    {
-      label: "email",
+      label: "Email",
       url: "mailto:harchcode@gmail.com",
+      linkText: "harchcode@gmail.com",
       svgSymbolId: "email"
     },
     {
-      label: "linkedin",
+      label: "LinkedIn",
       url: "https://linkedin.com/in/hartonochandra/",
+      linkText: "linkedin.com/in/hartonochandra",
       svgSymbolId: "linkedin"
     },
     {
-      label: "github",
+      label: "GitHub",
       url: "https://github.com/harchcode",
+      linkText: "github.com/harchcode",
       svgSymbolId: "github"
     }
   ],
