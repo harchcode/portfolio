@@ -41,6 +41,8 @@ export type Work = {
   content: string;
   tags: string[];
   borderClass: string;
+  bgClass: string;
+  gradientClass?: string;
 };
 
 export type Project = {
@@ -157,14 +159,16 @@ const siteInfo: SiteInfo = {
             program cycle 1 and 3.
           </p>
         `,
-      borderClass: "border-blue-600"
+      borderClass: "border-blue-600",
+      bgClass: "bg-blue-600",
+      gradientClass: "from-blue-600 to-red-600"
     },
     {
       imageSrc: blLogo,
       periode: "September 2018 - September 2019",
       companyName: "Bukalapak",
       jobTitle: "Software Engineer - Front End",
-      tags: ["D3", "Vue", "Pug", "PWA"],
+      tags: ["Charts with D3", "Vue", "Pug", "PWA"],
       content: `
           <p>
             I was mostly working on a dashboard with many customized charts,
@@ -173,7 +177,9 @@ const siteInfo: SiteInfo = {
           </p>
           <p>I also have worked on some features on the Mitra Bukalapak PWA.</p>
         `,
-      borderClass: "border-red-600"
+      borderClass: "border-red-600",
+      bgClass: "bg-red-600",
+      gradientClass: "from-red-600 to-zinc-700"
     },
     {
       imageSrc: xmiLogo,
@@ -189,7 +195,9 @@ const siteInfo: SiteInfo = {
             basically working on the built code. :D
           </p>
         `,
-      borderClass: "border-zinc-500"
+      borderClass: "border-zinc-700",
+      bgClass: "bg-zinc-700",
+      gradientClass: "from-zinc-700 to-indigo-600"
     },
     {
       imageSrc: gsgLogo,
@@ -212,7 +220,8 @@ const siteInfo: SiteInfo = {
             various features of a business application.
           </p>
         `,
-      borderClass: "border-indigo-600"
+      borderClass: "border-indigo-600",
+      bgClass: "bg-indigo-600"
     }
   ],
   projects: [

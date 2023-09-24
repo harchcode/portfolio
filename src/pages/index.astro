@@ -47,11 +47,13 @@ import { Image } from "astro:assets";
       </div>
     </div> -->
 
-    <div class="content max-w-md md:max-w-screen-md mx-auto pb-8">
+    <div class="content max-w-sm md:max-w-screen-md mx-auto">
       <div id="about" class="px-4 py-2 w-full">
         <div class="font-bold mt-8">About me</div>
         <div class="text-3xl mt-4 tracking-wider">{site.about.name}</div>
-        <div class="text-lg mt-2 font-mono tracking-tighter font-bold">
+        <div
+          class="text-lg mt-2 font-mono tracking-tighter font-bold text-yellow-700"
+        >
           {site.about.jobTitle}
         </div>
         <div class="max-w-sm mt-4" set:html={site.about.intro} />
@@ -85,7 +87,9 @@ import { Image } from "astro:assets";
               <div class="relative">
                 {i !== site.works.length - 1 && (
                   <div class="absolute w-4 h-full flex justify-center">
-                    <div class="bg-black w-0.5 h-full" />
+                    <div
+                      class={`bg-gradient-to-b ${work.gradientClass} w-0.5 h-full`}
+                    />
                   </div>
                 )}
 
@@ -95,8 +99,12 @@ import { Image } from "astro:assets";
                   }`}
                 >
                   <div class={`flex items-center w-full`}>
-                    <div class="w-4 h-4 p-[2px] rounded-full bg-white border-black border-2 flex-none overflow-hidden">
-                      <div class="bg-black w-full h-full rounded-full" />
+                    <div
+                      class={`w-4 h-4 p-[2px] rounded-full bg-white ${work.borderClass} border-2 flex-none overflow-hidden`}
+                    >
+                      <div
+                        class={`${work.bgClass} w-full h-full rounded-full`}
+                      />
                     </div>
 
                     <div class="ml-4 -mt-[1px] text-xs font-bold flex-auto">
@@ -178,6 +186,14 @@ import { Image } from "astro:assets";
             ))
           }
         </div>
+      </div>
+
+      <div
+        id="footer"
+        class="w-full mt-8 pb-4 px-4 py-2 text-xs text-slate-700"
+      >
+        <div>This site is built with Astro and TailwindCSS.</div>
+        <div>See the source code on the GitHub repo.</div>
       </div>
     </div>
 
