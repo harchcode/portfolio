@@ -65,6 +65,10 @@ a.active {
   }
 }
 
+.section {
+  @apply min-h-screen;
+}
+
 @media (min-height: 80rem) {
   .section {
     min-height: 80rem;
