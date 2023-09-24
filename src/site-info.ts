@@ -7,7 +7,6 @@ import ssUbur from "./assets/ss-ubur.png";
 import ssWebDigraph from "./assets/ss-web-digraph.png";
 import ssSudoku from "./assets/ss-sudoku.png";
 import ssGaguna from "./assets/ss-gaguna.png";
-import ssPortfolio from "./assets/ss-portfolio.png";
 import ssKisstastic from "./assets/ss-kisstastic.png";
 
 type SVGSymbolId = "doc" | "email" | "github" | "linkedin" | "play";
@@ -344,26 +343,6 @@ const siteInfo: SiteInfo = {
             Gaguna (from common Indonesian words "ga guna") means useless, and
             this library is surely useless for most of you. xD
           </p>
-        `
-    },
-    {
-      name: "This Site",
-      imageSrc: ssPortfolio,
-      borderClass: "border-lime-600",
-      tags: ["Typescript", "Tailwind", "SolidJS", "Canvas"],
-      links: [
-        {
-          text: "GitHub Repo",
-          url: "https://github.com/harchcode/portfolio"
-        }
-      ],
-      description: `
-          <p>This is the site you are currently viewing.</p>
-          <p>
-            This site is built using Astro as static site generator, Tailwind for styles, and Canvas for the annoying
-            background.
-          </p>
-          <p>This site supports mobile and desktop view.</p>
         `
     },
     {
