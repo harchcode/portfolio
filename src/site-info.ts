@@ -141,9 +141,10 @@ const siteInfo: SiteInfo = {
         "Graph",
         "React",
         "NextJS",
-        "Kampus Merdeka as Mentor",
+        "Mentor for Kampus Merdeka internship",
         "Semantic UI",
         "Typescript",
+        "Jest",
         "React Testing Library",
         "Terraform"
       ],
@@ -167,7 +168,7 @@ const siteInfo: SiteInfo = {
       periode: "September 2018 - September 2019",
       companyName: "Bukalapak",
       jobTitle: "Software Engineer - Front End",
-      tags: ["Charts with D3", "Vue", "Pug", "PWA"],
+      tags: ["Charts with D3", "Vue", "Pug", "Nuxt", "PWA"],
       content: `
           <p>
             I was mostly working on a dashboard with many customized charts,
@@ -185,7 +186,7 @@ const siteInfo: SiteInfo = {
       periode: "October 2017 - May 2018",
       companyName: "XMI",
       jobTitle: "Programmer",
-      tags: ["Ionic Framework", "Slim (PHP)", "PixiJS", "Firebase"],
+      tags: ["Ionic Framework", "Slim (PHP)", "PixiJS", "Firebase", "MySQL"],
       content: `
           <p>
             Worked on maintaining a mobile game project, fixing bugs and add

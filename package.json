@@ -10,6 +10,7 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview --host",
+    "build-and-preview": "npm run build && npm run preview --host",
     "astro": "astro",
     "test": "echo 'no test'",
     "lint": "eslint src",

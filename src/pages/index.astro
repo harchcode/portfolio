@@ -21,7 +21,7 @@ import { Image } from "astro:assets";
           class="w-full md:w-72 px-4 py-2 backdrop-blur-sm md:backdrop-blur-0 shadow md:shadow-none"
         >
           <div
-            class="w-full flex md:flex-col border-2 bg-white border-black rounded-full md:rounded-xl overflow-hidden"
+            class="w-full max-w-sm mx-auto flex md:flex-col border-2 bg-white border-black rounded-full md:rounded-xl overflow-hidden"
           >
             <a
               href="#about"
@@ -44,26 +44,26 @@ import { Image } from "astro:assets";
     </div>
 
     <div class="content md:fixed md:top-40 w-full z-20 mt-8 md:mt-0">
-      <div
-        class="w-full max-w-screen-md mx-auto px-4 py-2 md:flex md:justify-end"
-      >
-        <div class="w-full md:w-64 text-sm mt-6 px-2">
-          <div class="flex">
-            <div class="flex-auto font-bold text-slate-600">
-              Current site version:
+      <div class="w-full max-w-screen-md mx-auto px md:flex md:justify-end">
+        <div class="w-full md:w-72 px-4 py-2">
+          <div class="w-full max-w-sm mx-auto text-sm mt-6 px-2">
+            <div class="flex">
+              <div class="flex-auto font-bold text-slate-600">
+                Current site version:
+              </div>
+              <div class="font-extrabold">v4</div>
             </div>
-            <div class="font-extrabold">v4</div>
-          </div>
-          <div class="flex mt-2">
-            <div class="flex-auto font-bold text-slate-600">
-              Older versions:
-            </div>
-            <div class="flex-none flex items-center space-x-2">
-              <a href="https://v3--hartonochandra.netlify.app" class="">v3</a>
-              <div class="w-1 h-1 bg-black rounded-full"></div>
-              <a href="https://v2--hartonochandra.netlify.app" class="">v2</a>
-              <div class="w-1 h-1 bg-black rounded-full"></div>
-              <a href="https://v1--hartonochandra.netlify.app" class="">v1</a>
+            <div class="flex mt-1">
+              <div class="flex-auto font-bold text-slate-600">
+                Older versions:
+              </div>
+              <div class="flex-none flex items-center space-x-2">
+                <a href="https://v3--hartonochandra.netlify.app" class="">v3</a>
+                <div class="w-1 h-1 bg-black rounded-full"></div>
+                <a href="https://v2--hartonochandra.netlify.app" class="">v2</a>
+                <div class="w-1 h-1 bg-black rounded-full"></div>
+                <a href="https://v1--hartonochandra.netlify.app" class="">v1</a>
+              </div>
             </div>
           </div>
         </div>
