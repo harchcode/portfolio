@@ -55,16 +55,16 @@ export function initMenuScrolling() {
     });
   }
 
-  function getActiveMenuId(scrollPos: number): string {
+  function getActiveMenuId(scrollPos: number): string | null {
     for (let i = menuDivs.length - 1; i >= 0; i--) {
-      const menuDiv = menuDivs[i] as HTMLElement;
+      const menuDiv = menuDivs[i];
 
-      if (scrollPos >= menuDiv.offsetTop - 300) {
+      if (scrollPos >= menuDiv.offsetTop - 100) {
         return menuDiv.id;
       }
     }
 
-    return "";
+    return null;
   }
 
   function onScroll(_scrollX: number, scrollY: number) {
@@ -72,7 +72,7 @@ export function initMenuScrolling() {
 
     const id = getActiveMenuId(scrollY);
 
-    setActiveMenu(id);
+    setActiveMenu(id ?? menuDivs[0].id);
   }
 
   addScrollEventListener(onScroll);
