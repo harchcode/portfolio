@@ -7,7 +7,6 @@ import ssUbur from "./assets/ss-ubur.png";
 import ssWebDigraph from "./assets/ss-web-digraph.png";
 import ssSudoku from "./assets/ss-sudoku.png";
 import ssGaguna from "./assets/ss-gaguna.png";
-import ssPortfolio from "./assets/ss-portfolio.png";
 import ssKisstastic from "./assets/ss-kisstastic.png";
 
 type SVGSymbolId = "doc" | "email" | "github" | "linkedin" | "play";
@@ -21,6 +20,7 @@ export type SVGDef = {
 export type SocialLink = {
   label: string;
   url: string;
+  linkText?: string;
   svgSymbolId: SVGSymbolId;
 };
 
@@ -29,6 +29,7 @@ export type About = {
   imageSrc: ImageMetadata;
   jobTitle: string;
   intro: string;
+  resumeUrl: string;
 };
 
 export type Work = {
@@ -39,6 +40,8 @@ export type Work = {
   content: string;
   tags: string[];
   borderClass: string;
+  bgClass: string;
+  gradientClass?: string;
 };
 
 export type Project = {
@@ -104,27 +107,27 @@ const siteInfo: SiteInfo = {
         <p>
           You can check out some of my toy projects in the Projects section. If
           you want to know more about me, please contact me.
-        </p>`
+        </p>`,
+    resumeUrl:
+      "https://filedn.eu/lr4y52Kp8s082m7yYRgv8eL/resume-hartono-chandra.pdf"
   },
   socialLinks: [
     {
-      label: "resume",
-      url: "https://e1.pcloud.link/publink/show?code=XZPXKHZV6cxy6RCdXXdIoG7dLHKRkplV8V7",
-      svgSymbolId: "doc"
-    },
-    {
-      label: "email",
+      label: "Email",
       url: "mailto:harchcode@gmail.com",
+      linkText: "harchcode@gmail.com",
       svgSymbolId: "email"
     },
     {
-      label: "linkedin",
+      label: "LinkedIn",
       url: "https://linkedin.com/in/hartonochandra/",
+      linkText: "linkedin.com/in/hartonochandra",
       svgSymbolId: "linkedin"
     },
     {
-      label: "github",
+      label: "GitHub",
       url: "https://github.com/harchcode",
+      linkText: "github.com/harchcode",
       svgSymbolId: "github"
     }
   ],
@@ -138,9 +141,10 @@ const siteInfo: SiteInfo = {
         "Graph",
         "React",
         "NextJS",
-        "Kampus Merdeka as Mentor",
+        "Mentor for Kampus Merdeka internship",
         "Semantic UI",
         "Typescript",
+        "Jest",
         "React Testing Library",
         "Terraform"
       ],
@@ -155,14 +159,16 @@ const siteInfo: SiteInfo = {
             program cycle 1 and 3.
           </p>
         `,
-      borderClass: "border-blue-600"
+      borderClass: "border-blue-600",
+      bgClass: "bg-blue-600",
+      gradientClass: "from-blue-600 to-red-600"
     },
     {
       imageSrc: blLogo,
       periode: "September 2018 - September 2019",
       companyName: "Bukalapak",
       jobTitle: "Software Engineer - Front End",
-      tags: ["D3", "Vue", "Pug", "PWA"],
+      tags: ["Charts with D3", "Vue", "Pug", "Nuxt", "PWA"],
       content: `
           <p>
             I was mostly working on a dashboard with many customized charts,
@@ -171,14 +177,16 @@ const siteInfo: SiteInfo = {
           </p>
           <p>I also have worked on some features on the Mitra Bukalapak PWA.</p>
         `,
-      borderClass: "border-red-600"
+      borderClass: "border-red-600",
+      bgClass: "bg-red-600",
+      gradientClass: "from-red-600 to-zinc-700"
     },
     {
       imageSrc: xmiLogo,
       periode: "October 2017 - May 2018",
       companyName: "XMI",
       jobTitle: "Programmer",
-      tags: ["Ionic Framework", "Slim (PHP)", "PixiJS", "Firebase"],
+      tags: ["Ionic Framework", "Slim (PHP)", "PixiJS", "Firebase", "MySQL"],
       content: `
           <p>
             Worked on maintaining a mobile game project, fixing bugs and add
@@ -187,7 +195,9 @@ const siteInfo: SiteInfo = {
             basically working on the built code. :D
           </p>
         `,
-      borderClass: "border-zinc-500"
+      borderClass: "border-zinc-700",
+      bgClass: "bg-zinc-700",
+      gradientClass: "from-zinc-700 to-indigo-600"
     },
     {
       imageSrc: gsgLogo,
@@ -210,7 +220,8 @@ const siteInfo: SiteInfo = {
             various features of a business application.
           </p>
         `,
-      borderClass: "border-indigo-600"
+      borderClass: "border-indigo-600",
+      bgClass: "bg-indigo-600"
     }
   ],
   projects: [
@@ -333,26 +344,6 @@ const siteInfo: SiteInfo = {
             Gaguna (from common Indonesian words "ga guna") means useless, and
             this library is surely useless for most of you. xD
           </p>
-        `
-    },
-    {
-      name: "This Site",
-      imageSrc: ssPortfolio,
-      borderClass: "border-lime-600",
-      tags: ["Typescript", "Tailwind", "SolidJS", "Canvas"],
-      links: [
-        {
-          text: "GitHub Repo",
-          url: "https://github.com/harchcode/portfolio"
-        }
-      ],
-      description: `
-          <p>This is the site you are currently viewing.</p>
-          <p>
-            This site is built using Astro as static site generator, Tailwind for styles, and Canvas for the annoying
-            background.
-          </p>
-          <p>This site supports mobile and desktop view.</p>
         `
     },
     {
