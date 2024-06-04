@@ -8,7 +8,7 @@ body {
 }
 
 body {
-  @apply transition-colors duration-300 bg-white dark:bg-black text-black dark:text-white tracking-wide leading-normal;
+  @apply font-sans transition-colors duration-300 bg-white dark:bg-black text-black dark:text-white tracking-wide leading-normal;
 
   font-size: 16px;
 }

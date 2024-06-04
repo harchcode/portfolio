@@ -42,5 +42,9 @@
       "path": "dist",
       "limit": "200 kB"
     }
-  ]
+  ],
+  "dependencies": {
+    "@fontsource-variable/grandstander": "^5.0.21",
+    "@fontsource-variable/kode-mono": "^5.0.3"
+  }
 }

@@ -141,12 +141,9 @@ const siteInfo: SiteInfo = {
         "Graph",
         "React",
         "NextJS",
-        "Mentor for Kampus Merdeka internship",
-        "Semantic UI",
         "Typescript",
-        "Jest",
-        "React Testing Library",
-        "Terraform"
+        "Jest + React Testing Library",
+        "Mentor for Kampus Merdeka internship"
       ],
       content: `
           <p>
