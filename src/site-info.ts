@@ -22,6 +22,9 @@ export type SocialLink = {
   url: string;
   linkText?: string;
   svgSymbolId: SVGSymbolId;
+  bgColor: string;
+  textColor: string;
+  borderColor: string;
 };
 
 export type About = {
@@ -102,7 +105,7 @@ const siteInfo: SiteInfo = {
     name: "Hartono Chandra",
     intro: `
         <p>
-          I am an average software engineer, specialized in web. 
+          Hello! I am an average software engineer, specialized in web. 
         </p>
         <p>
           You can check out some of my toy projects in the Projects section. If
@@ -113,22 +116,41 @@ const siteInfo: SiteInfo = {
   },
   socialLinks: [
     {
+      label: "Resume",
+      url: "https://filedn.eu/lr4y52Kp8s082m7yYRgv8eL/resume-hartono-chandra.pdf",
+      linkText:
+        "https://filedn.eu/lr4y52Kp8s082m7yYRgv8eL/resume-hartono-chandra.pdf",
+      svgSymbolId: "doc",
+      bgColor: "bg-yellow-50",
+      textColor: "text-yellow-700",
+      borderColor: "border-yellow-950"
+    },
+    {
       label: "Email",
       url: "mailto:harchcode@gmail.com",
       linkText: "harchcode@gmail.com",
-      svgSymbolId: "email"
+      svgSymbolId: "email",
+      bgColor: "bg-rose-50",
+      textColor: "text-rose-900",
+      borderColor: "border-rose-950"
     },
     {
       label: "LinkedIn",
       url: "https://linkedin.com/in/hartonochandra/",
       linkText: "linkedin.com/in/hartonochandra",
-      svgSymbolId: "linkedin"
+      svgSymbolId: "linkedin",
+      bgColor: "bg-blue-100",
+      textColor: "text-blue-600",
+      borderColor: "border-blue-950"
     },
     {
       label: "GitHub",
       url: "https://github.com/harchcode",
       linkText: "github.com/harchcode",
-      svgSymbolId: "github"
+      svgSymbolId: "github",
+      bgColor: "bg-slate-100",
+      textColor: "text-slate-700",
+      borderColor: "border-slate-950"
     }
   ],
   works: [

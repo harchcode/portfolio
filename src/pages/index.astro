@@ -1,11 +1,9 @@
 ---
 import "@fontsource-variable/grandstander";
 import "@fontsource-variable/kode-mono";
-import "../style.css";
 import site from "../site-info";
-import { Image } from "astro:assets";
-
-const aboutChars = "ABOUT ME".split("");
+import "../style.css";
+// import { Image } from "astro:assets";
 ---
 
 <!doctype html>
@@ -19,92 +17,54 @@ const aboutChars = "ABOUT ME".split("");
   </head>
 
   <body>
-    <div>
-      <div
-        class="absolute top-0 left-0 right-0 bottom-0 bg-gradient-to-br from-gray-700 to-black"
-        style="clip-path: polygon(0 0, 50% 0, 30% 100%, 0 100%);"
-      >
-        <div
-          class="text-7xl text-white font-mono w-fit px-16 py-8 font-bold scale-x-150"
-        >
-          {aboutChars.map(ch => <div class="h-20">{ch}</div>)}
-        </div>
+    {
+      site.svgDefs.map(svgDef => (
+        <svg style="display: none" version="2.0">
+          <defs>
+            <symbol id={svgDef.id} viewBox={svgDef.viewBox}>
+              <path class="fill-current" d={svgDef.path} />
+            </symbol>
+          </defs>
+          <use href={`#${svgDef.id}`} />
+        </svg>
+      ))
+    }
+
+    <div class="p-4">
+      <div class="text-3xl">
+        <span class="font-bold text-sky-600">H</span>artono <span
+          class="font-bold text-emerald-600">C</span
+        >handra
+      </div>
+      <div class="text-lg font-semibold text-lime-700">
+        Software Engineer - Web
       </div>
 
-      <div class="absolute w-full h-full flex items-center">
-        <div class="flex-auto"></div>
-        <div class="w-[25rem]">
-          <div
-            class="bg-gradient-to-b from-black to-gray-800 py-2 pl-8 pr-16"
-            style="clip-path: polygon(5% 0, 100% 0, 100% 100%, 0 100%);"
-          >
-            <div class="text-3xl text-white tracking-wider">
-              {site.about.name}
-            </div>
+      <div
+        class="bg-lime-100 rounded-xl px-3 py-2 border-2 border-black mt-64"
+        style="box-shadow: 3px 3px 0 black;"
+      >
+        <p>Hello!</p>
+        <p>
+          Please check out my toy projects, and don't hesitate to contact me!
+        </p>
+      </div>
+
+      <div class="flex space-x-2 mt-3">
+        {
+          site.socialLinks.map(link => (
             <div
-              class="text-lg font-mono tracking-tighter font-bold text-yellow-300"
+              class={`flex-1 ${link.bgColor} ${link.borderColor} rounded-xl border-2 text-center overflow-hidden py-2`}
             >
-              {site.about.jobTitle}
+              <div class={`w-8 h-8 mx-auto mt-2 ${link.textColor}`}>
+                <svg width="100%" height="100%" version="2.0">
+                  <use href={`#${link.svgSymbolId}`} />
+                </svg>
+              </div>
+              <div class="mt-2 text-xs">{link.label}</div>
             </div>
-          </div>
-
-          <div class="mt-8 ml-12 relative">
-            {
-              site.works.map((work, i) => (
-                <div class="relative">
-                  {i !== site.works.length - 1 && (
-                    <div class="absolute w-4 h-full flex justify-center">
-                      <div
-                        class={`bg-gradient-to-b ${work.gradientClass} w-0.5 h-full`}
-                      />
-                    </div>
-                  )}
-
-                  <div
-                    class={`relative h-full${
-                      i !== site.works.length - 1 ? " pb-6" : ""
-                    }`}
-                  >
-                    <div class={`flex items-center w-full`}>
-                      <div
-                        class={`w-4 h-4 p-[2px] rounded-full bg-white ${work.borderClass} border-2 flex-none overflow-hidden`}
-                      >
-                        <div
-                          class={`${work.bgClass} w-full h-full rounded-full`}
-                        />
-                      </div>
-
-                      <div class="ml-4 -mt-[1px] text-xs font-bold flex-auto">
-                        {work.periode}
-                      </div>
-                    </div>
-
-                    <div class="flex w-full">
-                      <div class="flex-none w-4" />
-
-                      <div class="ml-4 flex-auto">
-                        <div class="flex mt-2 items-center">
-                          <div class="w-4 h-4 rounded overflow-hidden bg-white">
-                            <Image
-                              src={work.imageSrc}
-                              alt={`Logo of ${work.companyName}`}
-                              loading="eager"
-                            />
-                          </div>
-
-                          <div class="ml-2 text-sm">{work.companyName}</div>
-                        </div>
-                        <div class="text-xs tracking-normal mt-1">
-                          {work.jobTitle}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))
-            }
-          </div>
-        </div>
+          ))
+        }
       </div>
     </div>
   </body>
