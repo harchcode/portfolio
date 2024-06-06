@@ -44,6 +44,7 @@ export type Work = {
   tags: string[];
   borderClass: string;
   bgClass: string;
+  cardBgClass: string;
   gradientClass?: string;
 };
 
@@ -180,6 +181,7 @@ const siteInfo: SiteInfo = {
         `,
       borderClass: "border-blue-600",
       bgClass: "bg-blue-600",
+      cardBgClass: "bg-blue-50",
       gradientClass: "from-blue-600 to-red-600"
     },
     {
@@ -198,6 +200,7 @@ const siteInfo: SiteInfo = {
         `,
       borderClass: "border-red-600",
       bgClass: "bg-red-600",
+      cardBgClass: "bg-red-50",
       gradientClass: "from-red-600 to-zinc-700"
     },
     {
@@ -216,6 +219,7 @@ const siteInfo: SiteInfo = {
         `,
       borderClass: "border-zinc-700",
       bgClass: "bg-zinc-700",
+      cardBgClass: "bg-zinc-50",
       gradientClass: "from-zinc-700 to-indigo-600"
     },
     {
@@ -240,7 +244,8 @@ const siteInfo: SiteInfo = {
           </p>
         `,
       borderClass: "border-indigo-600",
-      bgClass: "bg-indigo-600"
+      bgClass: "bg-indigo-600",
+      cardBgClass: "bg-indigo-50"
     }
   ],
   projects: [
@@ -248,7 +253,7 @@ const siteInfo: SiteInfo = {
       name: "Ubur",
       imageSrc: ssUbur,
       borderClass: "border-fuchsia-800",
-      tags: ["Rust", "WebAssembly", "Typescript", "WebGL", "Canvas"],
+      tags: ["Rust", "WebGL", "Canvas"],
       links: [
         {
           text: "Play",
@@ -276,7 +281,7 @@ const siteInfo: SiteInfo = {
       name: "Web Digraph",
       imageSrc: ssWebDigraph,
       borderClass: "border-sky-600",
-      tags: ["Typescript", "Canvas", "Library", "Graph"],
+      tags: ["TS", "Canvas", "Graph"],
       links: [
         {
           text: "Demo",
@@ -310,7 +315,7 @@ const siteInfo: SiteInfo = {
       name: "Simple Sudoku TS",
       imageSrc: ssSudoku,
       borderClass: "border-stone-600",
-      tags: ["Rust", "WebAssembly", "Typescript", "Sudoku"],
+      tags: ["Rust", "TS"],
       links: [
         {
           text: "Play",
@@ -339,7 +344,7 @@ const siteInfo: SiteInfo = {
       name: "Gaguna",
       imageSrc: ssGaguna,
       borderClass: "border-teal-600",
-      tags: ["Typescript", "Utils"],
+      tags: ["TS", "Utils"],
       links: [
         {
           text: "NPM Page",
@@ -369,7 +374,7 @@ const siteInfo: SiteInfo = {
       name: "Kisstastic",
       imageSrc: ssKisstastic,
       borderClass: "border-green-800",
-      tags: ["Typescript", "PixiJS"],
+      tags: ["TS", "PixiJS"],
       links: [
         {
           text: "GitHub Repo",

@@ -3,7 +3,7 @@ import "@fontsource-variable/grandstander";
 import "@fontsource-variable/kode-mono";
 import site from "../site-info";
 import "../style.css";
-// import { Image } from "astro:assets";
+import { Image } from "astro:assets";
 ---
 
 <!doctype html>
@@ -41,8 +41,7 @@ import "../style.css";
       </div>
 
       <div
-        class="bg-lime-100 rounded-xl px-3 py-2 border-2 border-black mt-64"
-        style="box-shadow: 3px 3px 0 black;"
+        class="bg-indigo-100 rounded-xl px-3 py-2 border-2 border-black mt-64"
       >
         <p>Hello!</p>
         <p>
@@ -55,6 +54,7 @@ import "../style.css";
           site.socialLinks.map(link => (
             <div
               class={`flex-1 ${link.bgColor} ${link.borderColor} rounded-xl border-2 text-center overflow-hidden py-2`}
+              style="box-shadow: 0 2px 0 black;"
             >
               <div class={`w-8 h-8 mx-auto mt-2 ${link.textColor}`}>
                 <svg width="100%" height="100%" version="2.0">
@@ -65,6 +65,104 @@ import "../style.css";
             </div>
           ))
         }
+      </div>
+
+      <div class="mt-16 text-lg">My work experience</div>
+      <div class="mt-4 relative px-4">
+        {
+          site.works.map((work, i) => (
+            <div class="relative">
+              {i !== site.works.length - 1 && (
+                <div class="absolute w-4 h-full flex justify-center">
+                  <div
+                    class={`bg-gradient-to-b ${work.gradientClass} w-0.5 h-full`}
+                  />
+                </div>
+              )}
+
+              <div
+                class={`relative h-full${
+                  i !== site.works.length - 1 ? " pb-8" : ""
+                }`}
+              >
+                <div class={`flex items-center w-full`}>
+                  <div
+                    class={`w-4 h-4 p-[2px] rounded-full bg-white ${work.borderClass} border-2 flex-none overflow-hidden`}
+                  >
+                    <div class={`${work.bgClass} w-full h-full rounded-full`} />
+                  </div>
+
+                  <div class="ml-4 -mt-[1px] text-xs font-bold flex-auto">
+                    {work.periode}
+                  </div>
+                </div>
+
+                <div class="flex w-full">
+                  <div class="flex-none w-4" />
+
+                  <div
+                    class={`ml-4 mt-2 flex-auto ${work.cardBgClass} rounded px-6 py-4 border-2 border-black`}
+                  >
+                    <div class="flex">
+                      <div class="w-6 h-6 rounded overflow-hidden">
+                        <Image
+                          src={work.imageSrc}
+                          alt={`Logo of ${work.companyName}`}
+                          loading="eager"
+                        />
+                      </div>
+                      <div class="ml-2 text-xl">{work.companyName}</div>
+                    </div>
+                    <div class="text-sm mt-1">{work.jobTitle}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+
+      <div class="mt-16 text-lg">My personal projects</div>
+      <div class="mt-4 flex flex-wrap justify-center">
+        {
+          site.projects.map(project => (
+            <div class="bg-white rounded-xl border-2 border-black mb-4 p-1 w-48 flex-none mx-1">
+              <div class="overflow-hidden rounded-lg">
+                <Image
+                  class="w-full"
+                  src={project.imageSrc}
+                  alt={`Screenshot of ${project.name}`}
+                />
+              </div>
+              <div class="px-2 py-4">
+                <div class="text-lg">{project.name}</div>
+                <div class="flex overflow-hidden">
+                  {project.tags.map(tag => (
+                    <div class="text-xs mr-1 mt-1 bg-stone-200 px-2 py-1 rounded">
+                      {tag}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+
+      <div
+        id="footer"
+        class="w-full mt-16 pb-2 text-xs text-stone-700 dark:text-stone-400"
+      >
+        <div>
+          This site is built with <a href="https://astro.build/">Astro</a> and
+
+          <a href="https://tailwindcss.com/">TailwindCSS</a>.
+        </div>
+        <div>
+          See the source code on my <a
+            href="https://github.com/harchcode/portfolio">GitHub repo</a
+          >.
+        </div>
       </div>
     </div>
   </body>
