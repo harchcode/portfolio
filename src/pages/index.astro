@@ -30,7 +30,7 @@ import { Image } from "astro:assets";
       ))
     }
 
-    <div class="p-4">
+    <div class="p-4 max-w-screen-sm mx-auto">
       <div class="text-3xl">
         <span class="font-bold text-sky-600">H</span>artono <span
           class="font-bold text-emerald-600">C</span
@@ -54,7 +54,7 @@ import { Image } from "astro:assets";
           site.socialLinks.map(link => (
             <div
               class={`flex-1 ${link.bgColor} ${link.borderColor} rounded-xl border-2 text-center overflow-hidden py-2`}
-              style="box-shadow: 0 2px 0 black;"
+              style="box-shadow: 0 1px 0 black;"
             >
               <div class={`w-8 h-8 mx-auto mt-2 ${link.textColor}`}>
                 <svg width="100%" height="100%" version="2.0">
@@ -126,23 +126,37 @@ import { Image } from "astro:assets";
       <div class="mt-4 flex flex-wrap justify-center">
         {
           site.projects.map(project => (
-            <div class="bg-white rounded-xl border-2 border-black mb-4 p-1 w-48 flex-none mx-1">
-              <div class="overflow-hidden rounded-lg">
-                <Image
-                  class="w-full"
-                  src={project.imageSrc}
-                  alt={`Screenshot of ${project.name}`}
-                />
-              </div>
-              <div class="px-2 py-4">
-                <div class="text-lg">{project.name}</div>
-                <div class="flex overflow-hidden">
-                  {project.tags.map(tag => (
-                    <div class="text-xs mr-1 mt-1 bg-stone-200 px-2 py-1 rounded">
-                      {tag}
-                    </div>
-                  ))}
+            <div class="p-1 pb-4 mb-4 flex-none w-1/2 relative">
+              <div
+                class="bg-white rounded-xl border-2 border-black p-1 pb-2"
+                style="box-shadow: 0 1px 0 black;"
+              >
+                <div class="overflow-hidden rounded-lg">
+                  <Image
+                    class="w-full"
+                    src={project.imageSrc}
+                    alt={`Screenshot of ${project.name}`}
+                  />
                 </div>
+                <div class="px-2 py-4">
+                  <div class="text-lg overflow-hidden whitespace-nowrap text-ellipsis">
+                    {project.name}
+                  </div>
+                  <div class="flex overflow-hidden whitespace-nowrap text-xs font-bold text-gray-600 text-ellipsis">
+                    {project.tags.join(", ")}
+                  </div>
+                </div>
+              </div>
+
+              <div class="w-full absolute px-4 bottom-0 left-0 right-0 flex justify-center space-x-1">
+                {project.links.map(link => (
+                  <div
+                    class="py-1 flex-1 text-center bg-blue-50 border-2 border-black rounded-lg text-sm"
+                    style="box-shadow: 0 1px 0 black;"
+                  >
+                    {link.text}
+                  </div>
+                ))}
               </div>
             </div>
           ))

@@ -260,7 +260,7 @@ const siteInfo: SiteInfo = {
           url: "https://ubur.netlify.app/"
         },
         {
-          text: "GitHub Repo",
+          text: "Code",
           url: "https://github.com/harchcode/ubur"
         }
       ],
@@ -288,11 +288,11 @@ const siteInfo: SiteInfo = {
           url: "https://web-digraph.netlify.app/"
         },
         {
-          text: "GitHub Repo",
+          text: "Code",
           url: "https://github.com/harchcode/web-digraph"
         },
         {
-          text: "NPM Page",
+          text: "NPM",
           url: "https://www.npmjs.com/package/web-digraph"
         }
       ],
@@ -312,7 +312,7 @@ const siteInfo: SiteInfo = {
         `
     },
     {
-      name: "Simple Sudoku TS",
+      name: "Simple Sudoku",
       imageSrc: ssSudoku,
       borderClass: "border-stone-600",
       tags: ["Rust", "TS"],
@@ -322,7 +322,7 @@ const siteInfo: SiteInfo = {
           url: "https://simple-sudoku-ts.netlify.app/"
         },
         {
-          text: "GitHub Repo",
+          text: "Code",
           url: "https://github.com/harchcode/simple-sudoku-ts"
         }
       ],
@@ -347,11 +347,11 @@ const siteInfo: SiteInfo = {
       tags: ["TS", "Utils"],
       links: [
         {
-          text: "NPM Page",
+          text: "NPM",
           url: "https://www.npmjs.com/package/gaguna"
         },
         {
-          text: "GitHub Repo",
+          text: "Code",
           url: "https://github.com/harchcode/gaguna"
         }
       ],
@@ -377,7 +377,7 @@ const siteInfo: SiteInfo = {
       tags: ["TS", "PixiJS"],
       links: [
         {
-          text: "GitHub Repo",
+          text: "Code",
           url: "https://github.com/harchcode/kisstastic"
         },
         {
