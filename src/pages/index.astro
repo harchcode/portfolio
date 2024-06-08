@@ -31,21 +31,27 @@ import { Image } from "astro:assets";
     }
 
     <div class="p-4 max-w-screen-sm mx-auto">
-      <div class="text-3xl">
-        <span class="font-bold text-sky-600">H</span>artono <span
-          class="font-bold text-emerald-600">C</span
-        >handra
-      </div>
-      <div class="text-lg font-semibold text-lime-700">
-        Software Engineer - Web
+      <div class="text-xl">
+        <span class="font-bold text-sky-600">h</span>artono<span
+          class="font-bold text-emerald-600">c</span
+        >handra<span class="font-bold text-yellow-600">.dev</span>
       </div>
 
       <div
         class="bg-indigo-100 rounded-xl px-3 py-2 border-2 border-black mt-64"
       >
-        <p>Hello!</p>
+        <p><span class="text-lime-700 text-xl">Hello!</span></p>
         <p>
-          Please check out my toy projects, and don't hesitate to contact me!
+          My name is <span class="font-bold text-cyan-600">Hartono Chandra</span
+          >. I am just an average <span class="font-bold text-amber-700"
+            >Software Engineer</span
+          >, specialized in <span class="font-bold text-fuchsia-600"
+            >Web Development</span
+          >.
+        </p>
+        <p>
+          Please check out <a href="#project">my toy projects</a>, and don't
+          hesitate to contact me!
         </p>
       </div>
 
@@ -67,7 +73,9 @@ import { Image } from "astro:assets";
         }
       </div>
 
-      <div class="mt-16 text-lg">My work experience</div>
+      <div class="mt-16 text-xl">
+        <span class="heading">My work experience</span>
+      </div>
       <div class="mt-4 relative px-4">
         {
           site.works.map((work, i) => (
@@ -122,11 +130,13 @@ import { Image } from "astro:assets";
         }
       </div>
 
-      <div class="mt-16 text-lg">My personal projects</div>
-      <div class="mt-4 flex flex-wrap justify-center">
+      <div class="mt-16 text-xl">
+        <span class="heading">My personal projects</span>
+      </div>
+      <div class="mt-4 flex flex-wrap">
         {
           site.projects.map(project => (
-            <div class="p-1 pb-4 mb-4 flex-none w-1/2 relative">
+            <div class="p-1 pb-4 mb-4 flex-none w-1/2 sm:w-1/3 relative">
               <div
                 class="bg-white rounded-xl border-2 border-black p-1 pb-2"
                 style="box-shadow: 0 1px 0 black;"
@@ -151,7 +161,7 @@ import { Image } from "astro:assets";
               <div class="w-full absolute px-4 bottom-0 left-0 right-0 flex justify-center space-x-1">
                 {project.links.map(link => (
                   <div
-                    class="py-1 flex-1 text-center bg-blue-50 border-2 border-black rounded-lg text-sm"
+                    class="py-1 flex-1 text-center bg-stone-100 border-2 border-black rounded-lg text-sm"
                     style="box-shadow: 0 1px 0 black;"
                   >
                     {link.text}
