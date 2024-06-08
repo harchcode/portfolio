@@ -30,22 +30,33 @@ import { Image } from "astro:assets";
       ))
     }
 
-    <div class="p-4 max-w-screen-sm mx-auto">
+    <div class="p-4 max-w-screen-sm mx-auto relative">
       <div class="text-xl">
         <span class="font-bold text-sky-600">h</span>artono<span
           class="font-bold text-emerald-600">c</span
-        >handra<span class="font-bold text-yellow-600">.dev</span>
+        >handra<span class="font-bold text-yellow-700">.dev</span>
+      </div>
+
+      <div class="flex justify-end relative -z-10">
+        <div class="max-w-96 w-full">
+          <Image
+            class="w-full -scale-x-100"
+            src={site.about.imageSrc}
+            alt={`profile`}
+            loading="eager"
+          />
+        </div>
       </div>
 
       <div
-        class="bg-indigo-100 rounded-xl px-3 py-2 border-2 border-black mt-64"
+        class="bg-indigo-50 rounded-xl px-3 py-2 border-2 border-black -mt-16"
       >
-        <p><span class="text-lime-700 text-xl">Hello!</span></p>
+        <p><span class="text-lime-800 text-xl">Hello!</span></p>
         <p>
-          My name is <span class="font-bold text-cyan-600">Hartono Chandra</span
-          >. I am just an average <span class="font-bold text-amber-700"
+          My name is <span class="font-bold text-cyan-700">Hartono Chandra</span
+          >. I am just an average <span class="font-bold text-amber-800"
             >Software Engineer</span
-          >, specialized in <span class="font-bold text-fuchsia-600"
+          >, specialized in <span class="font-bold text-fuchsia-700"
             >Web Development</span
           >.
         </p>
@@ -58,8 +69,9 @@ import { Image } from "astro:assets";
       <div class="flex space-x-2 mt-3">
         {
           site.socialLinks.map(link => (
-            <div
-              class={`flex-1 ${link.bgColor} ${link.borderColor} rounded-xl border-2 text-center overflow-hidden py-2`}
+            <a
+              href={link.url}
+              class={`flex-1 ${link.bgColor} ${link.borderColor} text-black no-underline rounded-xl border-2 text-center overflow-hidden py-2`}
               style="box-shadow: 0 1px 0 black;"
             >
               <div class={`w-8 h-8 mx-auto mt-2 ${link.textColor}`}>
@@ -68,7 +80,7 @@ import { Image } from "astro:assets";
                 </svg>
               </div>
               <div class="mt-2 text-xs">{link.label}</div>
-            </div>
+            </a>
           ))
         }
       </div>
@@ -146,6 +158,7 @@ import { Image } from "astro:assets";
                     class="w-full"
                     src={project.imageSrc}
                     alt={`Screenshot of ${project.name}`}
+                    loading="eager"
                   />
                 </div>
                 <div class="px-2 py-4">
@@ -160,12 +173,13 @@ import { Image } from "astro:assets";
 
               <div class="w-full absolute px-4 bottom-0 left-0 right-0 flex justify-center space-x-1">
                 {project.links.map(link => (
-                  <div
-                    class="py-1 flex-1 text-center bg-stone-100 border-2 border-black rounded-lg text-sm"
+                  <a
+                    href={link.url}
+                    class="py-1 flex-1 text-black no-underline text-center bg-stone-100 border-2 border-black rounded-lg text-sm"
                     style="box-shadow: 0 1px 0 black;"
                   >
                     {link.text}
-                  </div>
+                  </a>
                 ))}
               </div>
             </div>

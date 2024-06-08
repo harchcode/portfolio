@@ -1,4 +1,4 @@
-import profilePic from "./assets/profile.svg";
+import profilePic from "./assets/profile-1.svg";
 import tvlkLogo from "./assets/logo-tvlk.jpeg";
 import blLogo from "./assets/logo-bl.png";
 import xmiLogo from "./assets/logo-xmi.png";
