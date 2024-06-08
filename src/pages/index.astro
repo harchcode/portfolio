@@ -49,22 +49,9 @@ import { Image } from "astro:assets";
       </div>
 
       <div
+        set:html={site.about.intro}
         class="bg-indigo-50 rounded-xl px-3 py-2 border-2 border-black -mt-16"
-      >
-        <p><span class="text-lime-800 text-xl">Hello!</span></p>
-        <p>
-          My name is <span class="font-bold text-cyan-700">Hartono Chandra</span
-          >. I am just an average <span class="font-bold text-amber-800"
-            >Software Engineer</span
-          >, specialized in <span class="font-bold text-fuchsia-700"
-            >Web Development</span
-          >.
-        </p>
-        <p>
-          Please check out <a href="#project">my toy projects</a>, and don't
-          hesitate to contact me!
-        </p>
-      </div>
+      />
 
       <div class="flex space-x-2 mt-3">
         {

@@ -105,13 +105,20 @@ const siteInfo: SiteInfo = {
     jobTitle: "Software Engineer - Web",
     name: "Hartono Chandra",
     intro: `
-        <p>
-          Hello! I am an average software engineer, specialized in web. 
-        </p>
-        <p>
-          You can check out some of my toy projects in the Projects section. If
-          you want to know more about me, please contact me.
-        </p>`,
+      <p><span class="text-lime-800 text-xl">Hello!</span></p>
+      <p>
+        My name is <span class="font-bold text-cyan-700">Hartono Chandra</span
+        >. I am just an average <span class="font-bold text-amber-800"
+          >Software Engineer</span
+        >, specialized in <span class="font-bold text-fuchsia-700"
+          >Web Development</span
+        >.
+      </p>
+      <p>
+        Please check out <a href="#project">my toy projects</a>, and don't
+        hesitate to contact me!
+      </p>
+    `,
     resumeUrl:
       "https://filedn.eu/lr4y52Kp8s082m7yYRgv8eL/resume-hartono-chandra.pdf"
   },
