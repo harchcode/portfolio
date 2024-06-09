@@ -5,6 +5,8 @@ import {
   getRandomIntInclusive
 } from "./utils";
 
+let _mode: "light" | "dark" = "light";
+
 let canvas: HTMLCanvasElement;
 let ctx: CanvasRenderingContext2D;
 
@@ -57,7 +59,7 @@ function draw(_scrollX: number, scrollY: number) {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
-    resetCtx();
+    resetCtx(_mode);
   }
 
   const maxWindowScroll = document.body.scrollHeight - window.innerHeight || 1;
@@ -169,8 +171,9 @@ export function initBackground() {
   requestDraw();
 }
 
-export function resetCtx(mode?: "light" | "dark") {
-  ctx.lineWidth = 1;
+export function resetCtx(mode: "light" | "dark") {
+  _mode = mode;
+  ctx.lineWidth = 2;
 
   if (mode === "light") {
     ctx.globalAlpha = 0.2;
