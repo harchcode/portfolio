@@ -186,10 +186,11 @@ const siteInfo: SiteInfo = {
             program cycle 1 and 3.
           </p>
         `,
-      borderClass: "border-blue-600",
-      bgClass: "bg-blue-600",
-      cardBgClass: "bg-blue-50",
-      gradientClass: "from-blue-600 to-red-600"
+      borderClass: "border-blue-600 dark:border-blue-400",
+      bgClass: "bg-blue-600 dark:bg-blue-400",
+      cardBgClass: "bg-blue-50 dark:bg-blue-800",
+      gradientClass:
+        "from-blue-600 to-red-600 dark:from-blue-400 dark:to-red-400"
     },
     {
       imageSrc: blLogo,
@@ -205,10 +206,11 @@ const siteInfo: SiteInfo = {
           </p>
           <p>I also have worked on some features on the Mitra Bukalapak PWA.</p>
         `,
-      borderClass: "border-red-600",
-      bgClass: "bg-red-600",
-      cardBgClass: "bg-red-50",
-      gradientClass: "from-red-600 to-zinc-700"
+      borderClass: "border-red-600 dark:border-red-400",
+      bgClass: "bg-red-600 dark:bg-red-400",
+      cardBgClass: "bg-red-50 dark:bg-red-800",
+      gradientClass:
+        "from-red-600 to-zinc-700 dark:from-red-400 dark:to-zinc-400"
     },
     {
       imageSrc: xmiLogo,
@@ -224,10 +226,11 @@ const siteInfo: SiteInfo = {
             basically working on the built code. :D
           </p>
         `,
-      borderClass: "border-zinc-700",
-      bgClass: "bg-zinc-700",
-      cardBgClass: "bg-zinc-50",
-      gradientClass: "from-zinc-700 to-indigo-600"
+      borderClass: "border-zinc-700 dark:border-zinc-400",
+      bgClass: "bg-zinc-700 dark:bg-zinc-400",
+      cardBgClass: "bg-zinc-50 dark:bg-zinc-700",
+      gradientClass:
+        "from-zinc-700 to-indigo-600 dark:from-zinc-400 dark:to-indigo-400"
     },
     {
       imageSrc: gsgLogo,
@@ -250,9 +253,9 @@ const siteInfo: SiteInfo = {
             various features of a business application.
           </p>
         `,
-      borderClass: "border-indigo-600",
-      bgClass: "bg-indigo-600",
-      cardBgClass: "bg-indigo-50"
+      borderClass: "border-indigo-600 dark:border-indigo-400",
+      bgClass: "bg-indigo-600 dark:bg-indigo-400",
+      cardBgClass: "bg-indigo-50 dark:bg-indigo-800"
     }
   ],
   projects: [

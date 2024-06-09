@@ -110,13 +110,23 @@ const modeButtons = [
     </div>
 
     <div id="about" class="p-4 max-w-screen-sm mx-auto relative content">
-      <div class="text-xl">
-        <span class="font-bold text-sky-600 dark:text-sky-300">h</span
-        >artono<span class="font-bold text-emerald-600 dark:text-emerald-300"
-          >c</span
-        >handra<span class="font-bold text-yellow-700 dark:text-yellow-300"
-          >.dev</span
-        >
+      <div class="flex items-center">
+        <div class="text-xl flex-auto">
+          <span class="font-bold text-sky-600 dark:text-sky-300">h</span
+          >artono<span class="font-bold text-emerald-600 dark:text-emerald-300"
+            >c</span
+          >handra<span class="font-bold text-yellow-700 dark:text-yellow-300"
+            >.dev</span
+          >
+        </div>
+
+        <div class="flex items-center space-x-2">
+          <span class="font-bold">v5</span>
+          <div class="w-1 h-1 bg-black rounded-full"></div>
+          <a href="https://v4--hartonochandra.netlify.app" class="">v4</a>
+          <div class="w-1 h-1 bg-black rounded-full"></div>
+          <a href="https://v1--hartonochandra.netlify.app" class="">v1</a>
+        </div>
       </div>
 
       <div class="mt-4 flex space-x-2">
@@ -124,8 +134,7 @@ const modeButtons = [
           modeButtons.map(mode => (
             <button
               id={mode.id}
-              class="w-10 h-10 p-2 border-2 border-black dark:border-gray-200 rounded bg-stone-50 dark:bg-stone-700 text-black dark:text-white"
-              style="box-shadow: 0 1px 0 black;"
+              class="w-10 h-10 p-2 border-2 border-black dark:border-gray-200 rounded bg-stone-50 dark:bg-stone-700 text-black dark:text-white shadow-1 dark:shadow-2"
               set:html={mode.el}
             />
           ))
@@ -153,8 +162,7 @@ const modeButtons = [
           site.socialLinks.map(link => (
             <a
               href={link.url}
-              class={`flex-1 ${link.bgColor} ${link.borderColor} text-black dark:text-white no-underline rounded-xl border-2 text-center overflow-hidden py-2`}
-              style="box-shadow: 0 1px 0 black;"
+              class={`flex-1 ${link.bgColor} ${link.borderColor} text-black dark:text-white no-underline rounded-xl border-2 text-center overflow-hidden py-2 shadow-1 dark:shadow-2`}
             >
               <div class={`w-8 h-8 mx-auto mt-2 ${link.textColor}`}>
                 <svg width="100%" height="100%" version="2.0">
@@ -189,7 +197,7 @@ const modeButtons = [
               >
                 <div class={`flex items-center w-full`}>
                   <div
-                    class={`w-4 h-4 p-[2px] rounded-full bg-white ${work.borderClass} border-2 flex-none overflow-hidden`}
+                    class={`w-4 h-4 p-[2px] rounded-full bg-white dark:bg-black ${work.borderClass} border-2 flex-none overflow-hidden`}
                   >
                     <div class={`${work.bgClass} w-full h-full rounded-full`} />
                   </div>
@@ -203,7 +211,7 @@ const modeButtons = [
                   <div class="flex-none w-4" />
 
                   <div
-                    class={`ml-4 mt-2 flex-auto ${work.cardBgClass} rounded px-6 py-4 border-2 border-black`}
+                    class={`ml-4 mt-2 flex-auto ${work.cardBgClass} rounded px-6 py-4 border-2 border-black dark:border-white`}
                   >
                     <div class="flex">
                       <div class="w-6 h-6 rounded overflow-hidden">
@@ -231,10 +239,7 @@ const modeButtons = [
         {
           site.projects.map(project => (
             <div class="p-1 pb-4 mb-4 flex-none w-1/2 sm:w-1/3 relative">
-              <div
-                class="bg-white rounded-xl border-2 border-black p-1 pb-2"
-                style="box-shadow: 0 1px 0 black;"
-              >
+              <div class="bg-white dark:bg-gray-800 rounded-xl border-2 border-black dark:border-white p-1 pb-2 shadow-1 dark:shadow-2">
                 <div class="overflow-hidden rounded-lg">
                   <Image
                     class="w-full"
@@ -247,7 +252,7 @@ const modeButtons = [
                   <div class="text-lg overflow-hidden whitespace-nowrap text-ellipsis">
                     {project.name}
                   </div>
-                  <div class="flex overflow-hidden whitespace-nowrap text-xs font-bold text-gray-600 text-ellipsis">
+                  <div class="flex overflow-hidden whitespace-nowrap text-xs font-bold text-gray-600 dark:text-gray-300 text-ellipsis">
                     {project.tags.join(", ")}
                   </div>
                 </div>
@@ -257,8 +262,7 @@ const modeButtons = [
                 {project.links.map(link => (
                   <a
                     href={link.url}
-                    class="py-1 flex-1 text-black no-underline text-center bg-stone-100 border-2 border-black rounded-lg text-sm"
-                    style="box-shadow: 0 1px 0 black;"
+                    class="py-1 flex-1 text-black dark:text-white no-underline text-center bg-stone-100 dark:bg-stone-700 border-2 border-black dark:border-white rounded-lg text-sm shadow-1 dark:shadow-2"
                   >
                     {link.text}
                   </a>
@@ -271,7 +275,7 @@ const modeButtons = [
 
       <div
         id="footer"
-        class="w-full mt-16 pb-2 text-xs text-stone-700 dark:text-stone-400"
+        class="w-full mt-16 pb-2 text-xs text-stone-700 dark:text-stone-300"
       >
         <div>
           This site is built with <a href="https://astro.build/">Astro</a> and

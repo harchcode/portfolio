@@ -10,6 +10,10 @@ export default {
       fontFamily: {
         sans: ["Grandstander Variable", ...defaultTheme.fontFamily.sans],
         mono: ["Kode Mono Variable", ...defaultTheme.fontFamily.sans]
+      },
+      boxShadow: {
+        1: "0 1px 0 black",
+        2: "0 1px 0 white"
       }
     }
   }
