@@ -105,12 +105,12 @@ const siteInfo: SiteInfo = {
     jobTitle: "Software Engineer - Web",
     name: "Hartono Chandra",
     intro: `
-      <p><span class="text-lime-800 text-xl">Hello!</span></p>
+      <p><span class="text-lime-800 dark:text-lime-200 text-xl">Hello!</span></p>
       <p>
-        My name is <span class="font-bold text-cyan-700">Hartono Chandra</span
-        >. I am just an average <span class="font-bold text-amber-800"
+        My name is <span class="font-bold text-cyan-700 dark:text-cyan-200">Hartono Chandra</span
+        >. I am just an average <span class="font-bold text-amber-800 dark:text-amber-200"
           >Software Engineer</span
-        >, specialized in <span class="font-bold text-fuchsia-700"
+        >, specialized in <span class="font-bold text-fuchsia-700 dark:text-fuchsia-200"
           >Web Development</span
         >.
       </p>
@@ -129,36 +129,36 @@ const siteInfo: SiteInfo = {
       linkText:
         "https://filedn.eu/lr4y52Kp8s082m7yYRgv8eL/resume-hartono-chandra.pdf",
       svgSymbolId: "doc",
-      bgColor: "bg-yellow-50",
-      textColor: "text-yellow-700",
-      borderColor: "border-yellow-950"
+      bgColor: "bg-yellow-50 dark:bg-yellow-800",
+      textColor: "text-yellow-700 dark:text-yellow-100",
+      borderColor: "border-yellow-950 dark:border-yellow-50"
     },
     {
       label: "Email",
       url: "mailto:harchcode@gmail.com",
       linkText: "harchcode@gmail.com",
       svgSymbolId: "email",
-      bgColor: "bg-rose-50",
-      textColor: "text-rose-900",
-      borderColor: "border-rose-950"
+      bgColor: "bg-rose-50 dark:bg-rose-800",
+      textColor: "text-rose-900 dark:text-rose-100",
+      borderColor: "border-rose-950 dark:border-rose-50"
     },
     {
       label: "LinkedIn",
       url: "https://linkedin.com/in/hartonochandra/",
       linkText: "linkedin.com/in/hartonochandra",
       svgSymbolId: "linkedin",
-      bgColor: "bg-blue-100",
-      textColor: "text-blue-600",
-      borderColor: "border-blue-950"
+      bgColor: "bg-blue-100 dark:bg-blue-800",
+      textColor: "text-blue-600 dark:text-blue-100",
+      borderColor: "border-blue-950 dark:border-blue-50"
     },
     {
       label: "GitHub",
       url: "https://github.com/harchcode",
       linkText: "github.com/harchcode",
       svgSymbolId: "github",
-      bgColor: "bg-slate-100",
-      textColor: "text-slate-700",
-      borderColor: "border-slate-950"
+      bgColor: "bg-slate-100 dark:bg-slate-800",
+      textColor: "text-slate-700 dark:text-slate-100",
+      borderColor: "border-slate-950 dark:border-slate-50"
     }
   ],
   works: [

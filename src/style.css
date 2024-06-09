@@ -44,7 +44,7 @@ a.menulink.active {
 }
 
 button.active {
-  @apply bg-stone-800 text-white dark:bg-stone-100 dark:text-black;
+  @apply bg-violet-700 text-white dark:bg-violet-100 dark:text-black;
 }
 
 .section {
@@ -99,7 +99,7 @@ p + p {
   position: relative;
 }
 .heading::before {
-  @apply bg-cyan-100;
+  @apply bg-cyan-100 dark:bg-cyan-600;
   content: "";
   position: absolute;
   display: block;

@@ -4,6 +4,69 @@ import "@fontsource-variable/kode-mono";
 import site from "../site-info";
 import "../style.css";
 import { Image } from "astro:assets";
+
+const modeButtons = [
+  {
+    id: "light-mode-button",
+    el: `<svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="ionicon"
+            viewBox="0 0 512 512"
+            ><title>Sunny</title><path
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-miterlimit="10"
+              stroke-width="48"
+              d="M256 48v48M256 416v48M403.08 108.92l-33.94 33.94M142.86 369.14l-33.94 33.94M464 256h-48M96 256H48M403.08 403.08l-33.94-33.94M142.86 142.86l-33.94-33.94"
+            ></path><circle
+              cx="256"
+              cy="256"
+              r="80"
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-miterlimit="10"
+              stroke-width="48"></circle>
+          </svg>`
+  },
+  {
+    id: "system-mode-button",
+    el: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+            <title>Contrast</title>
+            <circle
+              cx="256"
+              cy="256"
+              r="208"
+              fill="none"
+              stroke="currentColor"
+              stroke-linejoin="round"
+              stroke-width="48"
+            >
+            </circle>
+            <path
+              fill="currentColor"
+              d="M256 464c-114.88 0-208-93.12-208-208S141.12 48 256 48z"
+            >
+            </path>
+          </svg>`
+  },
+  {
+    id: "dark-mode-button",
+    el: `<svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="ionicon"
+            viewBox="0 0 512 512"
+            ><title>Moon</title><path
+              d="M160 136c0-30.62 4.51-61.61 16-88C99.57 81.27 48 159.32 48 248c0 119.29 96.71 216 216 216 88.68 0 166.73-51.57 200-128-26.39 11.49-57.38 16-88 16-119.29 0-216-96.71-216-216z"
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="48"></path>
+          </svg>`
+  }
+];
 ---
 
 <!doctype html>
@@ -14,6 +77,18 @@ import { Image } from "astro:assets";
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={site.description} />
     <title>{site.title}</title>
+
+    <script is:inline>
+      if (
+        localStorage.theme === "dark" ||
+        (!("theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    </script>
   </head>
 
   <body>
@@ -30,14 +105,34 @@ import { Image } from "astro:assets";
       ))
     }
 
-    <div class="p-4 max-w-screen-sm mx-auto relative">
+    <div class="fixed h-full w-full -z-20">
+      <canvas id="canvas"></canvas>
+    </div>
+
+    <div id="about" class="p-4 max-w-screen-sm mx-auto relative content">
       <div class="text-xl">
-        <span class="font-bold text-sky-600">h</span>artono<span
-          class="font-bold text-emerald-600">c</span
-        >handra<span class="font-bold text-yellow-700">.dev</span>
+        <span class="font-bold text-sky-600 dark:text-sky-300">h</span
+        >artono<span class="font-bold text-emerald-600 dark:text-emerald-300"
+          >c</span
+        >handra<span class="font-bold text-yellow-700 dark:text-yellow-300"
+          >.dev</span
+        >
       </div>
 
-      <div class="flex justify-end relative -z-10">
+      <div class="mt-4 flex space-x-2">
+        {
+          modeButtons.map(mode => (
+            <button
+              id={mode.id}
+              class="w-10 h-10 p-2 border-2 border-black dark:border-gray-200 rounded bg-stone-50 dark:bg-stone-700 text-black dark:text-white"
+              style="box-shadow: 0 1px 0 black;"
+              set:html={mode.el}
+            />
+          ))
+        }
+      </div>
+
+      <div class="flex justify-end relative -z-10 -mt-16">
         <div class="max-w-96 w-full">
           <Image
             class="w-full -scale-x-100"
@@ -50,7 +145,7 @@ import { Image } from "astro:assets";
 
       <div
         set:html={site.about.intro}
-        class="bg-indigo-50 rounded-xl px-3 py-2 border-2 border-black -mt-16"
+        class="bg-indigo-50 dark:bg-indigo-800 rounded-xl px-3 py-2 border-2 border-black dark:border-white -mt-16"
       />
 
       <div class="flex space-x-2 mt-3">
@@ -58,7 +153,7 @@ import { Image } from "astro:assets";
           site.socialLinks.map(link => (
             <a
               href={link.url}
-              class={`flex-1 ${link.bgColor} ${link.borderColor} text-black no-underline rounded-xl border-2 text-center overflow-hidden py-2`}
+              class={`flex-1 ${link.bgColor} ${link.borderColor} text-black dark:text-white no-underline rounded-xl border-2 text-center overflow-hidden py-2`}
               style="box-shadow: 0 1px 0 black;"
             >
               <div class={`w-8 h-8 mx-auto mt-2 ${link.textColor}`}>
@@ -72,7 +167,7 @@ import { Image } from "astro:assets";
         }
       </div>
 
-      <div class="mt-16 text-xl">
+      <div id="work" class="mt-16 text-xl">
         <span class="heading">My work experience</span>
       </div>
       <div class="mt-4 relative px-4">
@@ -129,7 +224,7 @@ import { Image } from "astro:assets";
         }
       </div>
 
-      <div class="mt-16 text-xl">
+      <div id="project" class="mt-16 text-xl">
         <span class="heading">My personal projects</span>
       </div>
       <div class="mt-4 flex flex-wrap">
@@ -190,5 +285,7 @@ import { Image } from "astro:assets";
         </div>
       </div>
     </div>
+
+    <script src="../main.ts"></script>
   </body>
 </html>

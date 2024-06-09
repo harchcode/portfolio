@@ -28,28 +28,33 @@ function initSelectedTheme() {
   }
 }
 
-// function isDarkTheme() {
-//   return (
-//     localStorage.theme === "dark" ||
-//     (!("theme" in localStorage) &&
-//       window.matchMedia("(prefers-color-scheme: dark)").matches)
-//   );
-// }
+export function isDarkTheme() {
+  return (
+    localStorage.theme === "dark" ||
+    (!("theme" in localStorage) &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches)
+  );
+}
 
-export function initLightDarkMode() {
+export function initLightDarkMode(onChange?: (mode: "light" | "dark") => void) {
   initSelectedTheme();
+  onChange?.(isDarkTheme() ? "dark" : "light");
 
   systemModeButton.addEventListener("click", () => {
     localStorage.removeItem("theme");
 
+    let isDark = false;
+
     if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
       document.documentElement.classList.add("dark");
+      isDark = true;
     } else {
       document.documentElement.classList.remove("dark");
     }
 
     clearSelectedTheme();
     systemModeButton.classList.add("active");
+    onChange?.(isDark ? "dark" : "light");
   });
 
   lightModeButton.addEventListener("click", () => {
@@ -58,6 +63,7 @@ export function initLightDarkMode() {
 
     clearSelectedTheme();
     lightModeButton.classList.add("active");
+    onChange?.("light");
   });
 
   darkModeButton.addEventListener("click", () => {
@@ -66,5 +72,6 @@ export function initLightDarkMode() {
 
     clearSelectedTheme();
     darkModeButton.classList.add("active");
+    onChange?.("dark");
   });
 }
