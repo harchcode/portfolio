@@ -5,6 +5,8 @@ import {
   getRandomIntInclusive
 } from "./utils";
 
+let _mode: "light" | "dark" = "light";
+
 let canvas: HTMLCanvasElement;
 let ctx: CanvasRenderingContext2D;
 
@@ -57,7 +59,7 @@ function draw(_scrollX: number, scrollY: number) {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
-    resetCtx();
+    resetCtx(_mode);
   }
 
   const maxWindowScroll = document.body.scrollHeight - window.innerHeight || 1;
@@ -141,10 +143,9 @@ export function initBackground() {
 
   [requestDraw] = addScrollEventListener(draw);
 
-  const area = canvas.width * canvas.height;
   const minScale = 0.75;
   const maxScale = 1.5;
-  const shapeCount = Math.max(Math.min(Math.ceil(area / 100000), 20), 3);
+  const shapeCount = 5;
   const shapeTypeCount = Object.keys(ShapeType).length / 2;
 
   shapes.length = 0;
@@ -166,21 +167,20 @@ export function initBackground() {
     shapes.push(shape);
   }
 
-  resetCtx();
+  // resetCtx();
   requestDraw();
 }
 
-let currentMode: "light" | "dark" = "light";
-export function resetCtx(mode?: "light" | "dark") {
-  currentMode = mode ?? currentMode;
+export function resetCtx(mode: "light" | "dark") {
+  _mode = mode;
+  ctx.lineWidth = 2;
 
-  ctx.globalAlpha = 0.2;
-  ctx.lineWidth = 1;
-
-  if (currentMode === "light") {
+  if (mode === "light") {
+    ctx.globalAlpha = 0.2;
     ctx.strokeStyle = "#333";
     ctx.fillStyle = "#fff";
-  } else if (currentMode === "dark") {
+  } else if (mode === "dark") {
+    ctx.globalAlpha = 0.5;
     ctx.strokeStyle = "#fff";
     ctx.fillStyle = "#ccc";
   }

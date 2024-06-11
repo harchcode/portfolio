@@ -1,4 +1,4 @@
-import profilePic from "./assets/profile.svg";
+import profilePic from "./assets/profile-1.svg";
 import tvlkLogo from "./assets/logo-tvlk.jpeg";
 import blLogo from "./assets/logo-bl.png";
 import xmiLogo from "./assets/logo-xmi.png";
@@ -22,6 +22,9 @@ export type SocialLink = {
   url: string;
   linkText?: string;
   svgSymbolId: SVGSymbolId;
+  bgColor: string;
+  textColor: string;
+  borderColor: string;
 };
 
 export type About = {
@@ -41,6 +44,7 @@ export type Work = {
   tags: string[];
   borderClass: string;
   bgClass: string;
+  cardBgClass: string;
   gradientClass?: string;
 };
 
@@ -101,34 +105,60 @@ const siteInfo: SiteInfo = {
     jobTitle: "Software Engineer - Web",
     name: "Hartono Chandra",
     intro: `
-        <p>
-          I am an average software engineer, specialized in web. 
-        </p>
-        <p>
-          You can check out some of my toy projects in the Projects section. If
-          you want to know more about me, please contact me.
-        </p>`,
+      <p><span class="text-lime-800 dark:text-lime-200 text-xl">Hello!</span></p>
+      <p>
+        My name is <span class="font-bold text-cyan-700 dark:text-cyan-200">Hartono Chandra</span
+        >. I am just an average <span class="font-bold text-amber-800 dark:text-amber-200"
+          >Software Engineer</span
+        >, specialized in <span class="font-bold text-fuchsia-700 dark:text-fuchsia-200"
+          >Web Development</span
+        >.
+      </p>
+      <p>
+        Please check out <a href="#project">my toy projects</a>, and don't
+        hesitate to contact me!
+      </p>
+    `,
     resumeUrl:
       "https://filedn.eu/lr4y52Kp8s082m7yYRgv8eL/resume-hartono-chandra.pdf"
   },
   socialLinks: [
     {
+      label: "Resume",
+      url: "https://filedn.eu/lr4y52Kp8s082m7yYRgv8eL/resume-hartono-chandra.pdf",
+      linkText:
+        "https://filedn.eu/lr4y52Kp8s082m7yYRgv8eL/resume-hartono-chandra.pdf",
+      svgSymbolId: "doc",
+      bgColor: "bg-yellow-50 dark:bg-yellow-800",
+      textColor: "text-yellow-700 dark:text-yellow-100",
+      borderColor: "border-yellow-950 dark:border-yellow-50"
+    },
+    {
       label: "Email",
       url: "mailto:harchcode@gmail.com",
       linkText: "harchcode@gmail.com",
-      svgSymbolId: "email"
+      svgSymbolId: "email",
+      bgColor: "bg-rose-50 dark:bg-rose-800",
+      textColor: "text-rose-900 dark:text-rose-100",
+      borderColor: "border-rose-950 dark:border-rose-50"
     },
     {
       label: "LinkedIn",
       url: "https://linkedin.com/in/hartonochandra/",
       linkText: "linkedin.com/in/hartonochandra",
-      svgSymbolId: "linkedin"
+      svgSymbolId: "linkedin",
+      bgColor: "bg-blue-100 dark:bg-blue-800",
+      textColor: "text-blue-600 dark:text-blue-100",
+      borderColor: "border-blue-950 dark:border-blue-50"
     },
     {
       label: "GitHub",
       url: "https://github.com/harchcode",
       linkText: "github.com/harchcode",
-      svgSymbolId: "github"
+      svgSymbolId: "github",
+      bgColor: "bg-slate-100 dark:bg-slate-800",
+      textColor: "text-slate-700 dark:text-slate-100",
+      borderColor: "border-slate-950 dark:border-slate-50"
     }
   ],
   works: [
@@ -141,12 +171,9 @@ const siteInfo: SiteInfo = {
         "Graph",
         "React",
         "NextJS",
-        "Mentor for Kampus Merdeka internship",
-        "Semantic UI",
         "Typescript",
-        "Jest",
-        "React Testing Library",
-        "Terraform"
+        "Jest + React Testing Library",
+        "Mentor for Kampus Merdeka internship"
       ],
       content: `
           <p>
@@ -159,9 +186,11 @@ const siteInfo: SiteInfo = {
             program cycle 1 and 3.
           </p>
         `,
-      borderClass: "border-blue-600",
-      bgClass: "bg-blue-600",
-      gradientClass: "from-blue-600 to-red-600"
+      borderClass: "border-blue-600 dark:border-blue-400",
+      bgClass: "bg-blue-600 dark:bg-blue-400",
+      cardBgClass: "bg-blue-50 dark:bg-blue-800",
+      gradientClass:
+        "from-blue-600 to-red-600 dark:from-blue-400 dark:to-red-400"
     },
     {
       imageSrc: blLogo,
@@ -177,9 +206,11 @@ const siteInfo: SiteInfo = {
           </p>
           <p>I also have worked on some features on the Mitra Bukalapak PWA.</p>
         `,
-      borderClass: "border-red-600",
-      bgClass: "bg-red-600",
-      gradientClass: "from-red-600 to-zinc-700"
+      borderClass: "border-red-600 dark:border-red-400",
+      bgClass: "bg-red-600 dark:bg-red-400",
+      cardBgClass: "bg-red-50 dark:bg-red-800",
+      gradientClass:
+        "from-red-600 to-zinc-700 dark:from-red-400 dark:to-zinc-400"
     },
     {
       imageSrc: xmiLogo,
@@ -195,9 +226,11 @@ const siteInfo: SiteInfo = {
             basically working on the built code. :D
           </p>
         `,
-      borderClass: "border-zinc-700",
-      bgClass: "bg-zinc-700",
-      gradientClass: "from-zinc-700 to-indigo-600"
+      borderClass: "border-zinc-700 dark:border-zinc-400",
+      bgClass: "bg-zinc-700 dark:bg-zinc-400",
+      cardBgClass: "bg-zinc-50 dark:bg-zinc-700",
+      gradientClass:
+        "from-zinc-700 to-indigo-600 dark:from-zinc-400 dark:to-indigo-400"
     },
     {
       imageSrc: gsgLogo,
@@ -220,8 +253,9 @@ const siteInfo: SiteInfo = {
             various features of a business application.
           </p>
         `,
-      borderClass: "border-indigo-600",
-      bgClass: "bg-indigo-600"
+      borderClass: "border-indigo-600 dark:border-indigo-400",
+      bgClass: "bg-indigo-600 dark:bg-indigo-400",
+      cardBgClass: "bg-indigo-50 dark:bg-indigo-800"
     }
   ],
   projects: [
@@ -229,14 +263,14 @@ const siteInfo: SiteInfo = {
       name: "Ubur",
       imageSrc: ssUbur,
       borderClass: "border-fuchsia-800",
-      tags: ["Rust", "WebAssembly", "Typescript", "WebGL", "Canvas"],
+      tags: ["Rust", "WebGL", "Canvas"],
       links: [
         {
           text: "Play",
           url: "https://ubur.netlify.app/"
         },
         {
-          text: "GitHub Repo",
+          text: "Code",
           url: "https://github.com/harchcode/ubur"
         }
       ],
@@ -257,18 +291,18 @@ const siteInfo: SiteInfo = {
       name: "Web Digraph",
       imageSrc: ssWebDigraph,
       borderClass: "border-sky-600",
-      tags: ["Typescript", "Canvas", "Library", "Graph"],
+      tags: ["TS", "Canvas", "Graph"],
       links: [
         {
           text: "Demo",
           url: "https://web-digraph.netlify.app/"
         },
         {
-          text: "GitHub Repo",
+          text: "Code",
           url: "https://github.com/harchcode/web-digraph"
         },
         {
-          text: "NPM Page",
+          text: "NPM",
           url: "https://www.npmjs.com/package/web-digraph"
         }
       ],
@@ -288,17 +322,17 @@ const siteInfo: SiteInfo = {
         `
     },
     {
-      name: "Simple Sudoku TS",
+      name: "Simple Sudoku",
       imageSrc: ssSudoku,
       borderClass: "border-stone-600",
-      tags: ["Rust", "WebAssembly", "Typescript", "Sudoku"],
+      tags: ["Rust", "TS"],
       links: [
         {
           text: "Play",
           url: "https://simple-sudoku-ts.netlify.app/"
         },
         {
-          text: "GitHub Repo",
+          text: "Code",
           url: "https://github.com/harchcode/simple-sudoku-ts"
         }
       ],
@@ -320,14 +354,14 @@ const siteInfo: SiteInfo = {
       name: "Gaguna",
       imageSrc: ssGaguna,
       borderClass: "border-teal-600",
-      tags: ["Typescript", "Utils"],
+      tags: ["TS", "Utils"],
       links: [
         {
-          text: "NPM Page",
+          text: "NPM",
           url: "https://www.npmjs.com/package/gaguna"
         },
         {
-          text: "GitHub Repo",
+          text: "Code",
           url: "https://github.com/harchcode/gaguna"
         }
       ],
@@ -350,10 +384,10 @@ const siteInfo: SiteInfo = {
       name: "Kisstastic",
       imageSrc: ssKisstastic,
       borderClass: "border-green-800",
-      tags: ["Typescript", "PixiJS"],
+      tags: ["TS", "PixiJS"],
       links: [
         {
-          text: "GitHub Repo",
+          text: "Code",
           url: "https://github.com/harchcode/kisstastic"
         },
         {

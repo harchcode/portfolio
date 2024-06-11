@@ -1,11 +1,9 @@
+import { initBackground, resetCtx } from "./background";
 import { initLightDarkMode } from "./lightdarkmode";
-import { initMenuScrolling, setToInitialPageScroll } from "./nav";
 
 function main() {
-  initLightDarkMode();
-  initMenuScrolling();
-
-  setToInitialPageScroll();
+  initBackground();
+  initLightDarkMode(mode => resetCtx(mode));
 }
 
 main();
