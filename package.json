@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@fontsource/lexend": "^5.2.9",
+    "@fontsource/press-start-2p": "^5.2.6",
     "@tailwindcss/vite": "^4.1.12",
     "astro": "^5.13.4",
     "tailwindcss": "^4.1.12"
@@ -20,5 +21,8 @@
       "esbuild",
       "sharp"
     ]
+  },
+  "devDependencies": {
+    "prettier": "^3.6.2"
   }
 }

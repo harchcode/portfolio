@@ -9,6 +9,7 @@
   "typescript.tsdk": "node_modules/typescript/lib",
   "typescript.preferences.importModuleSpecifier": "non-relative",
   "css.lint.unknownAtRules": "ignore",
+  "prettier.documentSelectors": ["**/*.astro"],
   "terminal.integrated.fontSize": 14,
   "terminal.integrated.lineHeight": 1.5,
   "workbench.panel.defaultLocation": "right",

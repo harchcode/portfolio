@@ -1,8 +1,49 @@
 ---
 import "@fontsource/lexend/400.css";
 import "@fontsource/lexend/700.css";
+import "@fontsource/press-start-2p";
 import Layout from "../layouts/Layout.astro";
 import "../style.css";
 ---
 
-<Layout>Tes123 <span class="font-bold">fsdfdaa</span>abcg</Layout>
+<Layout>
+  <div class="mx-auto max-w-3xl text-center">
+    <div
+      class="w-48 h-48 mx-auto rounded-full overflow-hidden border-2 border-pink-400"
+    >
+      <img
+        src="https://placehold.co/400x400?text=PLAYER_1"
+        alt="Profile Photo"
+        class="profile-img"
+      />
+    </div>
+
+    <div class="retro mt-12 text-4xl">Hartono Chandra</div>
+    <div class="retro mt-8 text-3xl">Software Engineer - Web</div>
+
+    <div class="mt-4 h-1 bg-black"></div>
+
+    <div class="mt-8 text-lg/8">
+      <p>
+        Hello! I'm just your average developer with a love for smooth UI and fun
+        animations, always trying to make things great for both users and fellow
+        developers.
+      </p>
+
+      <p class="mt-6">
+        When I'm not coding, you can find me doodling in my sketchbook, playing
+        indie games, or experimenting with interactive art installations.
+      </p>
+    </div>
+
+    <div class="mt-12">
+      <a href="https://google.com"
+        ><button
+          type="button"
+          class="cursor-pointer w-16 h-16 bg-pink-50 border-2 border-b-4 border-black rounded-full underline text-xl"
+          >in</button
+        ></a
+      >
+    </div>
+  </div>
+</Layout>
