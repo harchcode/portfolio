@@ -1,15 +1,20 @@
 {
   "editor.tabSize": 2,
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": "explicit"
+    "source.fixAll.eslint": "explicit",
+    "source.organizeImports": "explicit"
   },
-  "eslint.validate": ["javascript", "typescript", "YAML"],
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact", 
+    "YAML"
+  ],
   "typescript.tsdk": "node_modules/typescript/lib",
   "typescript.preferences.importModuleSpecifier": "non-relative",
   "css.lint.unknownAtRules": "ignore",
-  "prettier.documentSelectors": ["**/*.astro"],
   "terminal.integrated.fontSize": 14,
   "terminal.integrated.lineHeight": 1.5,
   "workbench.panel.defaultLocation": "right",

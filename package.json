@@ -1,50 +1,23 @@
 {
-  "name": "my-portfolio",
-  "version": "0.0.0",
+  "name": "country-info",
   "type": "module",
-  "engines": {
-    "node": ">=18"
-  },
+  "version": "0.0.1",
   "scripts": {
-    "start": "astro dev --host",
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview --host",
-    "build-and-preview": "npm run build && npm run preview --host",
-    "astro": "astro",
-    "test": "echo 'no test'",
-    "lint": "eslint src",
-    "update-all": "ncu -u",
-    "size": "size-limit",
-    "typecheck": "tsc"
+    "preview": "astro preview",
+    "astro": "astro"
   },
-  "devDependencies": {
-    "@size-limit/file": "^11.1.4",
-    "@types/node": "^20.13.0",
-    "@typescript-eslint/eslint-plugin": "^7.11.0",
-    "@typescript-eslint/parser": "^7.11.0",
-    "astro": "^4.9.2",
-    "autoprefixer": "^10.4.19",
-    "eslint": "^8.57.0",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-prettier": "^5.1.3",
-    "npm-check-updates": "^16.14.20",
-    "postcss": "^8.4.38",
-    "prettier": "^3.2.5",
-    "prettier-plugin-astro": "^0.14.0",
-    "size-limit": "^11.1.4",
-    "tailwindcss": "^3.4.3",
-    "typescript": "^5.4.5",
-    "vite": "^5.2.12"
-  },
-  "size-limit": [
-    {
-      "path": "dist",
-      "limit": "200 kB"
-    }
-  ],
   "dependencies": {
-    "@fontsource-variable/grandstander": "^5.0.21",
-    "@fontsource-variable/kode-mono": "^5.0.3"
+    "@tailwindcss/vite": "^4.1.12",
+    "astro": "^5.13.4",
+    "tailwindcss": "^4.1.12"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "@tailwindcss/oxide",
+      "esbuild",
+      "sharp"
+    ]
   }
 }
