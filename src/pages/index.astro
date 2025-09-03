@@ -9,9 +9,19 @@ import "../style.css";
 <Layout>
   <div class="w-full max-w-3xl mx-auto text-center mt-32">
     <div
-      class="w-64 h-64 p-2 border-4 border-black border-dashed rounded-full mx-auto overflow-hidden"
+      class="relative w-64 h-64 mx-auto"
+      style="animation: float 8s ease-in-out infinite;"
     >
-      <div class="rounded-full border-4 border-pink-400 overflow-hidden">
+      <div
+        class="absolute top-0 left-0 right-0 bottom-0 border-[3px] border-pink-300 border-dashed rounded-full overflow-hidden"
+        style="animation: spin 20s linear infinite;"
+      >
+      </div>
+
+      <div
+        class="absolute top-2 left-2 right-2 bottom-2 rounded-full border-4 border-sky-400 overflow-hidden"
+        style="animation: leftright 2s linear infinite;"
+      >
         <img
           src="https://placehold.co/400x400?text=PLAYER_1"
           alt="Profile Photo"
@@ -20,16 +30,15 @@ import "../style.css";
       </div>
     </div>
 
-    <div class="retro mt-12 text-4xl">Hartono Chandra</div>
-    <div class="retro mt-8 text-3xl">Software Engineer - Web</div>
-
-    <div class="mt-4 h-1 bg-black"></div>
+    <div class="retro mt-12 text-3xl text-indigo-400">
+      <span class="heading">Software Engineer - Web</span>
+    </div>
 
     <div class="mt-8 text-lg/8">
       <p>
-        Hello! I'm just your average developer with a love for smooth UI and fun
-        animations, always trying to make things great for both users and fellow
-        developers.
+        Hello❗ My name is Hartono Chandra. I'm just your average developer with
+        a love for smooth UI and fun animations, always trying to make things
+        great for both users and fellow developers.
       </p>
 
       <p class="mt-6">
