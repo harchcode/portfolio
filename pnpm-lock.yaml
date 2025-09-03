@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@fontsource/grandstander':
+        specifier: ^5.2.6
+        version: 5.2.6
       '@fontsource/lexend':
         specifier: ^5.2.9
         version: 5.2.9
@@ -225,6 +228,9 @@ packages:
     engines: {node: '>=18'}
     cpu: [x64]
     os: [win32]
+
+  '@fontsource/grandstander@5.2.6':
+    resolution: {integrity: sha512-4Qsa5HHQ7RoDcQ1xotsrAewQQz+uokVhgd7PzkpBYi79WOzn73uEQlHezA35RImYSckq/7TRk5xhczfrt9lE9g==}
 
   '@fontsource/lexend@5.2.9':
     resolution: {integrity: sha512-0a5xzwksBilec8Q+QwPvTFKFcXYw31oyf5CthPKd+C5NJZDl1aHw4FcMz9bcRMPhq0LXO69BXI8aVxmj15pzNA==}
@@ -1852,6 +1858,8 @@ snapshots:
 
   '@esbuild/win32-x64@0.25.9':
     optional: true
+
+  '@fontsource/grandstander@5.2.6': {}
 
   '@fontsource/lexend@5.2.9': {}
 

@@ -1,0 +1,337 @@
+---
+import "@fontsource/lexend/400.css";
+import "@fontsource/lexend/700.css";
+import "@fontsource/press-start-2p";
+import Layout from "../layouts/Layout.astro";
+import "../style.css";
+---
+
+<Layout>
+  <div class="w-full max-w-3xl mx-auto text-center mt-32">
+    <div
+      class="relative w-64 h-64 mx-auto"
+      style="animation: float 8s ease-in-out infinite;"
+    >
+      <div
+        class="absolute top-0 left-0 right-0 bottom-0 border-[3px] border-pink-300 border-dashed rounded-full overflow-hidden"
+        style="animation: spin 20s linear infinite;"
+      >
+      </div>
+
+      <div
+        class="absolute top-2 left-2 right-2 bottom-2 rounded-full border-4 border-sky-400 overflow-hidden"
+        style="animation: leftright 2s linear infinite;"
+      >
+        <img
+          src="https://placehold.co/400x400?text=PLAYER_1"
+          alt="Profile Photo"
+          class="w-full h-full"
+        />
+      </div>
+    </div>
+
+    <div class="retro mt-12 text-3xl text-indigo-400">
+      <span class="heading">Software Engineer - Web</span>
+    </div>
+
+    <div class="mt-8 text-lg/8">
+      <p>
+        Hello❗ My name is Hartono Chandra. I'm just your average developer with
+        a love for smooth UI and fun animations, always trying to make things
+        great for both users and fellow developers.
+      </p>
+
+      <p class="mt-6">
+        When I'm not coding, you can find me doodling in my sketchbook, playing
+        indie games, or experimenting with interactive art installations.
+      </p>
+    </div>
+
+    <div class="mt-12">
+      <a href="https://google.com"
+        ><button
+          type="button"
+          class="cursor-pointer w-16 h-16 bg-pink-50 border-2 border-b-4 border-black rounded-full underline text-xl"
+          >in</button
+        ></a
+      >
+    </div>
+  </div>
+
+  <div class="mx-auto max-w-4xl mt-32">
+    <div class="retro text-3xl text-center">Work Adventures</div>
+    <div class="mt-4 h-1 bg-black"></div>
+
+    <div
+      class="mt-8"
+      style="display:grid; grid-template-columns: 1fr auto 1fr; grid-auto-rows: 1fr;"
+    >
+      <div class="p-4">
+        <div
+          class="bg-white border-2 border-blue-400 p-4 pb-8 rounded-2xl h-full"
+        >
+          <div>Feb 2020 - Present</div>
+          <div class="retro mt-4 text-xl text-blue-400">
+            Software Engineer - Web
+          </div>
+          <div class="mt-4">PT. XYZ</div>
+          <div class="mt-4">Led a team of developers in</div>
+        </div>
+      </div>
+      <div class="flex flex-col items-center">
+        <div
+          class="w-8 h-8 p-1 bg-white border-4 border-blue-400 rounded-full z-10"
+        >
+          <div class="w-full h-full bg-blue-400 rounded-full"></div>
+        </div>
+        <div class="-mt-2 -mb-2 w-2 h-full bg-blue-400 z-0"></div>
+      </div>
+      <div></div>
+
+      <div></div>
+      <div class="flex flex-col items-center">
+        <div
+          class="w-8 h-8 p-1 bg-white border-4 border-blue-400 rounded-full z-10"
+        >
+          <div class="w-full h-full bg-blue-400 rounded-full"></div>
+        </div>
+        <div class="-mt-2 -mb-2 w-2 h-full bg-blue-400 z-0"></div>
+      </div>
+      <div class="p-4">
+        <div
+          class="bg-white border-2 border-blue-400 p-4 pb-8 rounded-2xl h-full"
+        >
+          <div>Feb 2020 - Present</div>
+          <div class="retro mt-4 text-xl text-blue-400">
+            Software Engineer - Web
+          </div>
+          <div class="mt-4">PT. XYZ</div>
+          <div class="mt-4">
+            Led a team of developers in building animated web applications with
+            playful UX. Implemented creative solutions that improved user
+            engagement by 52%.
+          </div>
+        </div>
+      </div>
+
+      <div class="p-4">
+        <div
+          class="bg-white border-2 border-blue-400 p-4 pb-8 rounded-2xl h-full"
+        >
+          <div>Feb 2020 - Present</div>
+          <div class="retro mt-4 text-xl text-blue-400">
+            Software Engineer - Web
+          </div>
+          <div class="mt-4">PT. XYZ</div>
+          <div class="mt-4">
+            Led a team of developers in building animated web applications with
+            playful UX. Implemented creative solutions that improved user
+            engagement by 52%.
+          </div>
+        </div>
+      </div>
+      <div class="flex flex-col items-center">
+        <div
+          class="w-8 h-8 p-1 bg-white border-4 border-blue-400 rounded-full z-10"
+        >
+          <div class="w-full h-full bg-blue-400 rounded-full"></div>
+        </div>
+      </div>
+      <div></div>
+    </div>
+  </div>
+
+  <div class="mx-auto max-w-4xl mt-32">
+    <div class="retro text-3xl text-center">My Toy Projects</div>
+    <div class="mt-4 h-1 bg-black"></div>
+
+    <div class="">
+      <div
+        class="mt-8"
+        style="display:grid; grid-template-columns: 1fr 1fr; grid-auto-rows: 1fr; column-gap: 1rem; row-gap: 1rem;"
+      >
+        <div
+          class="border-2 border-white bg-white rounded-2xl shadow overflow-hidden"
+        >
+          <div class="aspect-3/2 flex items-center overflow-hidden">
+            <img
+              src="https://placehold.co/400x400?text=PROJECT_1"
+              alt="Profile Photo"
+              class="w-full"
+            />
+          </div>
+
+          <div class="border-t-2 border-pink-300 p-8">
+            <div class="retro text-xl">Playful E-commerce</div>
+            <div class="mt-4">
+              A fully responsive e-commerce website with interactive product
+              displays and engaging animations.
+            </div>
+            <div class="mt-4 flex flex-wrap gap-x-2">
+              <div class="px-2 py-1 rounded bg-slate-300">Typescript</div>
+              <div class="px-2 py-1 rounded bg-slate-300">CSS</div>
+              <div class="px-2 py-1 rounded bg-slate-300">GSAP</div>
+            </div>
+            <div class="mt-8 flex gap-x-4">
+              <a href="https://google.com"
+                ><button
+                  type="button"
+                  class="cursor-pointer bg-teal-200 border-2 border-b-4 border-black rounded-4xl px-4 py-2 text-xl"
+                  >Explore</button
+                ></a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="border-2 border-white bg-white rounded-2xl shadow overflow-hidden"
+        >
+          <div class="aspect-3/2 flex items-center overflow-hidden">
+            <img
+              src="https://placehold.co/400x400?text=PROJECT_1"
+              alt="Profile Photo"
+              class="w-full"
+            />
+          </div>
+
+          <div class="border-t-2 border-pink-300 p-8">
+            <div class="retro text-xl">Playful E-commerce</div>
+            <div class="mt-4">
+              A fully responsive e-commerce website with interactive product
+              displays and engaging animations.
+            </div>
+            <div class="mt-4 flex flex-wrap gap-x-2">
+              <div class="px-2 py-1 rounded bg-slate-300">Typescript</div>
+              <div class="px-2 py-1 rounded bg-slate-300">CSS</div>
+              <div class="px-2 py-1 rounded bg-slate-300">GSAP</div>
+            </div>
+            <div class="mt-8 flex gap-x-4">
+              <a href="https://google.com"
+                ><button
+                  type="button"
+                  class="cursor-pointer bg-teal-200 border-2 border-b-4 border-black rounded-4xl px-4 py-2 text-xl"
+                  >Explore</button
+                ></a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="border-2 border-white bg-white rounded-2xl shadow overflow-hidden"
+        >
+          <div class="aspect-3/2 flex items-center overflow-hidden">
+            <img
+              src="https://placehold.co/400x400?text=PROJECT_1"
+              alt="Profile Photo"
+              class="w-full"
+            />
+          </div>
+
+          <div class="border-t-2 border-pink-300 p-8">
+            <div class="retro text-xl">Playful E-commerce</div>
+            <div class="mt-4">
+              A fully responsive e-commerce website with interactive product
+              displays and engaging animations.
+            </div>
+            <div class="mt-4 flex flex-wrap gap-x-2">
+              <div class="px-2 py-1 rounded bg-slate-300">Typescript</div>
+              <div class="px-2 py-1 rounded bg-slate-300">CSS</div>
+              <div class="px-2 py-1 rounded bg-slate-300">GSAP</div>
+            </div>
+            <div class="mt-8 flex gap-x-4">
+              <a href="https://google.com"
+                ><button
+                  type="button"
+                  class="cursor-pointer bg-teal-200 border-2 border-b-4 border-black rounded-4xl px-4 py-2 text-xl"
+                  >Explore</button
+                ></a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="border-2 border-white bg-white rounded-2xl shadow overflow-hidden"
+        >
+          <div class="aspect-3/2 flex items-center overflow-hidden">
+            <img
+              src="https://placehold.co/400x400?text=PROJECT_1"
+              alt="Profile Photo"
+              class="w-full"
+            />
+          </div>
+
+          <div class="border-t-2 border-pink-300 p-8">
+            <div class="retro text-xl">Playful E-commerce</div>
+            <div class="mt-4">
+              A fully responsive e-commerce website with interactive product
+              displays and engaging animations.
+            </div>
+            <div class="mt-4 flex flex-wrap gap-x-2">
+              <div class="px-2 py-1 rounded bg-slate-300">Typescript</div>
+              <div class="px-2 py-1 rounded bg-slate-300">CSS</div>
+              <div class="px-2 py-1 rounded bg-slate-300">GSAP</div>
+            </div>
+            <div class="mt-8 flex gap-x-4">
+              <a href="https://google.com"
+                ><button
+                  type="button"
+                  class="cursor-pointer bg-teal-200 border-2 border-b-4 border-black rounded-4xl px-4 py-2 text-xl"
+                  >Explore</button
+                ></a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="border-2 border-white bg-white rounded-2xl shadow overflow-hidden"
+        >
+          <div class="aspect-3/2 flex items-center overflow-hidden">
+            <img
+              src="https://placehold.co/400x400?text=PROJECT_1"
+              alt="Profile Photo"
+              class="w-full"
+            />
+          </div>
+
+          <div class="border-t-2 border-pink-300 p-8">
+            <div class="retro text-xl">Playful E-commerce</div>
+            <div class="mt-4">
+              A fully responsive e-commerce website with interactive product
+              displays and engaging animations.
+            </div>
+            <div class="mt-4 flex flex-wrap gap-x-2">
+              <div class="px-2 py-1 rounded bg-slate-300">Typescript</div>
+              <div class="px-2 py-1 rounded bg-slate-300">CSS</div>
+              <div class="px-2 py-1 rounded bg-slate-300">GSAP</div>
+            </div>
+            <div class="mt-8 flex gap-x-4">
+              <a href="https://google.com"
+                ><button
+                  type="button"
+                  class="cursor-pointer bg-teal-200 border-2 border-b-4 border-black rounded-4xl px-4 py-2 text-xl"
+                  >Explore</button
+                ></a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="retro text-xs text-slate-500 mt-64 bg-white p-24 text-center border-t-4 border-yellow-300"
+  >
+    Made with <span class="text-xl text-red-400">♥</span> using <a
+      class="text-blue-600 underline"
+      href="https://astro.build/">Astro</a
+    > and
+    <a class="text-blue-600 underline" href="https://tailwindcss.com/"
+      >Tailwind</a
+    >
+  </div>
+</Layout>
