@@ -1,9 +1,9 @@
 ---
-import "@fontsource/grandstander/400.css";
 import "@fontsource/lexend/300.css";
 import "@fontsource/lexend/400.css";
-import "@fontsource/press-start-2p";
 import "../style.css";
+
+import data from "../data";
 ---
 
 <!doctype html>
@@ -16,8 +16,11 @@ import "../style.css";
   </head>
 
   <body>
-    <header id="#about" class="mt-12 p-2 pb-4 border-b-2 border-stone-200">
-      <h1>hartonochandra.dev</h1>
+    <header id="#about" class="mt-12 p-2 pb-4">
+      <h1>
+        <span class="font-bold">h</span>artono<span class="font-bold">c</span
+        >handra<span class="font-bold text-stone-600">.dev</span>
+      </h1>
 
       <nav class="uppercase flex gap-x-12 mt-12">
         <a href="#about">About</a>
@@ -32,45 +35,31 @@ import "../style.css";
       <div
         class="mx-auto max-w-xl mt-12 text-lg text-stone-600"
         style="line-height: 1.8"
-      >
-        <p>
-          I'm a product designer and developer with a passion for creating
-          simple, beautiful, and intuitive digital experiences. With over 5
-          years of experience, I specialize in user-centered design and clean,
-          efficient code.
-        </p>
-        <p>
-          My approach combines aesthetic sensibility with a focus on
-          functionality and user needs. I believe in the power of minimalism and
-          purposeful design.
-        </p>
-        <p>
-          Feel free to reach out if you'd like to collaborate or just say hello.
-        </p>
+        set:html={data.intro}
+      />
 
-        <div class="flex mt-8 gap-x-4">
-          <a href="https://google.com"
-            ><button
-              type="button"
-              class="cursor-pointer w-12 h-12 bg-white border-2 border-b-4 border-black rounded-full underline text-xl"
-              >in</button
-            ></a
-          >
-          <a href="https://google.com"
-            ><button
-              type="button"
-              class="cursor-pointer w-12 h-12 bg-white border-2 border-b-4 border-black rounded-full underline text-xl"
-              >gh</button
-            ></a
-          >
-          <a href="https://google.com"
-            ><button
-              type="button"
-              class="cursor-pointer w-12 h-12 bg-white border-2 border-b-4 border-black rounded-full underline text-xl"
-              >cv</button
-            ></a
-          >
-        </div>
+      <div class="mx-auto max-w-xl flex mt-8 gap-x-4">
+        <a href="https://google.com"
+          ><button
+            type="button"
+            class="cursor-pointer w-12 h-12 bg-white border-2 border-b-4 border-black rounded-full underline text-xl"
+            >in</button
+          ></a
+        >
+        <a href="https://google.com"
+          ><button
+            type="button"
+            class="cursor-pointer w-12 h-12 bg-white border-2 border-b-4 border-black rounded-full underline text-xl"
+            >gh</button
+          ></a
+        >
+        <a href="https://google.com"
+          ><button
+            type="button"
+            class="cursor-pointer w-12 h-12 bg-white border-2 border-b-4 border-black rounded-full underline text-xl"
+            >cv</button
+          ></a
+        >
       </div>
     </section>
 
@@ -78,11 +67,11 @@ import "../style.css";
       <h2>My work experience</h2>
 
       <div
-        class="mt-12"
+        class="mt-12 ml-12"
         style="display:grid; grid-template-columns: 1fr; grid-auto-rows: 1fr;"
       >
         <div class="experience-item">
-          <div class="grand">January 2021 - Present</div>
+          <div>January 2021 - Present</div>
           <h3 class="text-xl font-bold mt-4">Senior Product Designer</h3>
           <div class="text-xl mt-2">TechInnovate Inc.</div>
           <div class="mt-4 max-w-lg">
@@ -95,7 +84,7 @@ import "../style.css";
         </div>
 
         <div class="experience-item">
-          <div class="grand">January 2021 - Present</div>
+          <div class="text-stone-600">January 2021 - Present</div>
           <h3 class="text-xl font-bold mt-4">Senior Product Designer</h3>
           <div class="text-xl mt-2">TechInnovate Inc.</div>
           <div class="mt-4 max-w-lg">
@@ -108,7 +97,7 @@ import "../style.css";
         </div>
 
         <div class="experience-item">
-          <div class="grand">January 2021 - Present</div>
+          <div>January 2021 - Present</div>
           <h3 class="text-xl font-bold mt-4">Senior Product Designer</h3>
           <div class="text-xl mt-2">TechInnovate Inc.</div>
           <div class="mt-4 max-w-lg">
@@ -126,10 +115,10 @@ import "../style.css";
       <h2>My personal projects</h2>
 
       <div
-        class="mt-12 gap-16"
+        class="mt-12 gap-16 ml-12"
         style="display:grid; grid-template-columns: 1fr 1fr; grid-auto-rows: 1fr;"
       >
-        <div class="">
+        <div class="project-item">
           <h3 class="text-xl font-bold mt-4">E-commerce Platform</h3>
 
           <div class="mt-4">
@@ -149,7 +138,7 @@ import "../style.css";
             >
           </div>
         </div>
-        <div class="">
+        <div class="project-item">
           <h3 class="text-xl font-bold mt-4">E-commerce Platform</h3>
 
           <div class="mt-4">
@@ -169,7 +158,7 @@ import "../style.css";
             >
           </div>
         </div>
-        <div class="">
+        <div class="project-item">
           <h3 class="text-xl font-bold mt-4">E-commerce Platform</h3>
 
           <div class="mt-4">

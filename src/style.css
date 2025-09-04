@@ -10,26 +10,26 @@ body {
   background-color: #f8f9fa;
 
   /* background-image:
-    radial-gradient(circle at 90% 0, var(--color-lime-100) 0%, transparent 20%),
+    radial-gradient(
+      circle at 90% 0,
+      var(--color-yellow-50) 0%,
+      transparent 20%
+    ),
     radial-gradient(
       circle at 10% 30%,
-      var(--color-lime-100) 0%,
+      var(--color-yellow-50) 0%,
       transparent 20%
     ),
     radial-gradient(
       circle at 90% 60%,
-      var(--color-lime-100) 0%,
+      var(--color-yellow-50) 0%,
       transparent 20%
     ),
     radial-gradient(
       circle at 10% 90%,
-      var(--color-lime-100) 0%,
+      var(--color-yellow-50) 0%,
       transparent 20%
     ); */
-}
-
-.grand {
-  font-family: "Grandstander";
 }
 
 header,
@@ -40,18 +40,16 @@ section {
 
 h1 {
   @apply text-2xl relative inline-block;
-
-  font-family: "Grandstander";
 }
 h1::before {
-  @apply bg-cyan-100 rounded-full;
+  @apply bg-lime-200 rounded-full;
   content: "";
   position: absolute;
   display: block;
-  height: 40%;
-  top: 0.6em;
-  left: -0.5em;
-  right: -0.5em;
+  height: 8px;
+  top: 0.9em;
+  left: -0.25em;
+  right: -0.25em;
   z-index: -1;
 }
 
@@ -74,7 +72,7 @@ p + p {
 }
 
 .experience-item {
-  @apply relative ml-12 pl-8 pb-12 h-full;
+  @apply relative pl-8 pb-32 h-full;
 }
 .experience-item::after {
   @apply absolute block rounded-full;
@@ -97,17 +95,3 @@ p + p {
   bottom: 0;
   background: black;
 }
-
-/* .experience-item::after {
-  @apply absolute block rounded-full;
-
-  content: "";
-  width: 8px;
-  height: 8px;
-  top: 4px;
-  left: 4px;
-  background: black;
-  box-shadow:
-    0 0 0 2px white,
-    0 0 0 4px black;
-} */
