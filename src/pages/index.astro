@@ -70,119 +70,70 @@ import data from "../data";
         class="mt-12 ml-12"
         style="display:grid; grid-template-columns: 1fr; grid-auto-rows: 1fr;"
       >
-        <div class="experience-item">
-          <div>January 2021 - Present</div>
-          <h3 class="text-xl font-bold mt-4">Senior Product Designer</h3>
-          <div class="text-xl mt-2">TechInnovate Inc.</div>
-          <div class="mt-4 max-w-lg">
-            <p>
-              Lead designer for the company's flagship SaaS product, managing a
-              team of 3 designers. Conduct user research, create wireframes and
-              prototypes.
-            </p>
-          </div>
-        </div>
-
-        <div class="experience-item">
-          <div class="text-stone-600">January 2021 - Present</div>
-          <h3 class="text-xl font-bold mt-4">Senior Product Designer</h3>
-          <div class="text-xl mt-2">TechInnovate Inc.</div>
-          <div class="mt-4 max-w-lg">
-            <p>
-              Lead designer for the company's flagship SaaS product, managing a
-              team of 3 designers. Conduct user research, create wireframes and
-              prototypes.
-            </p>
-          </div>
-        </div>
-
-        <div class="experience-item">
-          <div>January 2021 - Present</div>
-          <h3 class="text-xl font-bold mt-4">Senior Product Designer</h3>
-          <div class="text-xl mt-2">TechInnovate Inc.</div>
-          <div class="mt-4 max-w-lg">
-            <p>
-              Lead designer for the company's flagship SaaS product, managing a
-              team of 3 designers. Conduct user research, create wireframes and
-              prototypes.
-            </p>
-          </div>
-        </div>
+        {
+          data.works.map(work => (
+            <div class="experience-item">
+              <div class="text-stone-600">{work.periode}</div>
+              <h3 class="text-xl font-bold mt-4">{work.jobTitle}</h3>
+              <div class="text-xl mt-2">{work.companyName}</div>
+              <div class="mt-4 max-w-lg" set:html={work.content} />
+              <div class="mt-8 flex flex-wrap gap-2 max-w-xl">
+                {work.tags.map(tag => (
+                  <div class="px-2 py-1 border bg-lime-50 rounded">{tag}</div>
+                ))}
+              </div>
+            </div>
+          ))
+        }
       </div>
     </section>
 
     <section id="projects" class="mt-32">
       <h2>My personal projects</h2>
 
-      <div
-        class="mt-12 gap-16 ml-12"
-        style="display:grid; grid-template-columns: 1fr 1fr; grid-auto-rows: 1fr;"
-      >
-        <div class="project-item">
-          <h3 class="text-xl font-bold mt-4">E-commerce Platform</h3>
-
-          <div class="mt-4">
-            <p>
-              Complete redesign of an online store, resulting in a 34% increase
-              in conversions and improved user experience.
-            </p>
-          </div>
-
-          <div class="mt-8 flex gap-x-4">
-            <a href="https://google.com"
-              ><button
-                type="button"
-                class="cursor-pointer bg-white border-2 border-b-4 border-black rounded-4xl px-4 py-2 text-lg"
-                >Explore</button
-              ></a
+      <div class="mt-12 ml-12 gap-x-32" style="column-count: 2;">
+        {
+          data.projects.map(project => (
+            <div
+              class="project-item inline-block pb-24"
+              style="break-inside: avoid;"
             >
-          </div>
-        </div>
-        <div class="project-item">
-          <h3 class="text-xl font-bold mt-4">E-commerce Platform</h3>
+              <h3 class="text-xl font-bold mt-4">{project.name}</h3>
 
-          <div class="mt-4">
-            <p>
-              Complete redesign of an online store, resulting in a 34% increase
-              in conversions and improved user experience.
-            </p>
-          </div>
+              <div class="mt-4" set:html={project.description} />
 
-          <div class="mt-8 flex gap-x-4">
-            <a href="https://google.com"
-              ><button
-                type="button"
-                class="cursor-pointer bg-white border-2 border-b-4 border-black rounded-4xl px-4 py-2 text-lg"
-                >Explore</button
-              ></a
-            >
-          </div>
-        </div>
-        <div class="project-item">
-          <h3 class="text-xl font-bold mt-4">E-commerce Platform</h3>
+              <div class="mt-8 flex flex-wrap gap-2 max-w-xl">
+                {project.tags.map(tag => (
+                  <div class="px-2 py-1 border bg-blue-50 rounded">{tag}</div>
+                ))}
+              </div>
 
-          <div class="mt-4">
-            <p>
-              Complete redesign of an online store, resulting in a 34% increase
-              in conversions and improved user experience.
-            </p>
-          </div>
-
-          <div class="mt-8 flex gap-x-4">
-            <a href="https://google.com"
-              ><button
-                type="button"
-                class="cursor-pointer bg-white border-2 border-b-4 border-black rounded-4xl px-4 py-2 text-lg"
-                >Explore</button
-              ></a
-            >
-          </div>
-        </div>
+              <div class="mt-4 flex flex-wrap gap-4">
+                {project.links.map(link => (
+                  <a href={link.url}>
+                    <button
+                      type="button"
+                      class="cursor-pointer bg-white border-2 border-b-4 border-black rounded-4xl w-24 px-4 py-2"
+                    >
+                      {link.text}
+                    </button>
+                  </a>
+                ))}
+              </div>
+            </div>
+          ))
+        }
       </div>
     </section>
 
     <footer class="border-t-2 border-stone-200 mt-32 text-stone-500 py-16 px-8">
-      &copy; 2023 Alex Morgan. All rights reserved.
+      Made with <span class="text-red-400">♥</span> using <a
+        class="text-blue-600 underline"
+        href="https://astro.build/">Astro</a
+      > and
+      <a class="text-blue-600 underline" href="https://tailwindcss.com/"
+        >Tailwind</a
+      >
     </footer>
   </body>
 </html>

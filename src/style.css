@@ -72,7 +72,7 @@ p + p {
 }
 
 .experience-item {
-  @apply relative pl-8 pb-32 h-full;
+  @apply relative pl-12 pb-32 h-full;
 }
 .experience-item::after {
   @apply absolute block rounded-full;

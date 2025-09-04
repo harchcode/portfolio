@@ -10,7 +10,7 @@ export default {
         >.
       </p>
       <p>
-        I enjoy building reliable, scalable apps with smooth UIs and clean animations—crafting experiences that feel effortless for both users and developers.
+        I enjoy building reliable, scalable apps with clean UIs and smooth animations — crafting experiences that feel effortless for both users and developers.
       </p>
       <p>
         Feel free to reach out if you'd like to collaborate or just say hello.
@@ -37,12 +37,10 @@ export default {
       ],
       content: `
           <p>
-            I worked on various Corporate Technology applications. Most notable
-            challenge is developing and maintaining a rather complex Directed Acyclic Graph (DAG)
-            editor. I also helped with some small backend tasks.
+            I’ve worked on a variety of Corporate Technology applications, with the most notable challenge being the development and maintenance of a complex Directed Acyclic Graph (DAG) editor. Along the way, I also contributed to smaller backend tasks.
           </p>
           <p>
-            I also got a chance to become a mentor for internship program.
+            In addition, I had the opportunity to mentor students in an internship program, which was a rewarding experience.
           </p>
         `
     },
@@ -53,10 +51,9 @@ export default {
       tags: ["D3", "Vue", "Pug", "Nuxt", "PWA"],
       content: `
           <p>
-            I was mostly working on a dashboard with many customized charts for data visualization,
-            like 3D pie charts, a heavily customized bar charts, combined charts, etc.
+            I spent most of my time working on a dashboard packed with customized data visualizations—everything from 3D pie charts to heavily tweaked bar charts and even combined chart types. It was all about turning complex data into something clear and engaging.
           </p>
-          <p>I have also worked on some features on the Mitra Bukalapak PWA.</p>
+          <p>I also had the chance to contribute to the Mitra Bukalapak PWA, adding features that helped improve the experience for its users.</p>
         `
     },
     {
@@ -66,10 +63,7 @@ export default {
       tags: ["PixiJS", "Ionic", "PHP", "Firebase", "MySQL"],
       content: `
           <p>
-            Worked on maintaining a mobile game project, fixing bugs and add
-            some new features. The most "challenging" part was for a certain
-            reason, the source code was gone and I (and the new team) was
-            basically working on the built code. :D
+            I worked on maintaining a mobile game project, fixing bugs and adding new features. The most “challenging” part? For some reasons, the original source code was gone — so my team and I had to dive in and work directly with the built code (luckily it was not uglified). Quite an adventure. 😅
           </p>
         `
     },
@@ -80,8 +74,7 @@ export default {
       tags: ["C#", "ASP.Net", "MSSQL", "JQuery", "AngularJS", "Vue"],
       content: `
           <p>
-            I was part of a team that worked on developing and maintaining
-            various features of a business application.
+            I was part of a team developing and maintaining a wide range of features for a business application—ensuring it kept evolving to meet real-world needs while delivering a great user experience.
           </p>
         `
     }
@@ -103,14 +96,16 @@ export default {
       ],
       description: `
           <p>
-            This is a simple game where we control a circle and try to eat other
-            circles to become the biggest.
+            This is a simple game where you control a circle and try to eat other circles to become the biggest one.
           </p>
           <p>
-            This game uses WebGL for rendering, some maths and physics for
-            motion and collision handling, implementing Quad Tree for optimized
-            collision detection, and I was also experimenting with WebAssembly
-            and Rust.
+            I built it as a way to showcase my skills in creating smooth, high-performance animations—using WebGL for rendering and applying basic math and physics to handle motion and collisions.
+          </p>
+          <p>
+            It also highlights my understanding of common game-related design patterns for optimization, such as Quad Trees for efficient collision detection, Object Pooling, and other performance techniques.
+          </p>
+          <p>
+            On top of that, I took the opportunity to experiment with Rust and WebAssembly, just for fun and to explore how they could push performance even further.
           </p>
         `
     },
@@ -133,14 +128,13 @@ export default {
       ],
       description: `
           <p>
-            This is a library for creating a simple directed graph. It is
-            heavily inspired by react-digraph, but with far less features, not
-            as polished, and also not built for React :D
+            This is a library for drawing simple directed graphs. It is heavily inspired by react-digraph, but with way fewer features, not nearly as shiny, and definitely not made for React 😆.
           </p>
           <p>
-            I initially created this for practice, to make a graph editor
-            library that is fast, simple, and has no dependency. I use Canvas and
-            implemented some optimization like using Quad Tree to achieve the performance.
+            What it does have though, is a much better performance, smoother interactions, and a super tiny bundle size (thanks to having zero dependencies).
+          </p>
+          <p>
+            I built it with Canvas and threw in some smart optimizations, so it can happily draw a huge number of nodes and edges without even breaking a sweat.
           </p>
         `
     },
@@ -160,14 +154,32 @@ export default {
       description: `
           <p>A simple 3x3 sudoku game.</p>
           <p>
-            This game shows how to generate simple 3x3 sudoku problems, and also
-            how to implement a sudoku solver. I also updated this to use Rust
-            and WebAssembly for experimentation.
+            This project shows how to generate Sudoku puzzles with varying difficulty and also how to implement a solver. Later on, I gave it a twist by rewriting parts in Rust and WebAssembly, mostly as an experiment.
           </p>
           <p>
-            I actually created this originally around 2011, and I already forgot
-            where I got the algorithm for the problem generator with difficulty.
-            Please let me know if you know.
+            I originally made this way back in 2011, and honestly, I can’t even remember where I first found the algorithm for generating the puzzles with difficulty. So if you recognize it, please tell me.
+          </p>
+        `
+    },
+    {
+      name: "Kisstastic",
+      tags: ["Typescript", "PixiJS"],
+      links: [
+        {
+          text: "Code",
+          url: "https://github.com/harchcode/kisstastic"
+        },
+        {
+          text: "Play",
+          url: "https://kisstastic.netlify.app/"
+        }
+      ],
+      description: `
+          <p>
+            This is a simple game inspired by Flappy Bird (wished it was as successful). I first built it for Android back in 2014 using Java and libGDX. It was on the Play Store for a while… until it eventually got removed (RIP 😢).
+          </p>
+          <p>
+            Since I lost the original source code, I decided to recreate this silly little game for the web, just for fun. This version is powered by PixiJS, a fast 2D rendering framework for the browser.
           </p>
         `
     },
@@ -188,41 +200,11 @@ export default {
       description: `
           <p>
             This library is a collection of utils/functions that I found useful
-            (maybe).
-          </p>
-          <p>
-            This library contains things like easing functions, debounce
-            function, bitset, etc.
+            (maybe), like easing, debounce, bitset, and many more.
           </p>
           <p>
             Gaguna (from common Indonesian words "ga guna") means useless, and
             this library is surely useless for most of you. xD
-          </p>
-        `
-    },
-    {
-      name: "Kisstastic",
-      tags: ["Typescript", "PixiJS"],
-      links: [
-        {
-          text: "Code",
-          url: "https://github.com/harchcode/kisstastic"
-        },
-        {
-          text: "Play",
-          url: "https://kisstastic.netlify.app/"
-        }
-      ],
-      description: `
-          <p>
-            This is a simple, old game inspired by Flappy Bird (wished it got as
-            successful xD). Originally I created this game for Android using Java and libGDX (around
-            2014, was on Play Store, but now it already got removed T.T). I lost
-            the original source code, so i recreated this stupid game for the web.
-          </p>
-          <p>
-            This game is created using PixiJS, a 2D rendering framework for the
-            web.
           </p>
         `
     }
