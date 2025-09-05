@@ -16,7 +16,7 @@ import data from "../data";
   </head>
 
   <body>
-    <header class="mt-12 p-2 pb-4">
+    <header class="sm:mt-12 p-4">
       <h1>
         <span class="font-bold">h</span>artono<span class="font-bold">c</span
         >handra<span class="font-bold text-stone-600">.dev</span>
@@ -29,7 +29,7 @@ import data from "../data";
       </nav>
     </header>
 
-    <section id="about" class="mt-32">
+    <section id="about" class="mt-32 p-4">
       <h2>About me</h2>
 
       <div
@@ -63,11 +63,11 @@ import data from "../data";
       </div>
     </section>
 
-    <section id="experience" class="mt-64">
+    <section id="experience" class="mt-64 p-4">
       <h2>My work experience</h2>
 
       <div
-        class="mt-12 ml-12"
+        class="mt-12 sm:ml-12"
         style="display:grid; grid-template-columns: 1fr;"
       >
         {
@@ -88,14 +88,14 @@ import data from "../data";
       </div>
     </section>
 
-    <section id="projects" class="mt-64">
+    <section id="projects" class="mt-64 p-4">
       <h2>My personal projects</h2>
 
-      <div class="mt-12 ml-12 gap-x-32" style="column-count: 2;">
+      <div class="mt-12 sm:mx-12 gap-x-32 projects-wrapper">
         {
           data.projects.map(project => (
             <div
-              class="project-item inline-block pb-24"
+              class="project-item inline-block pb-32"
               style="break-inside: avoid;"
             >
               <h3 class="text-xl font-bold mt-4">{project.name}</h3>

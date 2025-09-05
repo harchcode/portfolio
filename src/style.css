@@ -9,7 +9,7 @@ body {
 
   font-family: "Lexend";
   font-weight: 300;
-  line-height: 1.5;
+  line-height: 1.8;
 
   background-color: #f8f9fa;
 
@@ -76,7 +76,7 @@ p + p {
 }
 
 .experience-item {
-  @apply relative pl-12 h-full;
+  @apply relative pl-8 sm:pl-12 h-full;
 }
 .experience-item:not(:last-child) {
   @apply mb-32;
@@ -101,4 +101,14 @@ p + p {
   left: 7px;
   bottom: 0;
   background: black;
+}
+
+.projects-wrapper {
+  column-count: 1;
+}
+
+@variant sm {
+  .projects-wrapper {
+    column-count: 2;
+  }
 }
