@@ -16,7 +16,7 @@ import data from "../data";
   </head>
 
   <body>
-    <header id="#about" class="mt-12 p-2 pb-4">
+    <header class="mt-12 p-2 pb-4">
       <h1>
         <span class="font-bold">h</span>artono<span class="font-bold">c</span
         >handra<span class="font-bold text-stone-600">.dev</span>
@@ -24,12 +24,12 @@ import data from "../data";
 
       <nav class="uppercase flex gap-x-12 mt-12">
         <a href="#about">About</a>
-        <a href="#about">Experience</a>
-        <a href="#about">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
       </nav>
     </header>
 
-    <section class="mt-16">
+    <section id="about" class="mt-32">
       <h2>About me</h2>
 
       <div
@@ -63,12 +63,12 @@ import data from "../data";
       </div>
     </section>
 
-    <section id="experience" class="mt-32">
+    <section id="experience" class="mt-64">
       <h2>My work experience</h2>
 
       <div
         class="mt-12 ml-12"
-        style="display:grid; grid-template-columns: 1fr; grid-auto-rows: 1fr;"
+        style="display:grid; grid-template-columns: 1fr;"
       >
         {
           data.works.map(work => (
@@ -88,7 +88,7 @@ import data from "../data";
       </div>
     </section>
 
-    <section id="projects" class="mt-32">
+    <section id="projects" class="mt-64">
       <h2>My personal projects</h2>
 
       <div class="mt-12 ml-12 gap-x-32" style="column-count: 2;">
@@ -127,7 +127,7 @@ import data from "../data";
     </section>
 
     <footer class="border-t-2 border-stone-200 mt-32 text-stone-500 py-16 px-8">
-      Made with <span class="text-red-400">♥</span> using <a
+      Made with <span class="text-red-500">♥</span> using <a
         class="text-blue-600 underline"
         href="https://astro.build/">Astro</a
       > and
