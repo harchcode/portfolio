@@ -125,10 +125,10 @@ nav a:hover::after {
   width: 100%;
 }
 
-.under {
+h3 {
   @apply relative inline-block;
 }
-.under::after {
+h3::after {
   @apply bg-lime-600 rounded-full;
   content: "";
   position: absolute;

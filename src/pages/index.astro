@@ -77,8 +77,8 @@ import data from "../data";
           data.works.map(work => (
             <div class="experience-item">
               <div class="text-stone-600">{work.periode}</div>
-              <h3 class="text-xl font-bold mt-4">{work.jobTitle}</h3>
-              <div class="under text-xl mt-2">{work.companyName}</div>
+              <div class="text-xl mt-4">{work.jobTitle}</div>
+              <h3 class="text-xl font-bold mt-2">{work.companyName}</h3>
               <div class="mt-8 max-w-lg" set:html={work.content} />
               <div class="mt-8 flex flex-wrap gap-2 max-w-xl">
                 {work.tags.map(tag => (
@@ -101,7 +101,7 @@ import data from "../data";
               class="project-item inline-block pb-32"
               style="break-inside: avoid;"
             >
-              <h3 class="text-xl font-bold mt-4 under">{project.name}</h3>
+              <h3 class="text-xl font-bold">{project.name}</h3>
 
               <div class="mt-8" set:html={project.description} />
 
@@ -129,7 +129,9 @@ import data from "../data";
       </div>
     </section>
 
-    <footer class="border-t-2 border-stone-200 mt-32 text-stone-500 py-16 px-8">
+    <footer
+      class="border-t-2 border-stone-200 mt-32 text-stone-500 py-16 px-8 text-center"
+    >
       Made with <span class="text-red-500">♥</span> using <a
         class="text-blue-600 underline"
         href="https://astro.build/">Astro</a
