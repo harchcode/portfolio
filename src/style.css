@@ -102,13 +102,3 @@ p + p {
   bottom: 0;
   background: black;
 }
-
-.projects-wrapper {
-  column-count: 1;
-}
-
-@variant sm {
-  .projects-wrapper {
-    column-count: 2;
-  }
-}
