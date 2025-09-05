@@ -11,11 +11,14 @@ import data from "../data";
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
+    <meta name="description" content="Hartono Chandra" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>Hartono Chandra</title>
   </head>
 
   <body>
+    <canvas id="bg" class="fixed top-0 -z-10 w-screen h-screen"></canvas>
+
     <header class="sm:mt-12 p-4">
       <h1>
         <span class="font-bold">h</span>artono<span class="font-bold">c</span
@@ -75,8 +78,8 @@ import data from "../data";
             <div class="experience-item">
               <div class="text-stone-600">{work.periode}</div>
               <h3 class="text-xl font-bold mt-4">{work.jobTitle}</h3>
-              <div class="text-xl mt-2">{work.companyName}</div>
-              <div class="mt-4 max-w-lg" set:html={work.content} />
+              <div class="under text-xl mt-2">{work.companyName}</div>
+              <div class="mt-8 max-w-lg" set:html={work.content} />
               <div class="mt-8 flex flex-wrap gap-2 max-w-xl">
                 {work.tags.map(tag => (
                   <div class="px-2 py-1 border bg-lime-50 rounded">{tag}</div>
@@ -98,9 +101,9 @@ import data from "../data";
               class="project-item inline-block pb-32"
               style="break-inside: avoid;"
             >
-              <h3 class="text-xl font-bold mt-4">{project.name}</h3>
+              <h3 class="text-xl font-bold mt-4 under">{project.name}</h3>
 
-              <div class="mt-4" set:html={project.description} />
+              <div class="mt-8" set:html={project.description} />
 
               <div class="mt-8 flex flex-wrap gap-2 max-w-xl">
                 {project.tags.map(tag => (

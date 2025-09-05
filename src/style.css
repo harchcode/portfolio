@@ -102,3 +102,39 @@ p + p {
   bottom: 0;
   background: black;
 }
+
+nav a {
+  @apply relative inline-block;
+  transition: color 0.3s ease;
+}
+nav a::after {
+  @apply bg-violet-400 rounded-full;
+  content: "";
+  position: absolute;
+  display: block;
+  height: 2px;
+  width: 2rem;
+  top: 1.75em;
+  left: 0;
+  transition: width 0.3s ease;
+}
+nav a:hover {
+  @apply text-violet-600;
+}
+nav a:hover::after {
+  width: 100%;
+}
+
+.under {
+  @apply relative inline-block;
+}
+.under::after {
+  @apply bg-lime-600 rounded-full;
+  content: "";
+  position: absolute;
+  display: block;
+  height: 4px;
+  width: 2rem;
+  top: 1.75em;
+  left: 2px;
+}
