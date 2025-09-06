@@ -42,27 +42,17 @@ import data from "../data";
       />
 
       <div class="mx-auto max-w-xl flex justify-center mt-12 gap-x-8">
-        <a href="https://google.com"
-          ><button
-            type="button"
-            class="cursor-pointer w-12 h-12 bg-white border-2 border-b-4 border-black rounded-full underline text-xl"
-            >in</button
-          ></a
-        >
-        <a href="https://google.com"
-          ><button
-            type="button"
-            class="cursor-pointer w-12 h-12 bg-white border-2 border-b-4 border-black rounded-full underline text-xl"
-            >gh</button
-          ></a
-        >
-        <a href="https://google.com"
-          ><button
-            type="button"
-            class="cursor-pointer w-12 h-12 bg-white border-2 border-b-4 border-black rounded-full underline text-xl"
-            >cv</button
-          ></a
-        >
+        {
+          data.socialLinks.map(link => (
+            <a
+              href={link.url}
+              aria-label={link.title}
+              class="flex items-center justify-center w-12 h-12 bg-white border-2 border-b-4 border-black rounded-full underline text-xl"
+            >
+              {link.label}
+            </a>
+          ))
+        }
       </div>
     </section>
 
@@ -113,13 +103,11 @@ import data from "../data";
 
               <div class="mt-4 flex flex-wrap gap-4">
                 {project.links.map(link => (
-                  <a href={link.url}>
-                    <button
-                      type="button"
-                      class="cursor-pointer bg-white border-2 border-b-4 border-black rounded-4xl w-24 px-4 py-2"
-                    >
-                      {link.text}
-                    </button>
+                  <a
+                    href={link.url}
+                    class="flex items-center justify-center bg-white border-2 border-b-4 border-black rounded-4xl w-24 px-4 py-2"
+                  >
+                    {link.text}
                   </a>
                 ))}
               </div>

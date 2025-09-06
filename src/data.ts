@@ -17,6 +17,20 @@ export default {
       </p>
     `,
 
+  socialLinks: [
+    { title: "GitHub", label: "gh", url: "https://github.com/harchcode" },
+    {
+      title: "LinkedIn",
+      label: "in",
+      url: "https://linkedin.com/in/hartonochandra"
+    },
+    {
+      title: "Resume",
+      label: "cv",
+      url: "https://filedn.eu/lr4y52Kp8s082m7yYRgv8eL/resume-hartono-chandra.pdf"
+    }
+  ],
+
   works: [
     {
       periode: "February 2020 - Present",
