@@ -1,0 +1,82 @@
+@import "tailwindcss";
+
+body {
+  font-family: "Lexend";
+  line-height: 1.5;
+
+  background-color: var(--color-yellow-50);
+
+  /* background-image:
+    radial-gradient(circle at 90% 0, var(--color-lime-100) 0%, transparent 20%),
+    radial-gradient(
+      circle at 10% 30%,
+      var(--color-lime-100) 0%,
+      transparent 20%
+    ),
+    radial-gradient(
+      circle at 90% 60%,
+      var(--color-lime-100) 0%,
+      transparent 20%
+    ),
+    radial-gradient(
+      circle at 10% 90%,
+      var(--color-lime-100) 0%,
+      transparent 20%
+    ); */
+}
+
+.retro {
+  font-family: "Press Start 2P";
+  text-transform: uppercase;
+}
+
+.heading {
+  position: relative;
+}
+.heading::before {
+  @apply bg-cyan-200;
+  content: "";
+  position: absolute;
+  display: block;
+  height: 50%;
+  top: 0.55em;
+  left: -0.5em;
+  right: -0.5em;
+  z-index: -1;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(5deg);
+  }
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+}
+
+@keyframes leftright {
+  0% {
+    transform: rotate(5deg);
+  }
+  50% {
+    transform: rotate(5deg);
+  }
+  51% {
+    transform: rotate(-5deg);
+  }
+  100% {
+    transform: rotate(-5deg);
+  }
+}

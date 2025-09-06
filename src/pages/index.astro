@@ -1,268 +1,111 @@
 ---
-import "@fontsource-variable/grandstander";
-import "@fontsource-variable/kode-mono";
-import site from "../site-info";
+import "@fontsource/lexend/300.css";
+import "@fontsource/lexend/400.css";
 import "../style.css";
-import { Image } from "astro:assets";
 
-const modeButtons = [
-  {
-    id: "light-mode-button",
-    el: `<svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="ionicon"
-            viewBox="0 0 512 512"
-            ><title>Sunny</title><path
-              fill="none"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-miterlimit="10"
-              stroke-width="48"
-              d="M256 48v48M256 416v48M403.08 108.92l-33.94 33.94M142.86 369.14l-33.94 33.94M464 256h-48M96 256H48M403.08 403.08l-33.94-33.94M142.86 142.86l-33.94-33.94"
-            ></path><circle
-              cx="256"
-              cy="256"
-              r="80"
-              fill="none"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-miterlimit="10"
-              stroke-width="48"></circle>
-          </svg>`
-  },
-  {
-    id: "system-mode-button",
-    el: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-            <title>Contrast</title>
-            <circle
-              cx="256"
-              cy="256"
-              r="208"
-              fill="none"
-              stroke="currentColor"
-              stroke-linejoin="round"
-              stroke-width="48"
-            >
-            </circle>
-            <path
-              fill="currentColor"
-              d="M256 464c-114.88 0-208-93.12-208-208S141.12 48 256 48z"
-            >
-            </path>
-          </svg>`
-  },
-  {
-    id: "dark-mode-button",
-    el: `<svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="ionicon"
-            viewBox="0 0 512 512"
-            ><title>Moon</title><path
-              d="M160 136c0-30.62 4.51-61.61 16-88C99.57 81.27 48 159.32 48 248c0 119.29 96.71 216 216 216 88.68 0 166.73-51.57 200-128-26.39 11.49-57.38 16-88 16-119.29 0-216-96.71-216-216z"
-              fill="none"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="48"></path>
-          </svg>`
-  }
-];
+import data from "../data";
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content={site.description} />
-    <title>{site.title}</title>
-
-    <script is:inline>
-      if (
-        localStorage.theme === "dark" ||
-        (!("theme" in localStorage) &&
-          window.matchMedia("(prefers-color-scheme: dark)").matches)
-      ) {
-        document.documentElement.classList.add("dark");
-      } else {
-        document.documentElement.classList.remove("dark");
-      }
-    </script>
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content="Hartono Chandra" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>Hartono Chandra</title>
   </head>
 
   <body>
-    {
-      site.svgDefs.map(svgDef => (
-        <svg style="display: none" version="2.0">
-          <defs>
-            <symbol id={svgDef.id} viewBox={svgDef.viewBox}>
-              <path class="fill-current" d={svgDef.path} />
-            </symbol>
-          </defs>
-          <use href={`#${svgDef.id}`} />
-        </svg>
-      ))
-    }
+    <canvas id="bg" class="fixed top-0 -z-10 w-screen h-screen"></canvas>
 
-    <div class="fixed h-full w-full -z-20">
-      <canvas id="canvas"></canvas>
-    </div>
+    <header class="sm:mt-12 p-4">
+      <h1>
+        <span class="font-bold">h</span>artono<span class="font-bold">c</span
+        >handra<span class="font-bold text-stone-600">.dev</span>
+      </h1>
 
-    <div id="about" class="p-4 max-w-screen-sm mx-auto relative content">
-      <div class="flex items-center">
-        <div class="text-xl flex-auto">
-          <span class="font-bold text-sky-600 dark:text-sky-300">h</span
-          >artono<span class="font-bold text-emerald-600 dark:text-emerald-300"
-            >c</span
-          >handra<span class="font-bold text-yellow-700 dark:text-yellow-300"
-            >.dev</span
-          >
-        </div>
+      <nav class="uppercase flex gap-x-8 sm:gap-x-12 mt-8 sm:mt-12">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+      </nav>
+    </header>
 
-        <div class="flex items-center space-x-2">
-          <span class="font-bold">v5</span>
-          <div class="w-1 h-1 bg-black rounded-full"></div>
-          <a href="https://v4--hartonochandra.netlify.app" class="">v4</a>
-          <div class="w-1 h-1 bg-black rounded-full"></div>
-          <a href="https://v1--hartonochandra.netlify.app" class="">v1</a>
-        </div>
-      </div>
-
-      <div class="mt-4 flex space-x-2">
-        {
-          modeButtons.map(mode => (
-            <button
-              id={mode.id}
-              class="w-10 h-10 p-2 border-2 border-black dark:border-gray-200 rounded bg-stone-50 dark:bg-stone-700 text-black dark:text-white shadow-1 dark:shadow-2"
-              set:html={mode.el}
-            />
-          ))
-        }
-      </div>
-
-      <div class="flex justify-end relative -z-10 -mt-16">
-        <div class="max-w-96 w-full">
-          <Image
-            class="w-full -scale-x-100"
-            src={site.about.imageSrc}
-            alt={`profile`}
-            loading="eager"
-          />
-        </div>
-      </div>
+    <section id="about" class="mt-16 sm:mt-32 p-4">
+      <h2>About me</h2>
 
       <div
-        set:html={site.about.intro}
-        class="bg-indigo-50 dark:bg-indigo-800 rounded-xl px-3 py-2 border-2 border-black dark:border-white -mt-16"
+        class="mx-auto max-w-xl mt-12 text-lg text-stone-600"
+        style="line-height: 1.8"
+        set:html={data.intro}
       />
 
-      <div class="flex space-x-2 mt-3">
+      <div class="mx-auto max-w-xl flex justify-center mt-12 gap-x-8">
         {
-          site.socialLinks.map(link => (
+          data.socialLinks.map(link => (
             <a
               href={link.url}
-              class={`flex-1 ${link.bgColor} ${link.borderColor} text-black dark:text-white no-underline rounded-xl border-2 text-center overflow-hidden py-2 shadow-1 dark:shadow-2`}
+              aria-label={link.title}
+              class="flex items-center justify-center w-12 h-12 bg-white border-2 border-b-4 border-black rounded-full underline text-xl"
             >
-              <div class={`w-8 h-8 mx-auto mt-2 ${link.textColor}`}>
-                <svg width="100%" height="100%" version="2.0">
-                  <use href={`#${link.svgSymbolId}`} />
-                </svg>
-              </div>
-              <div class="mt-2 text-xs">{link.label}</div>
+              {link.label}
             </a>
           ))
         }
       </div>
+    </section>
 
-      <div id="work" class="mt-16 text-xl">
-        <span class="heading">My work experience</span>
-      </div>
-      <div class="mt-4 relative px-4">
+    <section id="experience" class="mt-32 sm:mt-64 p-4">
+      <h2>My work experience</h2>
+
+      <div
+        class="mt-12 sm:ml-12"
+        style="display:grid; grid-template-columns: 1fr;"
+      >
         {
-          site.works.map((work, i) => (
-            <div class="relative">
-              {i !== site.works.length - 1 && (
-                <div class="absolute w-4 h-full flex justify-center">
-                  <div
-                    class={`bg-gradient-to-b ${work.gradientClass} w-0.5 h-full`}
-                  />
-                </div>
-              )}
-
-              <div
-                class={`relative h-full${
-                  i !== site.works.length - 1 ? " pb-8" : ""
-                }`}
-              >
-                <div class={`flex items-center w-full`}>
-                  <div
-                    class={`w-4 h-4 p-[2px] rounded-full bg-white dark:bg-black ${work.borderClass} border-2 flex-none overflow-hidden`}
-                  >
-                    <div class={`${work.bgClass} w-full h-full rounded-full`} />
-                  </div>
-
-                  <div class="ml-4 -mt-[1px] text-xs font-bold flex-auto">
-                    {work.periode}
-                  </div>
-                </div>
-
-                <div class="flex w-full">
-                  <div class="flex-none w-4" />
-
-                  <div
-                    class={`ml-4 mt-2 flex-auto ${work.cardBgClass} rounded px-6 py-4 border-2 border-black dark:border-white`}
-                  >
-                    <div class="flex">
-                      <div class="w-6 h-6 rounded overflow-hidden">
-                        <Image
-                          src={work.imageSrc}
-                          alt={`Logo of ${work.companyName}`}
-                          loading="eager"
-                        />
-                      </div>
-                      <div class="ml-2 text-xl">{work.companyName}</div>
-                    </div>
-                    <div class="text-sm mt-1">{work.jobTitle}</div>
-                  </div>
-                </div>
+          data.works.map(work => (
+            <div class="experience-item">
+              <div class="text-stone-600">{work.periode}</div>
+              <div class="text-xl mt-4">{work.jobTitle}</div>
+              <h3 class="text-xl font-bold mt-2">{work.companyName}</h3>
+              <div class="mt-8 max-w-lg" set:html={work.content} />
+              <div class="mt-8 flex flex-wrap gap-2 max-w-xl">
+                {work.tags.map(tag => (
+                  <div class="px-2 py-1 border bg-lime-50 rounded">{tag}</div>
+                ))}
               </div>
             </div>
           ))
         }
       </div>
+    </section>
 
-      <div id="project" class="mt-16 text-xl">
-        <span class="heading">My personal projects</span>
-      </div>
-      <div class="mt-4 flex flex-wrap">
+    <section id="projects" class="mt-32 sm:mt-64 p-4">
+      <h2>My personal projects</h2>
+
+      <div class="mt-12 sm:mx-12 gap-y-32 max-w-xl">
         {
-          site.projects.map(project => (
-            <div class="p-1 pb-4 mb-4 flex-none w-1/2 sm:w-1/3 relative">
-              <div class="bg-white dark:bg-gray-800 rounded-xl border-2 border-black dark:border-white p-1 pb-2 shadow-1 dark:shadow-2">
-                <div class="overflow-hidden rounded-lg">
-                  <Image
-                    class="w-full"
-                    src={project.imageSrc}
-                    alt={`Screenshot of ${project.name}`}
-                    loading="eager"
-                  />
-                </div>
-                <div class="px-2 py-4">
-                  <div class="text-lg overflow-hidden whitespace-nowrap text-ellipsis">
-                    {project.name}
-                  </div>
-                  <div class="flex overflow-hidden whitespace-nowrap text-xs font-bold text-gray-600 dark:text-gray-300 text-ellipsis">
-                    {project.tags.join(", ")}
-                  </div>
-                </div>
+          data.projects.map(project => (
+            <div
+              class="project-item inline-block pb-32"
+              style="break-inside: avoid;"
+            >
+              <h3 class="text-xl font-bold">{project.name}</h3>
+
+              <div class="mt-8" set:html={project.description} />
+
+              <div class="mt-8 flex flex-wrap gap-2 max-w-xl">
+                {project.tags.map(tag => (
+                  <div class="px-2 py-1 border bg-blue-50 rounded">{tag}</div>
+                ))}
               </div>
 
-              <div class="w-full absolute px-4 bottom-0 left-0 right-0 flex justify-center space-x-1">
+              <div class="mt-4 flex flex-wrap gap-4">
                 {project.links.map(link => (
                   <a
                     href={link.url}
-                    class="py-1 flex-1 text-black dark:text-white no-underline text-center bg-stone-100 dark:bg-stone-700 border-2 border-black dark:border-white rounded-lg text-sm shadow-1 dark:shadow-2"
+                    class="flex items-center justify-center bg-white border-2 border-b-4 border-black rounded-4xl w-24 px-4 py-2"
                   >
                     {link.text}
                   </a>
@@ -272,24 +115,18 @@ const modeButtons = [
           ))
         }
       </div>
+    </section>
 
-      <div
-        id="footer"
-        class="w-full mt-16 pb-2 text-xs text-stone-700 dark:text-stone-300"
+    <footer
+      class="border-t-2 border-stone-200 mt-32 text-stone-500 py-16 px-8 text-center"
+    >
+      Made with <span class="text-red-500">♥</span> using <a
+        class="text-blue-600 underline"
+        href="https://astro.build/">Astro</a
+      > and
+      <a class="text-blue-600 underline" href="https://tailwindcss.com/"
+        >Tailwind</a
       >
-        <div>
-          This site is built with <a href="https://astro.build/">Astro</a> and
-
-          <a href="https://tailwindcss.com/">TailwindCSS</a>.
-        </div>
-        <div>
-          See the source code on my <a
-            href="https://github.com/harchcode/portfolio">GitHub repo</a
-          >.
-        </div>
-      </div>
-    </div>
-
-    <script src="../main.ts"></script>
+    </footer>
   </body>
 </html>
