@@ -138,3 +138,8 @@ h3::after {
   top: 1.75em;
   left: 2px;
 }
+
+.screenshot {
+  border-radius: 50% 40% 60% 50% / 50% 60% 40% 50%;
+  overflow: hidden;
+}

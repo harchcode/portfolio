@@ -101,32 +101,38 @@ import data from "../data";
     <section id="projects" class="mt-32 sm:mt-64 p-4">
       <h2>My personal projects</h2>
 
-      <div class="mt-12 sm:mx-12 gap-y-32 max-w-xl">
+      <div class="mt-12 sm:mx-12 gap-y-32">
         {
           data.projects.map(project => (
-            <div
-              class="project-item inline-block pb-32"
-              style="break-inside: avoid;"
-            >
-              <h3 class="text-xl font-bold">{project.name}</h3>
-
-              <div class="mt-8" set:html={project.description} />
-
-              <div class="mt-8 flex flex-wrap gap-2 max-w-xl">
-                {project.tags.map(tag => (
-                  <div class="px-2 py-1 border bg-blue-50 rounded">{tag}</div>
-                ))}
+            <div class="project-item pb-32 sm:flex">
+              <div>
+                <div class="screenshot border-2 border-b-8 border-stone-600 w-32 h-32">
+                  <img
+                    src={project.ss.src}
+                    class="w-full h-full object-cover"
+                    alt={project.name}
+                  />
+                </div>
               </div>
 
-              <div class="mt-4 flex flex-wrap gap-4">
-                {project.links.map(link => (
-                  <a
-                    href={link.url}
-                    class="flex items-center justify-center bg-white border-2 border-b-4 border-black rounded-4xl w-24 px-4 py-2"
-                  >
-                    {link.text}
-                  </a>
-                ))}
+              <div class="mt-8 sm:mt-0 sm:ml-8 max-w-xl">
+                <h3 class="text-xl font-bold">{project.name}</h3>
+                <div class="mt-8" set:html={project.description} />
+                <div class="mt-8 flex flex-wrap gap-2 max-w-xl">
+                  {project.tags.map(tag => (
+                    <div class="px-2 py-1 border bg-blue-50 rounded">{tag}</div>
+                  ))}
+                </div>
+                <div class="mt-4 flex flex-wrap gap-4">
+                  {project.links.map(link => (
+                    <a
+                      href={link.url}
+                      class="flex items-center justify-center bg-white border-2 border-b-4 border-black rounded-4xl w-24 px-4 py-2"
+                    >
+                      {link.text}
+                    </a>
+                  ))}
+                </div>
               </div>
             </div>
           ))

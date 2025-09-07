@@ -1,3 +1,9 @@
+import ssGaguna from "./assets/ss-gaguna.png";
+import ssKisstastic from "./assets/ss-kisstastic.png";
+import ssSudoku from "./assets/ss-sudoku.png";
+import ssUbur from "./assets/ss-ubur.png";
+import ssWebDigraph from "./assets/ss-web-digraph.png";
+
 export default {
   intro: `
       <p><span class="text-xl">Hello❗</span></p>
@@ -121,7 +127,8 @@ export default {
           <p>
             On top of that, I took the opportunity to experiment with Rust and WebAssembly, just for fun and to explore how they could push performance even further.
           </p>
-        `
+        `,
+      ss: ssUbur
     },
     {
       name: "Web Digraph",
@@ -150,7 +157,8 @@ export default {
           <p>
             I built it with Canvas and threw in some smart optimizations, so it can happily draw a huge number of nodes and edges without even breaking a sweat.
           </p>
-        `
+        `,
+      ss: ssWebDigraph
     },
     {
       name: "Simple Sudoku",
@@ -173,7 +181,8 @@ export default {
           <p>
             I originally made this way back in 2011, and honestly, I can’t even remember where I first found the algorithm for generating the puzzles with difficulty. So if you recognize it, please tell me.
           </p>
-        `
+        `,
+      ss: ssSudoku
     },
     {
       name: "Kisstastic",
@@ -195,7 +204,8 @@ export default {
           <p>
             Since I lost the original source code, I decided to recreate this silly little game for the web, just for fun. This version is powered by PixiJS, a fast 2D rendering framework for the browser.
           </p>
-        `
+        `,
+      ss: ssKisstastic
     },
     {
       name: "Gaguna",
@@ -220,7 +230,8 @@ export default {
             Gaguna (from common Indonesian words "ga guna") means useless, and
             this library is surely useless for most of you. xD
           </p>
-        `
+        `,
+      ss: ssGaguna
     }
   ]
 };
