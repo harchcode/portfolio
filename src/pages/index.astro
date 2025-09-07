@@ -1,6 +1,8 @@
 ---
 import "@fontsource/lexend/300.css";
 import "@fontsource/lexend/400.css";
+import lexend300woff2 from "@fontsource/lexend/files/lexend-latin-300-normal.woff2?url";
+import lexend400woff2 from "@fontsource/lexend/files/lexend-latin-400-normal.woff2?url";
 import "../style.css";
 
 import data from "../data";
@@ -13,6 +15,21 @@ import data from "../data";
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content="Hartono Chandra" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href={lexend300woff2}
+      crossorigin="anonymous"
+    />
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href={lexend400woff2}
+      crossorigin="anonymous"
+    />
+
     <title>Hartono Chandra</title>
   </head>
 
@@ -128,5 +145,35 @@ import data from "../data";
         >Tailwind</a
       >
     </footer>
+
+    <script>
+      // Simple animation for elements when they come into view
+      const observerOptions = {
+        root: null,
+        rootMargin: "0px",
+        threshold: 0
+      };
+
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            (entry.target as HTMLElement).style.opacity = "1";
+            (entry.target as HTMLElement).style.transform = "translateY(0)";
+          }
+        });
+      }, observerOptions);
+
+      // Observe experience items and project items
+      document
+        .querySelectorAll("section, .experience-item, .project-item")
+        .forEach(item => {
+          (item as HTMLElement).style.opacity = "0";
+          (item as HTMLElement).style.transform = "translateY(20px)";
+          (item as HTMLElement).style.transition =
+            "opacity 1s ease, transform 1s ease";
+
+          observer.observe(item);
+        });
+    </script>
   </body>
 </html>
